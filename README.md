@@ -75,7 +75,8 @@ Total cost: ~$150. Intentionally not a $3000 eval board.
 The build journal is public. Every milestone triggers a post.
 
 - **X/Twitter:** [@charley_builds](https://x.com/charley_builds)
-- **Substack:** [zenithlog.substack.com](https://zenithlog.substack.com) *(coming soon)*
+- **Substack:** [Zenith Log](https://zenithlog.substack.com)
+  - Post #0: [The Last Craft](https://open.substack.com/pub/zenithlog/p/the-last-craft)
 
 Every synthesis report, every CDC bug, every moment where the AI was wrong  
 and the physics was right — it all goes in.
