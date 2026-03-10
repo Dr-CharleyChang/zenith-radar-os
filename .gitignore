@@ -1,0 +1,58 @@
+# Vivado Build Artifacts
+*.jou
+*.log
+*.str
+*.pb
+.Xil/
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.gen/
+
+# Keep these
+!*.xpr
+!*.xdc
+!*.tcl
+!*.bd
+
+# Vitis HLS
+*/solution*/
+*/.autopilot/
+*/csim.log
+*_hls.log
+
+# Keep HLS synthesis reports
+!*/syn/report/*.rpt
+
+# Hardware outputs
+*.xsa
+*.bit
+*.bin
+*.ltx
+
+# PetaLinux
+build/
+images/linux/
+components/plnx_workspace/
+
+# C++ build
+*/build/
+**/*.o
+**/*.elf
+**/*.a
+CMakeCache.txt
+CMakeFiles/
+
+# MATLAB
+*.asv
+*.m~
+
+# Editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/settings.json
+.idea/
+__pycache__/
