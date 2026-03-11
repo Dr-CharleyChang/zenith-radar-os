@@ -1,0 +1,20 @@
+{
+    "0": {
+        "name": "cfar_core",
+        "file": "cfar.cpp",
+        "fileloc": "13",
+        "instructions": "179",
+        "total_instructions": "179",
+        "calls": "",
+        "basicblocks": "3",
+        "memory_accesses": "94",
+        "control_depth": "1",
+        "def_use_depth": "16",
+        "loads": {
+            "G": "44"
+        },
+        "stores": {
+            "G": "47"
+        }
+    }
+}

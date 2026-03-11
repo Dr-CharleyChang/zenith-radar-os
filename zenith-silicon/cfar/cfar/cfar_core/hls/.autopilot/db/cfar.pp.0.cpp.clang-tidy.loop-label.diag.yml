@@ -1,0 +1,52 @@
+---
+MainSourceFile:  'C:/Projects/zenith_radar_os/zenith-silicon/cfar/cfar/cfar_core/hls/.autopilot/db/cfar.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar\cfar_core\hls\.autopilot\db\cfar.pp.0.cpp'
+          Offset:          281037
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar\cfar_core\hls\.autopilot\db\cfar.pp.0.cpp'
+          Offset:          281512
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar\cfar_core\hls\.autopilot\db\cfar.pp.0.cpp'
+          Offset:          281988
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar\cfar_core\hls\.autopilot\db\cfar.pp.0.cpp'
+          Offset:          623496
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  'C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar'
+...
