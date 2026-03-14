@@ -51,6 +51,8 @@ CMakeFiles/
 
 # Editor
 .DS_Store
+.cursorrules
+.gitignore
 Thumbs.db
 *.swp
 .vscode/settings.json
