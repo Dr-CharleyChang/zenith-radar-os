@@ -1,23 +1,41 @@
-# Vivado Build Artifacts
+# ==========================================
+# Zenith Radar OS - Master .gitignore
+# ==========================================
+
+# --- 1. Vivado Build Artifacts ---
 *.jou
 *.log
 *.str
 *.pb
 .Xil/
-*.runs/
-*.cache/
-*.hw/
-*.ip_user_files/
-*.sim/
-*.gen/
+**/*.runs/
+**/*.cache/
+**/*.hw/
+**/*.ip_user_files/
+**/*.sim/
+**/*.gen/
+ip_upgrade.log
 
-# Keep these
+# Keep these hardware source files
 !*.xpr
 !*.xdc
 !*.tcl
 !*.bd
 
-# Vitis HLS
+# --- 2. Hardware Outputs ---
+*.xsa
+*.bit
+*.bin
+*.ltx
+
+# --- 3. PetaLinux ---
+zenith-petalinux/build/
+zenith-petalinux/images/
+zenith-petalinux/components/
+zenith-petalinux/.petalinux/
+zenith-petalinux/orig_bin/
+
+# --- 4. Vitis HLS ---
 */solution*/
 */.autopilot/
 */csim.log
@@ -26,18 +44,7 @@
 # Keep HLS synthesis reports
 !*/syn/report/*.rpt
 
-# Hardware outputs
-*.xsa
-*.bit
-*.bin
-*.ltx
-
-# PetaLinux
-build/
-images/linux/
-components/plnx_workspace/
-
-# C++ build
+# --- 5. C++ & Software Build ---
 */build/
 **/*.o
 **/*.elf
@@ -45,14 +52,14 @@ components/plnx_workspace/
 CMakeCache.txt
 CMakeFiles/
 
-# MATLAB
+# --- 6. MATLAB ---
 *.asv
 *.m~
 
-# Editor
+# --- 7. System & Editors ---
 .DS_Store
 Thumbs.db
 *.swp
-.vscode/settings.json
+.vscode/
 .idea/
 __pycache__/

@@ -1,0 +1,11 @@
+cfar_core_mul_16s_16s_24_2_1
+cfar_core_CTRL_s_axi
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core_regslice_both
+cfar_core

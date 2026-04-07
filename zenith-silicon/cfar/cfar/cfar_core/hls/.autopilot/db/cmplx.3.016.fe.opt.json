@@ -1,0 +1,22 @@
+{
+  "0": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 24,
+    "file": "cfar.cpp",
+    "fileloc": 13,
+    "instructions": 354,
+    "loads": {
+      "G": 80,
+      "L": 4
+    },
+    "memory_accesses": 174,
+    "name": "cfar_core",
+    "stores": {
+      "G": 84,
+      "L": 4
+    },
+    "total_instructions": 354
+  }
+}

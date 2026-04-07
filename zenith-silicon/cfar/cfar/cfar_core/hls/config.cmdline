@@ -1,0 +1,3 @@
+relativeroot=C:/Projects/zenith_radar_os/zenith-silicon/cfar/cfar
+original_argv=-c --mode hls --config C:\Projects\zenith_radar_os\zenith-silicon\cfar\cfar\hls_config.cfg --work_dir cfar_core 
+

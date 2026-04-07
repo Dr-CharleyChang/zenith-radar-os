@@ -1,0 +1,16 @@
+[
+  {
+    "directory": "C:\\Projects\\zenith_radar_os\\zenith-silicon\\cfar\\cfar",
+    "arguments": [
+      "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
+      "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls",
+      "-hls-syn-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\common\\technology\\autopilot",
+      "-fhlstoplevel=cfar_core",
+      "-std=c++14",
+      "-c",
+      "C:\\Projects\\zenith_radar_os\\zenith-silicon\\cfar\\cfar.cpp"
+    ],
+    "file": "C:\\Projects\\zenith_radar_os\\zenith-silicon\\cfar\\cfar.cpp"
+  }
+]

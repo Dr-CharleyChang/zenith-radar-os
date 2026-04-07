@@ -1,0 +1,147 @@
+
+
+================================================================
+== Synthesis Summary Report of 'cfar_core'
+================================================================
++ General Information: 
+    * Date:           Wed Mar 11 15:43:14 2026
+    * Version:        2025.2 (Build 6295257 on Nov 14 2025)
+    * Project:        cfar_core
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
+* Performance & Resource Estimates: 
++-------------+------+---------------+----------+---------+------+----------+---------+--------+------+------+---------+-----------+----------+-----+
+|   Modules   | Issue|               | Iteration|         | Trip |          |      Latency     |      |      |         |           |          |     |
+|   & Loops   | Type | Violation Type|  Latency | Interval| Count| Pipelined| (cycles)|  (ns)  | Slack| BRAM |   DSP   |     FF    |    LUT   | URAM|
++-------------+------+---------------+----------+---------+------+----------+---------+--------+------+------+---------+-----------+----------+-----+
+|+ cfar_core  |     -|              -|         -|        1|     -|       yes|        6|  40.020|  0.23|     -|  1 (~0%)|  954 (~0%)|  735 (1%)|    -|
++-------------+------+---------------+----------+---------+------+----------+---------+--------+------+------+---------+-----------+----------+-----+
+    Name Prefix: '+' for module, 'o' for loop, '*' for dataflow
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++------------+------------+---------------+--------+----------+
+| Interface  | Data Width | Address Width | Offset | Register |
++------------+------------+---------------+--------+----------+
+| s_axi_CTRL | 32         | 5             | 16     | 0        |
++------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++------------+-----------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface  | Register        | Offset | Width | Access | Description                      | Bit Fields                                                           |
++------------+-----------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_CTRL | CTRL            | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_CTRL | GIER            | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_CTRL | IP_IER          | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_CTRL | IP_ISR          | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_CTRL | threshold_alpha | 0x10   | 32    | W      | Data signal of threshold_alpha   |                                                                      |
++------------+-----------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++------------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface  | Direction | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++------------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+| in_stream  | in        | both          | 16    | 2     | 1     | 1      | 2     | 1      |
+| out_stream | out       | both          | 16    | 2     | 1     | 1      | 2     | 1      |
++------------+-----------+---------------+-------+-------+-------+--------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------------+-----------+-----------------------------------------------------------------------------------------------------------------+
+| Argument        | Direction | Datatype                                                                                                        |
++-----------------+-----------+-----------------------------------------------------------------------------------------------------------------+
+| in_stream       | in        | stream<hls::axis<ap_fixed<16, 8, (ap_q_mode)5, (ap_o_mode)3, 0>, 0UL, 0UL, 0UL, (unsigned char)'8', false>, 0>& |
+| out_stream      | out       | stream<hls::axis<ap_fixed<16, 8, (ap_q_mode)5, (ap_o_mode)3, 0>, 0UL, 0UL, 0UL, (unsigned char)'8', false>, 0>& |
+| threshold_alpha | in        | ap_fixed<16, 8, (ap_q_mode)5, (ap_o_mode)3, 0>                                                                  |
++-----------------+-----------+-----------------------------------------------------------------------------------------------------------------+
+
+* SW-to-HW Mapping
++-----------------+--------------+-----------+-------------------------------------------+
+| Argument        | HW Interface | HW Type   | HW Info                                   |
++-----------------+--------------+-----------+-------------------------------------------+
+| in_stream       | in_stream    | interface |                                           |
+| out_stream      | out_stream   | interface |                                           |
+| threshold_alpha | s_axi_CTRL   | register  | name=threshold_alpha offset=0x10 range=32 |
++-----------------+--------------+-----------+-------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------+-----+--------+--------------------+--------+----------+---------+
+| Name                            | DSP | Pragma | Variable           | Op     | Impl     | Latency |
++---------------------------------+-----+--------+--------------------+--------+----------+---------+
+| + cfar_core                     | 1   |        |                    |        |          |         |
+|   add_ln76_fu_766_p2            |     |        | add_ln76           | add    | fabric   | 0       |
+|   add_ln76_1_fu_776_p2          |     |        | add_ln76_1         | add    | fabric   | 0       |
+|   add_ln76_2_fu_786_p2          |     |        | add_ln76_2         | add    | fabric   | 0       |
+|   add_ln76_3_fu_792_p2          |     |        | add_ln76_3         | add    | fabric   | 0       |
+|   add_ln76_4_fu_802_p2          |     |        | add_ln76_4         | add    | fabric   | 0       |
+|   add_ln76_5_fu_812_p2          |     |        | add_ln76_5         | add    | fabric   | 0       |
+|   add_ln76_6_fu_876_p2          |     |        | add_ln76_6         | add    | fabric   | 0       |
+|   add_ln76_7_fu_818_p2          |     |        | add_ln76_7         | add    | fabric   | 0       |
+|   add_ln76_8_fu_828_p2          |     |        | add_ln76_8         | add    | fabric   | 0       |
+|   add_ln76_9_fu_838_p2          |     |        | add_ln76_9         | add    | fabric   | 0       |
+|   add_ln76_10_fu_844_p2         |     |        | add_ln76_10        | add    | fabric   | 0       |
+|   add_ln76_11_fu_854_p2         |     |        | add_ln76_11        | add    | fabric   | 0       |
+|   add_ln76_12_fu_864_p2         |     |        | add_ln76_12        | add    | fabric   | 0       |
+|   add_ln76_13_fu_892_p2         |     |        | add_ln76_13        | add    | fabric   | 0       |
+|   add_ln84_fu_902_p2            |     |        | add_ln84           | add    | fabric   | 0       |
+|   sub_ln84_fu_933_p2            |     |        | sub_ln84           | sub    | fabric   | 0       |
+|   sub_ln84_1_fu_949_p2          |     |        | sub_ln84_1         | sub    | fabric   | 0       |
+|   noise_level_fu_965_p3         |     |        | noise_level        | select | auto_sel | 0       |
+|   mul_16s_16s_24_2_1_U1         | 1   |        | mul_ln85           | mul    | auto     | 1       |
+|   icmp_ln102_fu_994_p2          |     |        | icmp_ln102         | setgt  | auto     | 0       |
+|   out_stream_TDATA_int_regslice |     |        | output_sample_data | select | auto_sel | 0       |
++---------------------------------+-----+--------+--------------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++----------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name           | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                |           |           |      |      |        |          |      |         | Banks            |
++----------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + cfar_core    |           |           | 0    | 0    |        |          |      |         |                  |
+|   CTRL_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
++----------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+------------------------------------------------+-------------------------------+
+| Type            | Options                                        | Location                      |
++-----------------+------------------------------------------------+-------------------------------+
+| INTERFACE       | axis port = in_stream                          | in cfar_core (../cfar.cpp:19) |
+| INTERFACE       | axis port = out_stream                         | in cfar_core (../cfar.cpp:20) |
+| INTERFACE       | s_axilite port = threshold_alpha bundle = CTRL | in cfar_core (../cfar.cpp:23) |
+| INTERFACE       | s_axilite port = return bundle = CTRL          | in cfar_core (../cfar.cpp:24) |
+| PIPELINE        | II = 1                                         | in cfar_core (../cfar.cpp:27) |
+| ARRAY_PARTITION | variable = window complete                     | in cfar_core (../cfar.cpp:38) |
+| UNROLL          |                                                | in cfar_core (../cfar.cpp:55) |
+| UNROLL          |                                                | in cfar_core (../cfar.cpp:69) |
++-----------------+------------------------------------------------+-------------------------------+
+
+
