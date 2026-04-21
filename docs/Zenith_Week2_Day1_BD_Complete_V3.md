@@ -25,7 +25,7 @@ status: ✅ Bitstream Generated, Timing Closed, HP0_ACLK Verified
 
 ## 0. Session Context
 
-**Hardware:** ALINX AX7020 (xc7z020clg400-1) · physical board at office  
+**Hardware:** ALINX AX7020 (xc7z020clg400-2) · physical board at office  
 **Workstation:** DESKTOP-CHIMERA · Vivado 2025.2  
 **Duration:** ~3 hours of active work, AI-assisted design (Claude + Gemini cross-verification)  
 **Outcome:** `zenith_system_wrapper.bit` generated, `zenith_system_wrapper.xsa` exported. P0-B (PetaLinux) queued for next session.
@@ -72,7 +72,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    CLKV["Clock & Reset — verified<br/>FCLK_CLK0 150 MHz drives all IP aclk ports<br/>S_AXI_HP0_ACLK confirmed via Tcl: /ps7_0/FCLK_CLK0<br/>proc_sys_reset_0 peripheral_aresetn to all IP resetn ports"]
+    CLKV["Clock & Reset — verified<br/>FCLK_CLK0 100 MHz drives all IP aclk ports<br/>S_AXI_HP0_ACLK confirmed via Tcl: /ps7_0/FCLK_CLK0<br/>proc_sys_reset_0 peripheral_aresetn to all IP resetn ports"]
 
     subgraph CTRL["Control Plane — AXI-Lite 32-bit · AWLEN=0 always · no burst splitting needed"]
         GP0["PS7  M_AXI_GP0<br/>AXI-Lite Master<br/>General Purpose Port"]
