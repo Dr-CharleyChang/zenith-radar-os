@@ -1,0 +1,95 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:149:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="get_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:154:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="set_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:255:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="keep_all" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:372:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:380:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:389:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:400:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:412:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:423:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h:440:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.hpp:58:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="extract_i" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.hpp:64:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="extract_q" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.hpp:70:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="pack_iq" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:27:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="stage_read_input" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:55:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="stage_process_fft" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:70:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="stage_write_output" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Projects/zenith_radar_os/zenith-silicon/zenith_fft_1d/run_csynth.tcl:12:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=fft_1d_top" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:105:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = in_stream" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:106:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = out_stream" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:110:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = scaling_schedule bundle = CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:114:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:127:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = in_bufI type = RAM_2P impl = BRAM" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:128:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = in_bufQ type = RAM_2P impl = BRAM" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:129:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = out_bufI type = RAM_2P impl = BRAM" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:130:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = out_bufQ type = RAM_2P impl = BRAM" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="src/fft_1d.cpp:135:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="fft_1d_top" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="src/fft_1d.cpp:33:15" msg_body="Inlining function 'extract_i(ap_uint&lt;32&gt;)' into 'stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)'">
+        <args Callee="extract_i(ap_uint&lt;32&gt;)" Callee-DebugLoc="File src/fft_1d.hpp Line 55 Column 0" Caller="stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)" Caller-DebugLoc="File src/fft_1d.cpp Line 22 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="src/fft_1d.cpp:34:15" msg_body="Inlining function 'extract_q(ap_uint&lt;32&gt;)' into 'stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)'">
+        <args Callee="extract_q(ap_uint&lt;32&gt;)" Callee-DebugLoc="File src/fft_1d.hpp Line 63 Column 0" Caller="stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)" Caller-DebugLoc="File src/fft_1d.cpp Line 22 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="src/fft_1d.cpp:72:16" msg_body="Inlining function 'pack_iq(ap_int&lt;16&gt;, ap_int&lt;16&gt;)' into 'stage_write_output(ap_int&lt;16&gt;*, ap_int&lt;16&gt;*, hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;)'">
+        <args Callee="pack_iq(ap_int&lt;16&gt;, ap_int&lt;16&gt;)" Callee-DebugLoc="File src/fft_1d.hpp Line 69 Column 0" Caller="stage_write_output(ap_int&lt;16&gt;*, ap_int&lt;16&gt;*, hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;)" Caller-DebugLoc="File src/fft_1d.cpp Line 68 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft_1d.cpp:22:0" msg_body="Inlining function 'hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;::axis()' into 'stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)'">
+        <args Callee="hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;::axis()" Callee-DebugLoc="File {C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h} Line 217 Column 0" Caller="stage_read_input(hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;, ap_int&lt;16&gt;*, ap_int&lt;16&gt;*)" Caller-DebugLoc="File src/fft_1d.cpp Line 22 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/fft_1d.cpp:68:0" msg_body="Inlining function 'hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;::axis()' into 'stage_write_output(ap_int&lt;16&gt;*, ap_int&lt;16&gt;*, hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;)'">
+        <args Callee="hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;::axis()" Callee-DebugLoc="File {C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\ap_axi_sdata.h} Line 217 Column 0" Caller="stage_write_output(ap_int&lt;16&gt;*, ap_int&lt;16&gt;*, hls::stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 1ul, 1ul, 1ul, (unsigned char)56, false&gt;, 0&gt;&amp;)" Caller-DebugLoc="File src/fft_1d.cpp Line 68 Column 0"/>
+    </msg>
+</xilinx:hls_fe_msgs>

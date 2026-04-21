@@ -1,0 +1,163 @@
+<profile>
+  <RunData>
+    <RUN_TYPE>synth</RUN_TYPE>
+    <VIVADO_VERSION>v.2025.2</VIVADO_VERSION>
+    <ROOT_MODULE_CELL>bd_0_i/hls_inst</ROOT_MODULE_CELL>
+  </RunData>
+  <TimingReport>
+    <TargetClockPeriod>6.670</TargetClockPeriod>
+    <AchievedClockPeriod>3.926</AchievedClockPeriod>
+    <CLOCK_NAME>ap_clk</CLOCK_NAME>
+    <CP_FINAL>3.926</CP_FINAL>
+    <CP_ROUTE>NA</CP_ROUTE>
+    <CP_SYNTH>3.926</CP_SYNTH>
+    <CP_TARGET>6.670</CP_TARGET>
+    <SLACK_FINAL>2.744</SLACK_FINAL>
+    <SLACK_ROUTE/>
+    <SLACK_SYNTH>2.744</SLACK_SYNTH>
+    <TIMING_MET>TRUE</TIMING_MET>
+    <TNS_FINAL>0.000</TNS_FINAL>
+    <TNS_ROUTE>NA</TNS_ROUTE>
+    <TNS_SYNTH>0.000</TNS_SYNTH>
+    <WNS_FINAL>2.744</WNS_FINAL>
+    <WNS_ROUTE>NA</WNS_ROUTE>
+    <WNS_SYNTH>2.744</WNS_SYNTH>
+  </TimingReport>
+  <AreaReport>
+    <Resources>
+      <BRAM>6</BRAM>
+      <CLB>0</CLB>
+      <DSP>0</DSP>
+      <FF>307</FF>
+      <LATCH>0</LATCH>
+      <LUT>413</LUT>
+      <SRL>0</SRL>
+      <URAM>0</URAM>
+    </Resources>
+    <AvailableResources>
+      <BRAM>280</BRAM>
+      <CLB>0</CLB>
+      <DSP>220</DSP>
+      <FF>106400</FF>
+      <LUT>53200</LUT>
+      <URAM>0</URAM>
+    </AvailableResources>
+  </AreaReport>
+  <RtlModules>
+    <RtlModule CELL="inst" DEPTH="0" IS_TOP="1" TYPE="function" MODULENAME="fft_1d_top" DISPNAME="inst" RTLNAME="fft_1d_top">
+      <SubModules count="7">CTRL_s_axi_U in_bufI_U out_bufI_U out_bufQ_U stage_process_fft_U0 stage_read_input_U0 stage_write_output_U0</SubModules>
+      <Resources LogicLUT="413" RAMB18="6"/>
+    </RtlModule>
+    <RtlModule CELL="inst/CTRL_s_axi_U" DEPTH="1" TYPE="resource" MODULENAME="CTRL_s_axi" DISPNAME="CTRL_s_axi_U" RTLNAME="fft_1d_top_CTRL_s_axi">
+      <Resources LogicLUT="51"/>
+    </RtlModule>
+    <RtlModule CELL="inst/in_bufI_U" DEPTH="1" TYPE="resource" MODULENAME="in_bufI_RAM_2P_BRAM_1R1W" DISPNAME="in_bufI_U" RTLNAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W">
+      <Resources LogicLUT="61" RAMB18="2"/>
+    </RtlModule>
+    <RtlModule CELL="inst/out_bufI_U" DEPTH="1" TYPE="resource" MODULENAME="in_bufI_RAM_2P_BRAM_1R1W" DISPNAME="out_bufI_U" RTLNAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W">
+      <Resources LogicLUT="78" RAMB18="2"/>
+    </RtlModule>
+    <RtlModule CELL="inst/out_bufQ_U" DEPTH="1" TYPE="resource" MODULENAME="out_bufQ_RAM_2P_BRAM_1R1W" DISPNAME="out_bufQ_U" RTLNAME="fft_1d_top_out_bufQ_RAM_2P_BRAM_1R1W"/>
+    <RtlModule CELL="inst/stage_process_fft_U0" DEPTH="1" TYPE="function" MODULENAME="stage_process_fft" DISPNAME="stage_process_fft_U0" RTLNAME="fft_1d_top_stage_process_fft">
+      <SubModules count="1">flow_control_loop_pipe_U</SubModules>
+      <Resources LogicLUT="43"/>
+      <LocalResources LogicLUT="10"/>
+    </RtlModule>
+    <RtlModule CELL="inst/stage_process_fft_U0/flow_control_loop_pipe_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe" DISPNAME="flow_control_loop_pipe_U" RTLNAME="fft_1d_top_flow_control_loop_pipe"/>
+    <RtlModule CELL="inst/stage_read_input_U0" DEPTH="1" TYPE="function" MODULENAME="stage_read_input" DISPNAME="stage_read_input_U0" RTLNAME="fft_1d_top_stage_read_input">
+      <SubModules count="2">flow_control_loop_pipe_U regslice_both_in_stream_V_data_V_U</SubModules>
+      <Resources LogicLUT="52"/>
+    </RtlModule>
+    <RtlModule CELL="inst/stage_read_input_U0/flow_control_loop_pipe_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe" DISPNAME="flow_control_loop_pipe_U" RTLNAME="fft_1d_top_flow_control_loop_pipe"/>
+    <RtlModule CELL="inst/stage_read_input_U0/regslice_both_in_stream_V_data_V_U" DEPTH="2" TYPE="rtl" MODULENAME="regslice_both" DISPNAME="regslice_both_in_stream_V_data_V_U" RTLNAME="fft_1d_top_regslice_both"/>
+    <RtlModule CELL="inst/stage_write_output_U0" DEPTH="1" TYPE="function" MODULENAME="stage_write_output" DISPNAME="stage_write_output_U0" RTLNAME="fft_1d_top_stage_write_output">
+      <SubModules count="4">flow_control_loop_pipe_U regslice_both_out_stream_V_data_V_U regslice_both_out_stream_V_keep_V_U regslice_both_out_stream_V_last_V_U</SubModules>
+      <Resources LogicLUT="97"/>
+    </RtlModule>
+    <RtlModule CELL="inst/stage_write_output_U0/flow_control_loop_pipe_U" DEPTH="2" TYPE="rtl" MODULENAME="flow_control_loop_pipe" DISPNAME="flow_control_loop_pipe_U" RTLNAME="fft_1d_top_flow_control_loop_pipe"/>
+    <RtlModule CELL="inst/stage_write_output_U0/regslice_both_out_stream_V_data_V_U" DEPTH="2" TYPE="rtl" MODULENAME="regslice_both" DISPNAME="regslice_both_out_stream_V_data_V_U" RTLNAME="fft_1d_top_regslice_both"/>
+    <RtlModule CELL="inst/stage_write_output_U0/regslice_both_out_stream_V_keep_V_U" DEPTH="2" TYPE="rtl" MODULENAME="regslice_both" DISPNAME="regslice_both_out_stream_V_keep_V_U" RTLNAME="fft_1d_top_regslice_both"/>
+    <RtlModule CELL="inst/stage_write_output_U0/regslice_both_out_stream_V_last_V_U" DEPTH="2" TYPE="rtl" MODULENAME="regslice_both" DISPNAME="regslice_both_out_stream_V_last_V_U" RTLNAME="fft_1d_top_regslice_both"/>
+  </RtlModules>
+  <TimingPaths>
+    <TPATH DATAPATH_DELAY="3.465" DATAPATH_LOGIC_DELAY="1.000" DATAPATH_NET_DELAY="2.465" ENDPOINT_PIN="out_bufI_U/gen_buffer[0].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg/ENBWREN" LOGIC_LEVELS="4" MAX_FANOUT="24" SLACK="2.744" STARTPOINT_PIN="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]/C">
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDSE" FILE_NAME="fft_1d_top_regslice_both.v" LINE_NUMBER="81" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_24" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_23" PRIMITIVE_TYPE="LUT.others.LUT5" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/i_fu_70[9]_i_1" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/gen_buffer[0].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg_i_2__4" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/gen_buffer[0].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg" PRIMITIVE_TYPE="BMEM.bram.RAMB18E1" FILE_NAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore.v" LINE_NUMBER="35" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <MODULE_INSTANCES>stage_write_output_U0 out_bufI_U</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="3.465" DATAPATH_LOGIC_DELAY="1.000" DATAPATH_NET_DELAY="2.465" ENDPOINT_PIN="out_bufI_U/gen_buffer[1].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg/ENBWREN" LOGIC_LEVELS="4" MAX_FANOUT="24" SLACK="2.744" STARTPOINT_PIN="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]/C">
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDSE" FILE_NAME="fft_1d_top_regslice_both.v" LINE_NUMBER="81" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_24" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_23" PRIMITIVE_TYPE="LUT.others.LUT5" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/i_fu_70[9]_i_1" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/gen_buffer[1].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg_i_2__1" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/gen_buffer[1].fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore_U/ram_reg" PRIMITIVE_TYPE="BMEM.bram.RAMB18E1" FILE_NAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore.v" LINE_NUMBER="35" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <MODULE_INSTANCES>stage_write_output_U0 out_bufI_U</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="3.239" DATAPATH_LOGIC_DELAY="1.000" DATAPATH_NET_DELAY="2.239" ENDPOINT_PIN="out_bufI_U/reg_q0_reg[0]/CE" LOGIC_LEVELS="4" MAX_FANOUT="24" SLACK="3.220" STARTPOINT_PIN="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]/C">
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDSE" FILE_NAME="fft_1d_top_regslice_both.v" LINE_NUMBER="81" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_24" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_23" PRIMITIVE_TYPE="LUT.others.LUT5" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/i_fu_70[9]_i_1" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0[15]_i_1__0" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDRE" FILE_NAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W.v" LINE_NUMBER="104" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <MODULE_INSTANCES>stage_write_output_U0 out_bufI_U</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="3.239" DATAPATH_LOGIC_DELAY="1.000" DATAPATH_NET_DELAY="2.239" ENDPOINT_PIN="out_bufI_U/reg_q0_reg[10]/CE" LOGIC_LEVELS="4" MAX_FANOUT="24" SLACK="3.220" STARTPOINT_PIN="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]/C">
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDSE" FILE_NAME="fft_1d_top_regslice_both.v" LINE_NUMBER="81" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_24" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_23" PRIMITIVE_TYPE="LUT.others.LUT5" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/i_fu_70[9]_i_1" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0[15]_i_1__0" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0_reg[10]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDRE" FILE_NAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W.v" LINE_NUMBER="104" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <MODULE_INSTANCES>stage_write_output_U0 out_bufI_U</MODULE_INSTANCES>
+    </TPATH>
+    <TPATH DATAPATH_DELAY="3.239" DATAPATH_LOGIC_DELAY="1.000" DATAPATH_NET_DELAY="2.239" ENDPOINT_PIN="out_bufI_U/reg_q0_reg[11]/CE" LOGIC_LEVELS="4" MAX_FANOUT="24" SLACK="3.220" STARTPOINT_PIN="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]/C">
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/FSM_sequential_state_reg[0]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDSE" FILE_NAME="fft_1d_top_regslice_both.v" LINE_NUMBER="81" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_24" PRIMITIVE_TYPE="LUT.others.LUT3" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/ram_reg_i_23" PRIMITIVE_TYPE="LUT.others.LUT5" FILE_NAME="fft_1d_top_CTRL_s_axi.v" LINE_NUMBER="123" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="stage_write_output_U0/regslice_both_out_stream_V_data_V_U/i_fu_70[9]_i_1" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="stage_write_output_U0" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0[15]_i_1__0" PRIMITIVE_TYPE="LUT.others.LUT2" FILE_NAME="fft_1d_top.v" LINE_NUMBER="9" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <CELL NAME="out_bufI_U/reg_q0_reg[11]" PRIMITIVE_TYPE="FLOP_LATCH.flop.FDRE" FILE_NAME="fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W.v" LINE_NUMBER="104" MODULE_INSTNAME="out_bufI_U" IS_FUNCINST="0"/>
+      <MODULE_INSTANCES>stage_write_output_U0 out_bufI_U</MODULE_INSTANCES>
+    </TPATH>
+  </TimingPaths>
+  <VivadoReportFiles>
+    <ReportFile TYPE="design_analysis" PATH="verilog/report/fft_1d_top_design_analysis_synth.rpt"/>
+    <ReportFile TYPE="failfast" PATH="verilog/report/fft_1d_top_failfast_synth.rpt"/>
+    <ReportFile TYPE="power" PATH="verilog/report/fft_1d_top_power_synth.rpt"/>
+    <ReportFile TYPE="timing" PATH="verilog/report/fft_1d_top_timing_synth.rpt"/>
+    <ReportFile TYPE="timing_paths" PATH="verilog/report/fft_1d_top_timing_paths_synth.rpt"/>
+    <ReportFile TYPE="utilization" PATH="verilog/report/fft_1d_top_utilization_synth.rpt"/>
+    <ReportFile TYPE="utilization_hierarchical" PATH="verilog/report/fft_1d_top_utilization_hierarchical_synth.rpt"/>
+  </VivadoReportFiles>
+  <GeneralInfo NAME="General Information">
+    <item NAME="Date" VALUE="Tue Apr 21 16:47:58 +0800 2026"/>
+    <item NAME="Version" VALUE="2025.2 (Build 6295257 on Nov 14 2025)"/>
+    <item NAME="Project" VALUE="zenith_fft_1d_prj"/>
+    <item NAME="Solution" VALUE="solution1 (Vivado IP Flow Target)"/>
+    <item NAME="Product family" VALUE="zynq"/>
+    <item NAME="Target device" VALUE="xc7z020-clg400-2"/>
+  </GeneralInfo>
+  <RunOptions NAME="Run Constraints &amp; Options">
+    <General NAME="Design Constraints &amp; Options">
+      <item NAME="RTL Synthesis target clock" VALUE="6.67 ns"/>
+      <item NAME="C-Synthesis target clock" VALUE="6.67 ns"/>
+      <item NAME="C-Synthesis uncertainty" VALUE="27%"/>
+      <item NAME="config_export -ip_xdc_file" VALUE=""/>
+      <item NAME="config_export -ip_xdc_ooc_file" VALUE=""/>
+    </General>
+    <Syn NAME="RTL Synthesis Options">
+      <item NAME="config_export -vivado_synth_strategy" VALUE="default"/>
+      <item NAME="config_export -vivado_synth_design_args" VALUE="-directive sdx_optimization_effort_high"/>
+    </Syn>
+    <Reporting NAME="Reporting Options">
+      <item NAME="config_export -vivado_report_level" VALUE="2"/>
+      <item NAME="config_export -vivado_max_timing_paths" VALUE="10"/>
+    </Reporting>
+  </RunOptions>
+</profile>

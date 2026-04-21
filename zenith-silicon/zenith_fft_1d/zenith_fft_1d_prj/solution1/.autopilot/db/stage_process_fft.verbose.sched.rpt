@@ -1,0 +1,156 @@
+
+
+================================================================
+== Vitis HLS Report for 'stage_process_fft'
+================================================================
+* Date:           Tue Apr 21 16:25:43 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.069 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   |  min |  max |                      Type                      |
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+    |     1027|     1027|  6.850 us|  6.850 us|  1024|  1024|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_54_1  |     1025|     1025|         3|          1|          1|  1024|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.06>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/fft_1d.cpp:54]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i1 %outQ, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 7 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %outI, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 8 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %bufI, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 9 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.29ns)   --->   "%store_ln54 = store i10 0, i10 %i" [src/fft_1d.cpp:54]   --->   Operation 10 'store' 'store_ln54' <Predicate = true> <Delay = 1.29>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln54 = br void %for.inc.split" [src/fft_1d.cpp:54]   --->   Operation 11 'br' 'br_ln54' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i_7 = load i10 %i" [src/fft_1d.cpp:54]   --->   Operation 12 'load' 'i_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln54 = zext i10 %i_7" [src/fft_1d.cpp:54]   --->   Operation 13 'zext' 'zext_ln54' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%bufI_addr = getelementptr i16 %bufI, i64 0, i64 %zext_ln54" [src/fft_1d.cpp:56]   --->   Operation 14 'getelementptr' 'bufI_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [2/2] (2.77ns)   --->   "%bufI_load = load i10 %bufI_addr" [src/fft_1d.cpp:56]   --->   Operation 15 'load' 'bufI_load' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_1 : Operation 16 [1/1] (1.41ns)   --->   "%i_9 = add i10 %i_7, i10 1" [src/fft_1d.cpp:54]   --->   Operation 16 'add' 'i_9' <Predicate = true> <Delay = 1.41> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (1.41ns)   --->   "%icmp_ln54 = icmp_eq  i10 %i_7, i10 1023" [src/fft_1d.cpp:54]   --->   Operation 17 'icmp' 'icmp_ln54' <Predicate = true> <Delay = 1.41> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (1.29ns)   --->   "%store_ln54 = store i10 %i_9, i10 %i" [src/fft_1d.cpp:54]   --->   Operation 18 'store' 'store_ln54' <Predicate = true> <Delay = 1.29>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln54 = br i1 %icmp_ln54, void %for.inc.split, void %for.end" [src/fft_1d.cpp:54]   --->   Operation 19 'br' 'br_ln54' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.77>
+ST_2 : Operation 20 [1/2] ( I:2.77ns O:2.77ns )   --->   "%bufI_load = load i10 %bufI_addr" [src/fft_1d.cpp:56]   --->   Operation 20 'load' 'bufI_load' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+
+State 3 <SV = 2> <Delay = 2.77>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%specpipeline_ln55 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_1" [src/fft_1d.cpp:55]   --->   Operation 21 'specpipeline' 'specpipeline_ln55' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%speclooptripcount_ln54 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1024, i64 1024, i64 1024" [src/fft_1d.cpp:54]   --->   Operation 22 'speclooptripcount' 'speclooptripcount_ln54' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%specloopname_ln54 = specloopname void @_ssdm_op_SpecLoopName, void @empty_9" [src/fft_1d.cpp:54]   --->   Operation 23 'specloopname' 'specloopname_ln54' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%outI_addr = getelementptr i16 %outI, i64 0, i64 %zext_ln54" [src/fft_1d.cpp:56]   --->   Operation 24 'getelementptr' 'outI_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] ( I:2.77ns O:2.77ns )   --->   "%store_ln56 = store i16 %bufI_load, i10 %outI_addr" [src/fft_1d.cpp:56]   --->   Operation 25 'store' 'store_ln56' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%outQ_addr = getelementptr i1 %outQ, i64 0, i64 %zext_ln54" [src/fft_1d.cpp:61]   --->   Operation 26 'getelementptr' 'outQ_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] ( I:2.77ns O:2.77ns )   --->   "%store_ln61 = store i1 0, i10 %outQ_addr" [src/fft_1d.cpp:61]   --->   Operation 27 'store' 'store_ln61' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 1024> <RAM>
+ST_3 : Operation 28 [1/1] (1.29ns)   --->   "%ret_ln63 = ret" [src/fft_1d.cpp:63]   --->   Operation 28 'ret' 'ret_ln63' <Predicate = (icmp_ln54)> <Delay = 1.29>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.670ns, clock uncertainty: 1.801ns.
+
+ <State 1>: 4.069ns
+The critical path consists of the following:
+	'store' operation ('store_ln54', src/fft_1d.cpp:54) of constant 0 10 bit on local variable 'i', src/fft_1d.cpp:54 [8]  (1.298 ns)
+	'load' operation 10 bit ('i', src/fft_1d.cpp:54) on local variable 'i', src/fft_1d.cpp:54 [11]  (0.000 ns)
+	'getelementptr' operation 10 bit ('bufI_addr', src/fft_1d.cpp:56) [16]  (0.000 ns)
+	'load' operation 16 bit ('bufI_load', src/fft_1d.cpp:56) on array 'bufI' [18]  (2.771 ns)
+
+ <State 2>: 2.771ns
+The critical path consists of the following:
+	'load' operation 16 bit ('bufI_load', src/fft_1d.cpp:56) on array 'bufI' [18]  (2.771 ns)
+
+ <State 3>: 2.771ns
+The critical path consists of the following:
+	'getelementptr' operation 10 bit ('outI_addr', src/fft_1d.cpp:56) [17]  (0.000 ns)
+	'store' operation ('store_ln56', src/fft_1d.cpp:56) of variable 'bufI_load', src/fft_1d.cpp:56 16 bit on array 'outI' [19]  (2.771 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

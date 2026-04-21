@@ -1,0 +1,107 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "3 6 5",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft_1d.cpp",
+    "fileloc": 97,
+    "instructions": 44,
+    "memory_accesses": 0,
+    "name": "fft_1d_top",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 989
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft_1d.hpp",
+    "fileloc": 55,
+    "instructions": 9,
+    "memory_accesses": 0,
+    "name": "extract_i",
+    "total_instructions": 51
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft_1d.hpp",
+    "fileloc": 63,
+    "instructions": 9,
+    "memory_accesses": 0,
+    "name": "extract_q",
+    "total_instructions": 51
+  },
+  "3": {
+    "basicblocks": 7,
+    "calls": "1 2",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft_1d.cpp",
+    "fileloc": 20,
+    "instructions": 44,
+    "loads": {
+      "L": 4
+    },
+    "memory_accesses": 11,
+    "name": "stage_read_input",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 362
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft_1d.hpp",
+    "fileloc": 69,
+    "instructions": 19,
+    "memory_accesses": 0,
+    "name": "pack_iq",
+    "total_instructions": 123
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "4",
+    "control_depth": 1,
+    "def_use_depth": 3,
+    "file": "fft_1d.cpp",
+    "fileloc": 66,
+    "instructions": 93,
+    "loads": {
+      "L": 9
+    },
+    "memory_accesses": 27,
+    "name": "stage_write_output",
+    "stores": {
+      "L": 9
+    },
+    "total_instructions": 540
+  },
+  "6": {
+    "basicblocks": 7,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft_1d.cpp",
+    "fileloc": 43,
+    "instructions": 26,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 5,
+    "name": "stage_process_fft",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 43
+  }
+}

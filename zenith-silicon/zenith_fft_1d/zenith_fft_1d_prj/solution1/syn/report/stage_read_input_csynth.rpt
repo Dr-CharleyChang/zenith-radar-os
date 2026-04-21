@@ -1,0 +1,148 @@
+
+
+================================================================
+== Vitis HLS Report for 'stage_read_input'
+================================================================
+* Date:           Tue Apr 21 16:25:44 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.069 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   |  min |  max |                      Type                      |
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+    |     1025|     1025|  6.837 us|  6.837 us|  1024|  1024|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+------+------+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_23_1  |     1023|     1023|         1|          1|          1|  1024|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     21|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     36|    -|
+|Register         |        -|    -|      12|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      12|     57|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |i_6_fu_125_p2                     |         +|   0|  0|  10|          10|           1|
+    |icmp_ln23_fu_131_p2               |      icmp|   0|  0|  10|          10|           2|
+    |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   1|           1|           1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0|  21|          21|           4|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_done_int            |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_4   |   9|          2|   10|         20|
+    |i_fu_64                |   9|          2|   10|         20|
+    |in_stream_TDATA_blk_n  |   9|          2|    1|          2|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  |  36|          8|   22|         44|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------+----+----+-----+-----------+
+    |     Name    | FF | LUT| Bits| Const Bits|
+    +-------------+----+----+-----+-----------+
+    |ap_CS_fsm    |   1|   0|    1|          0|
+    |ap_done_reg  |   1|   0|    1|          0|
+    |i_fu_64      |  10|   0|   10|          0|
+    +-------------+----+----+-----+-----------+
+    |Total        |  12|   0|   12|          0|
+    +-------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+------------+--------------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++------------------+-----+-----+------------+--------------------+--------------+
+|ap_clk            |   in|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_rst            |   in|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_start          |   in|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_done           |  out|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_continue       |   in|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_idle           |  out|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|ap_ready          |  out|    1|  ap_ctrl_hs|    stage_read_input|  return value|
+|in_stream_TVALID  |   in|    1|        axis|  in_stream_V_dest_V|       pointer|
+|in_stream_TREADY  |  out|    1|        axis|  in_stream_V_dest_V|       pointer|
+|in_stream_TDEST   |   in|    1|        axis|  in_stream_V_dest_V|       pointer|
+|in_stream_TDATA   |   in|   32|        axis|  in_stream_V_data_V|       pointer|
+|in_stream_TKEEP   |   in|    4|        axis|  in_stream_V_keep_V|       pointer|
+|in_stream_TSTRB   |   in|    4|        axis|  in_stream_V_strb_V|       pointer|
+|in_stream_TUSER   |   in|    1|        axis|  in_stream_V_user_V|       pointer|
+|in_stream_TLAST   |   in|    1|        axis|  in_stream_V_last_V|       pointer|
+|in_stream_TID     |   in|    1|        axis|    in_stream_V_id_V|       pointer|
+|in_bufI_address1  |  out|   10|   ap_memory|             in_bufI|         array|
+|in_bufI_ce1       |  out|    1|   ap_memory|             in_bufI|         array|
+|in_bufI_we1       |  out|    1|   ap_memory|             in_bufI|         array|
+|in_bufI_d1        |  out|   16|   ap_memory|             in_bufI|         array|
++------------------+-----+-----+------------+--------------------+--------------+
+

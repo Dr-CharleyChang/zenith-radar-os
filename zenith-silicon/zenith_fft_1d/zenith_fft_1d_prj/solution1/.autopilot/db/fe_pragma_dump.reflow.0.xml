@@ -1,0 +1,46 @@
+<pragmas>
+<pragma file="src/fft_1d.cpp" line="55" pragmaType="pipeline" parentfunction="stage_process_fft" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<32, false>& ap_range_ref<32, false>::operator=<16, true>(ap_int_base<16, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
+<pragma file="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h" line="530" pragmaType="inline" parentfunction="_ZN8ssdm_intILi1ELb0EEC2EDU1_" off="0" region="0" recursive="0"/>
+<pragma file="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h" line="522" pragmaType="inline" parentfunction="ssdm_int<16, true>::ssdm_int(short)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<4>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.hpp" line="58" pragmaType="inline" parentfunction="extract_i" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.hpp" line="64" pragmaType="inline" parentfunction="extract_q" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_id_ptr" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<16>::ap_int<32, false>(ap_range_ref<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<16, true>::ap_int_base<32, false>(ap_range_ref<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_user_ptr" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.cpp" line="27" pragmaType="pipeline" parentfunction="stage_read_input" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_last_ptr" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_strb_ptr" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<16, true>(ap_int_base<16, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<16>::ap_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<16, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.cpp" line="135" pragmaType="dataflow" parentfunction="fft_1d_top" disable_start_propagation="0"/>
+<pragma file="src/fft_1d.cpp" line="105" pragmaType="interface" parentfunction="fft_1d_top" mode="axis" port="in_stream" register="1" register_mode="both" name="" depth="-1"/>
+<pragma file="src/fft_1d.cpp" line="106" pragmaType="interface" parentfunction="fft_1d_top" mode="axis" port="out_stream" register="1" register_mode="both" name="" depth="-1"/>
+<pragma file="src/fft_1d.cpp" line="110" pragmaType="interface" parentfunction="fft_1d_top" mode="s_axilite" port="scaling_schedule" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/fft_1d.cpp" line="114" pragmaType="interface" parentfunction="fft_1d_top" mode="s_axilite" port="" bundle="CTRL" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/fft_1d.cpp" line="127" pragmaType="bind_storage" parentfunction="fft_1d_top" op="666" impl="22" latency="-1" variable="in_bufI"/>
+<pragma file="src/fft_1d.cpp" line="128" pragmaType="bind_storage" parentfunction="fft_1d_top" op="666" impl="22" latency="-1" variable="in_bufQ"/>
+<pragma file="src/fft_1d.cpp" line="129" pragmaType="bind_storage" parentfunction="fft_1d_top" op="666" impl="22" latency="-1" variable="out_bufI"/>
+<pragma file="src/fft_1d.cpp" line="130" pragmaType="bind_storage" parentfunction="fft_1d_top" op="666" impl="22" latency="-1" variable="out_bufQ"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_keep_ptr" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_dest_ptr" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.cpp" line="70" pragmaType="pipeline" parentfunction="stage_write_output" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<4, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h" line="530" pragmaType="inline" parentfunction="_ZN8ssdm_intILi4ELb0EEC2EDU4_" off="0" region="0" recursive="0"/>
+<pragma file="src/fft_1d.hpp" line="70" pragmaType="inline" parentfunction="pack_iq" off="0" region="0" recursive="0"/>
+<pragma file="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h" line="530" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<32, false>::ap_range_ref(ap_int_base<32, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get_data_ptr" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+</pragmas>

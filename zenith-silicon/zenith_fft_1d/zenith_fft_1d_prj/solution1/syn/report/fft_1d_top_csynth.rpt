@@ -1,0 +1,180 @@
+
+
+================================================================
+== Vitis HLS Report for 'fft_1d_top'
+================================================================
+* Date:           Tue Apr 21 16:25:46 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.069 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+----------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline |
+    |   min   |   max   |    min    |    max    |  min |  max |   Type   |
+    +---------+---------+-----------+-----------+------+------+----------+
+    |     3081|     3081|  20.550 us|  20.550 us|  1024|  1024|  dataflow|
+    +---------+---------+-----------+-----------+------+------+----------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------+--------------------+---------+---------+----------+----------+------+------+------------------------------------------------+
+        |                       |                    |  Latency (cycles) |  Latency (absolute) |   Interval  |                    Pipeline                    |
+        |        Instance       |       Module       |   min   |   max   |    min   |    max   |  min |  max |                      Type                      |
+        +-----------------------+--------------------+---------+---------+----------+----------+------+------+------------------------------------------------+
+        |stage_read_input_U0    |stage_read_input    |     1025|     1025|  6.837 us|  6.837 us|  1024|  1024|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |stage_process_fft_U0   |stage_process_fft   |     1027|     1027|  6.850 us|  6.850 us|  1024|  1024|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |stage_write_output_U0  |stage_write_output  |     1027|     1027|  6.850 us|  6.850 us|  1024|  1024|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +-----------------------+--------------------+---------+---------+----------+----------+------+------+------------------------------------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      3|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        0|    -|     155|    291|    -|
+|Memory           |        6|    -|       0|      0|    -|
+|Multiplexer      |        -|    -|       0|      9|    -|
+|Register         |        -|    -|       1|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        6|    0|     156|    303|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        2|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------+--------------------+---------+----+----+-----+-----+
+    |        Instance       |       Module       | BRAM_18K| DSP| FF | LUT | URAM|
+    +-----------------------+--------------------+---------+----+----+-----+-----+
+    |CTRL_s_axi_U           |CTRL_s_axi          |        0|   0|  74|  104|    0|
+    |stage_process_fft_U0   |stage_process_fft   |        0|   0|  52|   60|    0|
+    |stage_read_input_U0    |stage_read_input    |        0|   0|  12|   57|    0|
+    |stage_write_output_U0  |stage_write_output  |        0|   0|  17|   70|    0|
+    +-----------------------+--------------------+---------+----+----+-----+-----+
+    |Total                  |                    |        0|   0| 155|  291|    0|
+    +-----------------------+--------------------+---------+----+----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +------------+---------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |   Memory   |           Module          | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +------------+---------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |in_bufI_U   |in_bufI_RAM_2P_BRAM_1R1W   |        2|  0|   0|    0|  1024|   16|     1|        16384|
+    |out_bufI_U  |in_bufI_RAM_2P_BRAM_1R1W   |        2|  0|   0|    0|  1024|   16|     1|        16384|
+    |out_bufQ_U  |out_bufQ_RAM_2P_BRAM_1R1W  |        2|  0|   0|    0|  1024|    1|     1|         1024|
+    +------------+---------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total       |                           |        6|  0|   0|    0|  3072|   33|     3|        33792|
+    +------------+---------------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_out_bufQ        |       and|   0|  0|   1|           1|           1|
+    |ap_idle                         |       and|   0|  0|   1|           1|           1|
+    |ap_sync_channel_write_out_bufQ  |        or|   0|  0|   1|           1|           1|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |Total                           |          |   0|  0|   3|           3|           3|
+    +--------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------+----+-----------+-----+-----------+
+    |                Name                | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_out_bufQ  |   9|          2|    1|          2|
+    +------------------------------------+----+-----------+-----+-----------+
+    |Total                               |   9|          2|    1|          2|
+    +------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------+---+----+-----+-----------+
+    |                Name                | FF| LUT| Bits| Const Bits|
+    +------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_out_bufQ  |  1|   0|    1|          0|
+    +------------------------------------+---+----+-----+-----------+
+    |Total                               |  1|   0|    1|          0|
+    +------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+---------------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++--------------------+-----+-----+------------+---------------------+--------------+
+|s_axi_CTRL_AWVALID  |   in|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_AWREADY  |  out|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_AWADDR   |   in|    5|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_WVALID   |   in|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_WREADY   |  out|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_WDATA    |   in|   32|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_WSTRB    |   in|    4|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_ARVALID  |   in|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_ARREADY  |  out|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_ARADDR   |   in|    5|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_RVALID   |  out|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_RREADY   |   in|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_RDATA    |  out|   32|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_RRESP    |  out|    2|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_BVALID   |  out|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_BREADY   |   in|    1|       s_axi|                 CTRL|        scalar|
+|s_axi_CTRL_BRESP    |  out|    2|       s_axi|                 CTRL|        scalar|
+|ap_clk              |   in|    1|  ap_ctrl_hs|           fft_1d_top|  return value|
+|ap_rst_n            |   in|    1|  ap_ctrl_hs|           fft_1d_top|  return value|
+|interrupt           |  out|    1|  ap_ctrl_hs|           fft_1d_top|  return value|
+|in_stream_TDATA     |   in|   32|        axis|   in_stream_V_data_V|       pointer|
+|in_stream_TKEEP     |   in|    4|        axis|   in_stream_V_keep_V|       pointer|
+|in_stream_TSTRB     |   in|    4|        axis|   in_stream_V_strb_V|       pointer|
+|in_stream_TUSER     |   in|    1|        axis|   in_stream_V_user_V|       pointer|
+|in_stream_TLAST     |   in|    1|        axis|   in_stream_V_last_V|       pointer|
+|in_stream_TID       |   in|    1|        axis|     in_stream_V_id_V|       pointer|
+|in_stream_TDEST     |   in|    1|        axis|   in_stream_V_dest_V|       pointer|
+|in_stream_TVALID    |   in|    1|        axis|   in_stream_V_dest_V|       pointer|
+|in_stream_TREADY    |  out|    1|        axis|   in_stream_V_dest_V|       pointer|
+|out_stream_TDATA    |  out|   32|        axis|  out_stream_V_data_V|       pointer|
+|out_stream_TKEEP    |  out|    4|        axis|  out_stream_V_keep_V|       pointer|
+|out_stream_TSTRB    |  out|    4|        axis|  out_stream_V_strb_V|       pointer|
+|out_stream_TUSER    |  out|    1|        axis|  out_stream_V_user_V|       pointer|
+|out_stream_TLAST    |  out|    1|        axis|  out_stream_V_last_V|       pointer|
+|out_stream_TID      |  out|    1|        axis|    out_stream_V_id_V|       pointer|
+|out_stream_TDEST    |  out|    1|        axis|  out_stream_V_dest_V|       pointer|
+|out_stream_TVALID   |  out|    1|        axis|  out_stream_V_dest_V|       pointer|
+|out_stream_TREADY   |   in|    1|        axis|  out_stream_V_dest_V|       pointer|
++--------------------+-----+-----+------------+---------------------+--------------+
+

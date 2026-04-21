@@ -1,0 +1,68 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1 3 2",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "fft_1d.cpp",
+    "fileloc": 97,
+    "instructions": 30,
+    "memory_accesses": 0,
+    "name": "fft_1d_top",
+    "total_instructions": 229
+  },
+  "1": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "fft_1d.cpp",
+    "fileloc": 20,
+    "instructions": 50,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 6,
+    "name": "stage_read_input",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 54
+  },
+  "2": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "fft_1d.cpp",
+    "fileloc": 66,
+    "instructions": 105,
+    "loads": {
+      "L": 9
+    },
+    "memory_accesses": 24,
+    "name": "stage_write_output",
+    "stores": {
+      "L": 14
+    },
+    "total_instructions": 133
+  },
+  "3": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "fft_1d.cpp",
+    "fileloc": 43,
+    "instructions": 12,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 3,
+    "name": "stage_process_fft",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 12
+  }
+}

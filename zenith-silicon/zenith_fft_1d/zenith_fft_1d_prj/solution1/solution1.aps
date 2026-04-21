@@ -1,0 +1,23 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <config>
+        <config_interface m_axi_alignment_byte_size="64"/>
+        <config_dataflow strict_mode="warning"/>
+        <config_export flow="syn" format="ip_catalog" output="export" rtl="verilog"/>
+    </config>
+    <clockList>
+        <clock name="default" period="6.67" default="false"/>
+    </clockList>
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="zenith_fft_1d_prj"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <targetInfo>
+        <TargetInfo value="xc7z020:-clg400:-2"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
+    </libraryList>
+</AutoPilot:solution>

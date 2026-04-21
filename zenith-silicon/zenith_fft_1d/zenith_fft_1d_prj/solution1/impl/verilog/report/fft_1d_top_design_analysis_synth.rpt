@@ -1,0 +1,78 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Tue Apr 21 16:47:56 2026
+| Host         : DESKTOP-CHIMERA running 64-bit major release  (build 9200)
+| Command      : report_design_analysis -file ./report/fft_1d_top_design_analysis_synth.rpt
+| Design       : bd_0_wrapper
+| Device       : xc7z020
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Setup Path Characteristics 1-1
+2. Logic Level Distribution
+3. Placer Final Level Congestion Reporting
+
+1. Setup Path Characteristics 1-1
+---------------------------------
+
++---------------------------+-------------------------------------------------------------------+
+|      Characteristics      |                              Path #1                              |
++---------------------------+-------------------------------------------------------------------+
+| Requirement               | 6.670                                                             |
+| Path Delay                | 3.465                                                             |
+| Logic Delay               | 1.000(29%)                                                        |
+| Net Delay                 | 2.465(71%)                                                        |
+| Clock Skew                | -0.039                                                            |
+| Slack                     | 2.744                                                             |
+| Clock Uncertainty         | 0.035                                                             |
+| Clock Pair Classification | Timed                                                             |
+| Clock Delay Group         | Same Clock                                                        |
+| Logic Levels              | 4                                                                 |
+| Routes                    | NA                                                                |
+| Logical Path              | FDSE/C-(24)-LUT3-(3)-LUT5-(9)-LUT2-(17)-LUT3-(1)-RAMB18E1/ENBWREN |
+| Start Point Clock         | ap_clk                                                            |
+| End Point Clock           | ap_clk                                                            |
+| DSP Block                 | None                                                              |
+| RAM Registers             | None-None                                                         |
+| IO Crossings              | 0                                                                 |
+| Config Crossings          | 0                                                                 |
+| SLR Crossings             | 0                                                                 |
+| PBlocks                   | 0                                                                 |
+| High Fanout               | 24                                                                |
+| ASYNC REG                 | 0                                                                 |
+| Dont Touch                | 0                                                                 |
+| Mark Debug                | 0                                                                 |
+| Start Point Pin Primitive | FDSE/C                                                            |
+| End Point Pin Primitive   | RAMB18E1/ENBWREN                                                  |
+| Start Point Pin           | FSM_sequential_state_reg[0]/C                                     |
+| End Point Pin             | ram_reg/ENBWREN                                                   |
++---------------------------+-------------------------------------------------------------------+
+* Bounding box calculated as % of dimensions for the target device (308, 299)
+
+
+2. Logic Level Distribution
+---------------------------
+
++-----------------+-------------+----+-----+----+----+----+
+| End Point Clock | Requirement |  0 |  1  |  2 |  3 |  4 |
++-----------------+-------------+----+-----+----+----+----+
+| ap_clk          | 6.670ns     | 76 | 515 | 91 | 28 | 44 |
++-----------------+-------------+----+-----+----+----+----+
+* Columns represent the logic levels per end point clock
+** Distribution is for top worst 754 paths
+
+
+3. Placer Final Level Congestion Reporting
+------------------------------------------
+
++-----------+------+-------+------------+--------+---------------+----------------+-----+--------+------+------+------+-----+-------+-----+------------+
+| Direction | Type | Level | Congestion | Window | Combined LUTs | Avg LUT Inputs | LUT | LUTRAM | Flop | MUXF | RAMB | DSP | CARRY | SRL | Cell Names |
++-----------+------+-------+------------+--------+---------------+----------------+-----+--------+------+------+------+-----+-------+-----+------------+
+* The design has not been placed, hence congestion data is not available. The command report_design_analysis -congestion should be run only after place_design has completed.
+
+
