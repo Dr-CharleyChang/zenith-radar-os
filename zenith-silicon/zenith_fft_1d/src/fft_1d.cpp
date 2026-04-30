@@ -60,7 +60,8 @@ static void stage_read_input(hls::stream<axis_iq_t> &in_stream,
 // SPSC (Single-Producer / Single-Consumer) constraint of DATAFLOW.
 // If it read from and wrote to the same buffer (in-place), it would create a
 // Read-After-Write dependency with Stage 1, breaking the ping-pong mechanism.
-static void stage_process_fft(ap_int<16> bufI[FFT_LENGTH],
+// ─── OLD PLACEHOLDER (Day 1/2) — kept for reference, not called ──────────────
+/*static void stage_process_fft(ap_int<16> bufI[FFT_LENGTH],
                               ap_int<16> bufQ[FFT_LENGTH],
                               ap_int<16> outI[FFT_LENGTH],
                               ap_int<16> outQ[FFT_LENGTH],
@@ -80,7 +81,17 @@ static void stage_process_fft(ap_int<16> bufI[FFT_LENGTH],
     // means the DATAFLOW pipeline is corrupting data.
     outQ[i] = 0;
   }
-}
+}*/
+// ─── NEW: declare real FFT stage (defined in fft_1d_hls.cpp) ─────────────────
+// Forward declaration — the implementation is in fft_1d_hls.cpp.
+// Both files are compiled together by Vitis HLS (both listed in add_files).
+void stage_process_fft_real(
+    ap_int<16>  in_bufI[FFT_LENGTH],
+    ap_int<16>  in_bufQ[FFT_LENGTH],
+    ap_int<16>  out_bufI[FFT_LENGTH],
+    ap_int<16>  out_bufQ[FFT_LENGTH],
+    ap_uint<16> scaling_schedule
+);
 
 // Stage 3: Serialize and Frame
 static void stage_write_output(ap_int<16> outI[FFT_LENGTH],
@@ -159,6 +170,7 @@ void fft_1d_top(hls::stream<axis_iq_t> &in_stream,
 // call.
 #pragma HLS DATAFLOW
   stage_read_input(in_stream, in_bufI, in_bufQ);
-  stage_process_fft(in_bufI, in_bufQ, out_bufI, out_bufQ, scaling_schedule);
+  // OLD: stage_process_fft(in_bufI, in_bufQ, out_bufI, out_bufQ, scaling_schedule);
+  stage_process_fft_real(in_bufI, in_bufQ, out_bufI, out_bufQ, scaling_schedule);
   stage_write_output(out_bufI, out_bufQ, out_stream);
 }

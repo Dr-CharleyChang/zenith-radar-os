@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'stage_write_output'
 ================================================================
-* Date:           Tue Apr 21 16:25:43 2026
+* Date:           Tue Apr 28 16:25:27 2026
 
 * Version:        2025.2 (Build 6295257 on Nov 14 2025)
 * Project:        zenith_fft_1d_prj
@@ -37,12 +37,12 @@
         N/A
 
         * Loop: 
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_69_1  |     1025|     1025|         3|          1|          1|  1024|       yes|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_100_1  |     1025|     1025|         3|          1|          1|  1024|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -86,37 +86,36 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 4.06>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/fft_1d.cpp:69]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, void @empty_6"   --->   Operation 7 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i1 %outQ, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 8 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/fft_1d.cpp:100]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, void @empty_2"   --->   Operation 7 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %outQ, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 8 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %outI, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 9 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_stream_V_dest_V, i1 %out_stream_V_id_V, i1 %out_stream_V_last_V, i1 %out_stream_V_user_V, i4 %out_stream_V_strb_V, i4 %out_stream_V_keep_V, i32 %out_stream_V_data_V, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (1.29ns)   --->   "%store_ln69 = store i10 0, i10 %i" [src/fft_1d.cpp:69]   --->   Operation 11 'store' 'store_ln69' <Predicate = true> <Delay = 1.29>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln69 = br void %for.inc.split" [src/fft_1d.cpp:69]   --->   Operation 12 'br' 'br_ln69' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%i_1 = load i10 %i" [src/fft_1d.cpp:69]   --->   Operation 13 'load' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln69 = zext i10 %i_1" [src/fft_1d.cpp:69]   --->   Operation 14 'zext' 'zext_ln69' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%outI_addr = getelementptr i16 %outI, i64 0, i64 %zext_ln69" [src/fft_1d.cpp:72]   --->   Operation 15 'getelementptr' 'outI_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [2/2] (2.77ns)   --->   "%i_val = load i10 %outI_addr" [src/fft_1d.cpp:72]   --->   Operation 16 'load' 'i_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%outQ_addr = getelementptr i1 %outQ, i64 0, i64 %zext_ln69" [src/fft_1d.cpp:72]   --->   Operation 17 'getelementptr' 'outQ_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [2/2] (2.77ns)   --->   "%q_val = load i10 %outQ_addr" [src/fft_1d.cpp:72]   --->   Operation 18 'load' 'q_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 1024> <RAM>
-ST_1 : Operation 19 [1/1] (1.41ns)   --->   "%icmp_ln78 = icmp_eq  i10 %i_1, i10 1023" [src/fft_1d.cpp:78]   --->   Operation 19 'icmp' 'icmp_ln78' <Predicate = true> <Delay = 1.41> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 20 [1/1] (1.41ns)   --->   "%i_3 = add i10 %i_1, i10 1" [src/fft_1d.cpp:69]   --->   Operation 20 'add' 'i_3' <Predicate = true> <Delay = 1.41> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (1.29ns)   --->   "%store_ln69 = store i10 %i_3, i10 %i" [src/fft_1d.cpp:69]   --->   Operation 21 'store' 'store_ln69' <Predicate = true> <Delay = 1.29>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln69 = br i1 %icmp_ln78, void %for.inc.split, void %for.end" [src/fft_1d.cpp:69]   --->   Operation 22 'br' 'br_ln69' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %out_stream_V_dest_V, i1 %out_stream_V_id_V, i1 %out_stream_V_last_V, i1 %out_stream_V_user_V, i4 %out_stream_V_strb_V, i4 %out_stream_V_keep_V, i32 %out_stream_V_data_V, void @empty_6, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_9, void @empty_9, void @empty_9, i32 0, i32 0, i32 0, i32 0, void @empty_9, void @empty_9, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.29ns)   --->   "%store_ln100 = store i10 0, i10 %i" [src/fft_1d.cpp:100]   --->   Operation 11 'store' 'store_ln100' <Predicate = true> <Delay = 1.29>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln100 = br void %for.inc.split" [src/fft_1d.cpp:100]   --->   Operation 12 'br' 'br_ln100' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%i_1 = load i10 %i" [src/fft_1d.cpp:100]   --->   Operation 13 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln100 = zext i10 %i_1" [src/fft_1d.cpp:100]   --->   Operation 14 'zext' 'zext_ln100' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%outI_addr = getelementptr i16 %outI, i64 0, i64 %zext_ln100" [src/fft_1d.cpp:103]   --->   Operation 15 'getelementptr' 'outI_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [2/2] (2.77ns)   --->   "%i_val = load i10 %outI_addr" [src/fft_1d.cpp:103]   --->   Operation 16 'load' 'i_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%outQ_addr = getelementptr i16 %outQ, i64 0, i64 %zext_ln100" [src/fft_1d.cpp:103]   --->   Operation 17 'getelementptr' 'outQ_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [2/2] (2.77ns)   --->   "%q_val = load i10 %outQ_addr" [src/fft_1d.cpp:103]   --->   Operation 18 'load' 'q_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_1 : Operation 19 [1/1] (1.41ns)   --->   "%icmp_ln110 = icmp_eq  i10 %i_1, i10 1023" [src/fft_1d.cpp:110]   --->   Operation 19 'icmp' 'icmp_ln110' <Predicate = true> <Delay = 1.41> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (1.41ns)   --->   "%i_3 = add i10 %i_1, i10 1" [src/fft_1d.cpp:100]   --->   Operation 20 'add' 'i_3' <Predicate = true> <Delay = 1.41> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.41> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (1.29ns)   --->   "%store_ln100 = store i10 %i_3, i10 %i" [src/fft_1d.cpp:100]   --->   Operation 21 'store' 'store_ln100' <Predicate = true> <Delay = 1.29>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln100 = br i1 %icmp_ln110, void %for.inc.split, void %for.end" [src/fft_1d.cpp:100]   --->   Operation 22 'br' 'br_ln100' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 3.98>
-ST_2 : Operation 23 [1/2] ( I:2.77ns O:2.77ns )   --->   "%i_val = load i10 %outI_addr" [src/fft_1d.cpp:72]   --->   Operation 23 'load' 'i_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
-ST_2 : Operation 24 [1/2] ( I:2.77ns O:2.77ns )   --->   "%q_val = load i10 %outQ_addr" [src/fft_1d.cpp:72]   --->   Operation 24 'load' 'q_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 1024> <RAM>
-ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%word = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i1.i16, i1 %q_val, i16 %i_val" [src/fft_1d.hpp:73->src/fft_1d.cpp:72]   --->   Operation 25 'bitconcatenate' 'word' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%zext_ln71 = zext i17 %word" [src/fft_1d.hpp:71->src/fft_1d.cpp:72]   --->   Operation 26 'zext' 'zext_ln71' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 27 [2/2] (1.21ns)   --->   "%write_ln92 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A.i1P0A.i1P0A, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, i32 %zext_ln71, i4 15, i4 15, i1 0, i1 %icmp_ln78, i1 0, i1 0" [src/fft_1d.cpp:92]   --->   Operation 27 'write' 'write_ln92' <Predicate = true> <Delay = 1.21> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.21> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 23 [1/2] ( I:2.77ns O:2.77ns )   --->   "%i_val = load i10 %outI_addr" [src/fft_1d.cpp:103]   --->   Operation 23 'load' 'i_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 24 [1/2] ( I:2.77ns O:2.77ns )   --->   "%q_val = load i10 %outQ_addr" [src/fft_1d.cpp:103]   --->   Operation 24 'load' 'q_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%word = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %q_val, i16 %i_val" [src/fft_1d.hpp:86->src/fft_1d.cpp:103]   --->   Operation 25 'bitconcatenate' 'word' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [2/2] (1.21ns)   --->   "%write_ln125 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A.i1P0A.i1P0A, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, i32 %word, i4 15, i4 15, i1 0, i1 %icmp_ln110, i1 0, i1 0" [src/fft_1d.cpp:125]   --->   Operation 26 'write' 'write_ln125' <Predicate = true> <Delay = 1.21> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.21> <Adapter> <Opcode : 'read' 'write'>
 
 State 3 <SV = 2> <Delay = 1.29>
-ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%specpipeline_ln70 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_1" [src/fft_1d.cpp:70]   --->   Operation 28 'specpipeline' 'specpipeline_ln70' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%speclooptripcount_ln69 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1024, i64 1024, i64 1024" [src/fft_1d.cpp:69]   --->   Operation 29 'speclooptripcount' 'speclooptripcount_ln69' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%specloopname_ln69 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10" [src/fft_1d.cpp:69]   --->   Operation 30 'specloopname' 'specloopname_ln69' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 31 [1/2] ( I:1.21ns O:1.21ns )   --->   "%write_ln92 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A.i1P0A.i1P0A, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, i32 %zext_ln71, i4 15, i4 15, i1 0, i1 %icmp_ln78, i1 0, i1 0" [src/fft_1d.cpp:92]   --->   Operation 31 'write' 'write_ln92' <Predicate = true> <Delay = 1.21> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.21> <Adapter> <Opcode : 'read' 'write'>
-ST_3 : Operation 32 [1/1] (1.29ns)   --->   "%ret_ln94 = ret" [src/fft_1d.cpp:94]   --->   Operation 32 'ret' 'ret_ln94' <Predicate = (icmp_ln78)> <Delay = 1.29>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%specpipeline_ln101 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_9" [src/fft_1d.cpp:101]   --->   Operation 27 'specpipeline' 'specpipeline_ln101' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%speclooptripcount_ln100 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1024, i64 1024, i64 1024" [src/fft_1d.cpp:100]   --->   Operation 28 'speclooptripcount' 'speclooptripcount_ln100' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%specloopname_ln100 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14" [src/fft_1d.cpp:100]   --->   Operation 29 'specloopname' 'specloopname_ln100' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/2] ( I:1.21ns O:1.21ns )   --->   "%write_ln125 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A.i1P0A.i1P0A, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i1 %out_stream_V_user_V, i1 %out_stream_V_last_V, i1 %out_stream_V_id_V, i1 %out_stream_V_dest_V, i32 %word, i4 15, i4 15, i1 0, i1 %icmp_ln110, i1 0, i1 0" [src/fft_1d.cpp:125]   --->   Operation 30 'write' 'write_ln125' <Predicate = true> <Delay = 1.21> <CoreInst = "regslice">   --->   Core 135 'regslice' <Latency = 0> <II = 1> <Delay = 1.21> <Adapter> <Opcode : 'read' 'write'>
+ST_3 : Operation 31 [1/1] (1.29ns)   --->   "%ret_ln127 = ret" [src/fft_1d.cpp:127]   --->   Operation 31 'ret' 'ret_ln127' <Predicate = (icmp_ln110)> <Delay = 1.29>
 
 
 ============================================================
@@ -126,15 +125,15 @@ Target clock period: 6.670ns, clock uncertainty: 1.801ns.
 
  <State 1>: 4.069ns
 The critical path consists of the following:
-	'store' operation ('store_ln69', src/fft_1d.cpp:69) of constant 0 10 bit on local variable 'i', src/fft_1d.cpp:69 [15]  (1.298 ns)
-	'load' operation 10 bit ('i', src/fft_1d.cpp:69) on local variable 'i', src/fft_1d.cpp:69 [18]  (0.000 ns)
-	'getelementptr' operation 10 bit ('outI_addr', src/fft_1d.cpp:72) [23]  (0.000 ns)
-	'load' operation 16 bit ('i_val', src/fft_1d.cpp:72) on array 'outI' [24]  (2.771 ns)
+	'store' operation ('store_ln100', src/fft_1d.cpp:100) of constant 0 10 bit on local variable 'i', src/fft_1d.cpp:100 [15]  (1.298 ns)
+	'load' operation 10 bit ('i', src/fft_1d.cpp:100) on local variable 'i', src/fft_1d.cpp:100 [18]  (0.000 ns)
+	'getelementptr' operation 10 bit ('outI_addr', src/fft_1d.cpp:103) [23]  (0.000 ns)
+	'load' operation 16 bit ('i_val', src/fft_1d.cpp:103) on array 'outI' [24]  (2.771 ns)
 
  <State 2>: 3.981ns
 The critical path consists of the following:
-	'load' operation 16 bit ('i_val', src/fft_1d.cpp:72) on array 'outI' [24]  (2.771 ns)
-	axis write operation ('write_ln92', src/fft_1d.cpp:92) on port 'out_stream_V_data_V' (src/fft_1d.cpp:92) [30]  (0.000 ns)
+	'load' operation 16 bit ('i_val', src/fft_1d.cpp:103) on array 'outI' [24]  (2.771 ns)
+	axis write operation ('write_ln125', src/fft_1d.cpp:125) on port 'out_stream_V_data_V' (src/fft_1d.cpp:125) [29]  (0.000 ns)
 	blocking operation 1.21 ns on control path)
 
  <State 3>: 1.298ns

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'stage_read_input'" level="0">
-<item name = "Date">Tue Apr 21 16:25:42 2026
+<item name = "Date">Tue Apr 28 16:25:24 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">zenith_fft_1d_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">6.67 ns, 4.069 ns, 1.80 ns</column>
+<column name="ap_clk">6.67 ns, 4.078 ns, 1.80 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1025, 1025, 6.837 us, 6.837 us, 1024, 1024, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="">1026, 1026, 6.843 us, 6.843 us, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_23_1">1023, 1023, 1, 1, 1, 1024, yes</column>
+<column name="- VITIS_LOOP_41_1">1024, 1024, 2, 1, 1, 1024, yes</column>
 </table>
 </item>
 </section>

@@ -37,37 +37,133 @@
          <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top//AESL_inst_fft_1d_top_activity.dataflowTxWaveData.Cycles</obj_property>
          <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top//AESL_inst_fft_1d_top_activity.dataflowTxWaveData.OutStanding</obj_property>
          <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top//AESL_inst_fft_1d_top_activity.dataflowTxTooltipData</obj_property>
-         <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/stage_read_input_U0_activity">
-            <obj_property name="label">stage_read_input_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/entry_proc_U0_activity">
+            <obj_property name="label">entry_proc_U0_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">stage_read_input_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">stage_read_input_U0_activity</obj_property>
+            <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/stage_read_input_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/stage_read_input_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/stage_read_input_U0_activity.dataflowTxTooltipData</obj_property>
+            <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/stage_process_fft_U0_activity">
-            <obj_property name="label">stage_process_fft_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/Block_entry_in_bufI_wr_proc_U0_activity">
+            <obj_property name="label">Block_entry_in_bufI_wr_proc_U0_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">stage_process_fft_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">stage_process_fft_U0_activity</obj_property>
+            <obj_property name="ElementShortName">Block_entry_in_bufI_wr_proc_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">Block_entry_in_bufI_wr_proc_U0_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/stage_process_fft_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/stage_process_fft_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/stage_process_fft_U0_activity.dataflowTxTooltipData</obj_property>
+            <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/Block_entry_in_bufI_wr_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/Block_entry_in_bufI_wr_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/Block_entry_in_bufI_wr_proc_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/grp_stage_read_input_fu_50_activity">
+               <obj_property name="label">grp_stage_read_input_fu_50_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_stage_read_input_fu_50_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_stage_read_input_fu_50_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/grp_stage_read_input_fu_50_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/grp_stage_read_input_fu_50_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/grp_stage_read_input_fu_50_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/grp_stage_read_input_1_fu_72_activity">
+               <obj_property name="label">grp_stage_read_input_1_fu_72_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_stage_read_input_1_fu_72_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_stage_read_input_1_fu_72_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/grp_stage_read_input_1_fu_72_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/grp_stage_read_input_1_fu_72_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/grp_stage_read_input_1_fu_72_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/stage_process_fft_real_U0_activity">
+            <obj_property name="label">stage_process_fft_real_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">stage_process_fft_real_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">stage_process_fft_real_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/stage_process_fft_real_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/stage_process_fft_real_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/stage_process_fft_real_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity">
+               <obj_property name="label">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/grp_fft_ZenithFFTConfig_s_fu_101_activity">
+               <obj_property name="label">grp_fft_ZenithFFTConfig_s_fu_101_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_fft_ZenithFFTConfig_s_fu_101_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_fft_ZenithFFTConfig_s_fu_101_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/grp_fft_ZenithFFTConfig_s_fu_101_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/grp_fft_ZenithFFTConfig_s_fu_101_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/grp_fft_ZenithFFTConfig_s_fu_101_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity">
+               <obj_property name="label">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
          </wvobject>
          <wvobject type="group" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_write_output_U0/stage_write_output_U0_activity">
             <obj_property name="label">stage_write_output_U0_activity</obj_property>
@@ -94,13 +190,17 @@
    <wvobject type="group" fp_name="AESL_inst_fft_1d_top_group">
       <obj_property name="label">AESL_inst_fft_1d_top</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/stage_read_input_U0_activity">
-         <obj_property name="ElementShortName">stage_read_input_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">stage_read_input_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/entry_proc_U0_activity">
+         <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
       </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/stage_process_fft_U0_activity">
-         <obj_property name="ElementShortName">stage_process_fft_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">stage_process_fft_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/Block_entry_in_bufI_wr_proc_U0_activity">
+         <obj_property name="ElementShortName">Block_entry_in_bufI_wr_proc_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">Block_entry_in_bufI_wr_proc_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/stage_process_fft_real_U0_activity">
+         <obj_property name="ElementShortName">stage_process_fft_real_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">stage_process_fft_real_U0_activity</obj_property>
       </wvobject>
       <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_write_output_U0/stage_write_output_U0_activity">
          <obj_property name="ElementShortName">stage_write_output_U0_activity</obj_property>
@@ -122,58 +222,144 @@
             <obj_property name="ObjectShortName">ap_done</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="stage_read_input_U0_group">
-         <obj_property name="label">stage_read_input_U0</obj_property>
+      <wvobject type="group" fp_name="entry_proc_U0_group">
+         <obj_property name="label">entry_proc_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="stage_read_input_U0_Input_group">
+         <wvobject type="group" fp_name="entry_proc_U0_Input_group">
             <obj_property name="label">Input Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="stage_read_input_U0_Handshake_group">
+         <wvobject type="group" fp_name="entry_proc_U0_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_continue">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/ap_continue">
                <obj_property name="ElementShortName">ap_continue</obj_property>
                <obj_property name="ObjectShortName">ap_continue</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="stage_read_input_U0_Output_group">
+         <wvobject type="group" fp_name="entry_proc_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="scaling_schedule_c_group">
+               <obj_property name="label">scaling_schedule_c(scaling_schedule_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/scaling_schedule_c_blk_n">
+                  <obj_property name="ElementShortName">scaling_schedule_c_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_c_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/scaling_schedule_c_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/scaling_schedule_c_full_n">
+                  <obj_property name="ElementShortName">scaling_schedule_c_full_n</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_c_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/entry_proc_U0/scaling_schedule_c_write">
+                  <obj_property name="ElementShortName">scaling_schedule_c_write</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_c_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="Block_entry_in_bufI_wr_proc_U0_group">
+         <obj_property name="label">Block_entry_in_bufI_wr_proc_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/grp_stage_read_input_fu_50_activity">
+            <obj_property name="ElementShortName">grp_stage_read_input_fu_50_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_stage_read_input_fu_50_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/grp_stage_read_input_1_fu_72_activity">
+            <obj_property name="ElementShortName">grp_stage_read_input_1_fu_72_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_stage_read_input_1_fu_72_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="Block_entry_in_bufI_wr_proc_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="Block_entry_in_bufI_wr_proc_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="Block_entry_in_bufI_wr_proc_U0_Output_group">
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <wvobject type="group" fp_name="in_bufI_group">
                <obj_property name="label">in_bufI(in_bufI_U, PIPO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/in_bufI_address0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufI_address0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/in_bufI_d0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufI_d0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/in_bufI_ce0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufI_ce0">
                   <obj_property name="ElementShortName">in_bufI_ce0</obj_property>
                   <obj_property name="ObjectShortName">in_bufI_ce0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/in_bufI_we0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufI_we0">
                   <obj_property name="ElementShortName">in_bufI_we0</obj_property>
                   <obj_property name="ObjectShortName">in_bufI_we0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_done">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                   <obj_property name="label">ap_done(i_write)</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_read_input_U0/ap_continue">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_continue">
+                  <obj_property name="ElementShortName">ap_continue</obj_property>
+                  <obj_property name="ObjectShortName">ap_continue</obj_property>
+                  <obj_property name="label">ap_continue(i_full_n)</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="in_bufQ_group">
+               <obj_property name="label">in_bufQ(in_bufQ_U, PIPO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufQ_address0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufQ_d0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufQ_ce0">
+                  <obj_property name="ElementShortName">in_bufQ_ce0</obj_property>
+                  <obj_property name="ObjectShortName">in_bufQ_ce0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/in_bufQ_we0">
+                  <obj_property name="ElementShortName">in_bufQ_we0</obj_property>
+                  <obj_property name="ObjectShortName">in_bufQ_we0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+                  <obj_property name="label">ap_done(i_write)</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/ap_continue">
                   <obj_property name="ElementShortName">ap_continue</obj_property>
                   <obj_property name="ObjectShortName">ap_continue</obj_property>
                   <obj_property name="label">ap_continue(i_full_n)</obj_property>
@@ -181,25 +367,115 @@
                </wvobject>
             </wvobject>
          </wvobject>
+         <wvobject type="group" fp_name="grp_stage_read_input_fu_50_group">
+            <obj_property name="label">grp_stage_read_input_fu_50</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_stage_read_input_fu_50_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_fu_50/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_stage_read_input_1_fu_72_group">
+            <obj_property name="label">grp_stage_read_input_1_fu_72</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_stage_read_input_1_fu_72_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/Block_entry_in_bufI_wr_proc_U0/grp_stage_read_input_1_fu_72/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="stage_process_fft_U0_group">
-         <obj_property name="label">stage_process_fft_U0</obj_property>
+      <wvobject type="group" fp_name="stage_process_fft_real_U0_group">
+         <obj_property name="label">stage_process_fft_real_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="stage_process_fft_U0_Input_group">
+         <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity">
+            <obj_property name="ElementShortName">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/grp_fft_ZenithFFTConfig_s_fu_101_activity">
+            <obj_property name="ElementShortName">grp_fft_ZenithFFTConfig_s_fu_101_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_fft_ZenithFFTConfig_s_fu_101_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity">
+            <obj_property name="ElementShortName">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="stage_process_fft_real_U0_Input_group">
             <obj_property name="label">Input Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="bufI_group">
-               <obj_property name="label">bufI(in_bufI_U, PIPO)</obj_property>
+            <wvobject type="group" fp_name="scaling_schedule_group">
+               <obj_property name="label">scaling_schedule(scaling_schedule_c_U, FIFO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/bufI_address0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/scaling_schedule_blk_n">
+                  <obj_property name="ElementShortName">scaling_schedule_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_blk_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/bufI_q0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/scaling_schedule_dout">
+                  <obj_property name="ElementShortName">scaling_schedule_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_dout[31:0]</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/bufI_ce0">
-                  <obj_property name="ElementShortName">bufI_ce0</obj_property>
-                  <obj_property name="ObjectShortName">bufI_ce0</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/scaling_schedule_empty_n">
+                  <obj_property name="ElementShortName">scaling_schedule_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_empty_n</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/scaling_schedule_read">
+                  <obj_property name="ElementShortName">scaling_schedule_read</obj_property>
+                  <obj_property name="ObjectShortName">scaling_schedule_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="in_bufI_group">
+               <obj_property name="label">in_bufI(in_bufI_U, PIPO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufI_address0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufI_q0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufI_ce0">
+                  <obj_property name="ElementShortName">in_bufI_ce0</obj_property>
+                  <obj_property name="ObjectShortName">in_bufI_ce0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+                  <obj_property name="label">ap_ready(t_read)</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="in_bufQ_group">
+               <obj_property name="label">in_bufQ(in_bufQ_U, PIPO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufQ_address0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufQ_q0">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/in_bufQ_ce0">
+                  <obj_property name="ElementShortName">in_bufQ_ce0</obj_property>
+                  <obj_property name="ObjectShortName">in_bufQ_ce0</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                   <obj_property name="label">ap_ready(t_read)</obj_property>
@@ -207,83 +483,143 @@
                </wvobject>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="stage_process_fft_U0_Handshake_group">
+         <wvobject type="group" fp_name="stage_process_fft_real_U0_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_continue">
+            <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_continue">
                <obj_property name="ElementShortName">ap_continue</obj_property>
                <obj_property name="ObjectShortName">ap_continue</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="stage_process_fft_U0_Output_group">
+         <wvobject type="group" fp_name="stage_process_fft_real_U0_Output_group">
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="outI_group">
-               <obj_property name="label">outI(out_bufI_U, PIPO)</obj_property>
+            <wvobject type="group" fp_name="out_bufI_group">
+               <obj_property name="label">out_bufI(out_bufI_U, PIPO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outI_address0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufI_address0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outI_d0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufI_d0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outI_ce0">
-                  <obj_property name="ElementShortName">outI_ce0</obj_property>
-                  <obj_property name="ObjectShortName">outI_ce0</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufI_ce0">
+                  <obj_property name="ElementShortName">out_bufI_ce0</obj_property>
+                  <obj_property name="ObjectShortName">out_bufI_ce0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outI_we0">
-                  <obj_property name="ElementShortName">outI_we0</obj_property>
-                  <obj_property name="ObjectShortName">outI_we0</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufI_we0">
+                  <obj_property name="ElementShortName">out_bufI_we0</obj_property>
+                  <obj_property name="ObjectShortName">out_bufI_we0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_done">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                   <obj_property name="label">ap_done(i_write)</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_continue">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_continue">
                   <obj_property name="ElementShortName">ap_continue</obj_property>
                   <obj_property name="ObjectShortName">ap_continue</obj_property>
                   <obj_property name="label">ap_continue(i_full_n)</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="outQ_group">
-               <obj_property name="label">outQ(out_bufQ_U, PIPO)</obj_property>
+            <wvobject type="group" fp_name="out_bufQ_group">
+               <obj_property name="label">out_bufQ(out_bufQ_U, PIPO)</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outQ_address0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufQ_address0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outQ_d0">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufQ_d0">
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outQ_ce0">
-                  <obj_property name="ElementShortName">outQ_ce0</obj_property>
-                  <obj_property name="ObjectShortName">outQ_ce0</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufQ_ce0">
+                  <obj_property name="ElementShortName">out_bufQ_ce0</obj_property>
+                  <obj_property name="ObjectShortName">out_bufQ_ce0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/outQ_we0">
-                  <obj_property name="ElementShortName">outQ_we0</obj_property>
-                  <obj_property name="ObjectShortName">outQ_we0</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/out_bufQ_we0">
+                  <obj_property name="ElementShortName">out_bufQ_we0</obj_property>
+                  <obj_property name="ObjectShortName">out_bufQ_we0</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_done">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                   <obj_property name="label">ap_done(i_write)</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_U0/ap_continue">
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/ap_continue">
                   <obj_property name="ElementShortName">ap_continue</obj_property>
                   <obj_property name="ObjectShortName">ap_continue</obj_property>
                   <obj_property name="label">ap_continue(i_full_n)</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_group">
+            <obj_property name="label">grp_stage_process_fft_real_Pipeline_feed_loop_fu_92</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_feed_loop_fu_92/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_fft_ZenithFFTConfig_s_fu_101_group">
+            <obj_property name="label">grp_fft_ZenithFFTConfig_s_fu_101</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_fft_ZenithFFTConfig_s_fu_101_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_fft_ZenithFFTConfig_s_fu_101/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_group">
+            <obj_property name="label">grp_stage_process_fft_real_Pipeline_drain_loop_fu_108</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_fft_1d_top_top/AESL_inst_fft_1d_top/stage_process_fft_real_U0/grp_stage_process_fft_real_Pipeline_drain_loop_fu_108/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>
             </wvobject>
          </wvobject>

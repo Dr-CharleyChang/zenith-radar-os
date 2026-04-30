@@ -15,56 +15,56 @@
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>loop auto-rewind stp (delay=0 cycles)</PipelineType>
+<PipelineType>loop pipeline stp</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>4.069</EstimatedClockPeriod>
+<EstimatedClockPeriod>4.078</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>1025</Best-caseLatency>
-<Average-caseLatency>1025</Average-caseLatency>
-<Worst-caseLatency>1025</Worst-caseLatency>
-<Best-caseRealTimeLatency>6.837 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>6.837 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>6.837 us</Worst-caseRealTimeLatency>
-<Interval-min>1024</Interval-min>
-<Interval-max>1024</Interval-max>
+<Best-caseLatency>1026</Best-caseLatency>
+<Average-caseLatency>1026</Average-caseLatency>
+<Worst-caseLatency>1026</Worst-caseLatency>
+<Best-caseRealTimeLatency>6.843 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>6.843 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>6.843 us</Worst-caseRealTimeLatency>
+<Interval-min>1025</Interval-min>
+<Interval-max>1025</Interval-max>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_23_1>
+<VITIS_LOOP_41_1>
 <Slack>4.87</Slack>
 <TripCount>1024</TripCount>
 <isPerfectNested>0</isPerfectNested>
-<Latency>1023</Latency>
-<AbsoluteTimeLatency>6823</AbsoluteTimeLatency>
+<Latency>1024</Latency>
+<AbsoluteTimeLatency>6830</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>1</PipelineDepth>
+<PipelineDepth>2</PipelineDepth>
 <PerformancePragma>-</PerformancePragma>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_23_1>
+</VITIS_LOOP_41_1>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/fft_1d.cpp:23~src/fft_1d.cpp:136</SourceLocation>
+<SourceLocation>src/fft_1d.cpp:41</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_23_1>
-<Name>VITIS_LOOP_23_1</Name>
+<VITIS_LOOP_41_1>
+<Name>VITIS_LOOP_41_1</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>src/fft_1d.cpp:23~src/fft_1d.cpp:136</SourceLocation>
-</VITIS_LOOP_23_1>
+<SourceLocation>src/fft_1d.cpp:41</SourceLocation>
+</VITIS_LOOP_41_1>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>12</FF>
-<LUT>57</LUT>
+<FF>25</FF>
+<LUT>71</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -124,17 +124,6 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ap_continue</name>
-<Object>stage_read_input</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>ap_idle</name>
 <Object>stage_read_input</Object>
 <Type>return value</Type>
@@ -158,14 +147,25 @@
 </RtlPorts>
 <RtlPorts>
 <name>in_stream_TVALID</name>
-<Object>in_stream_V_dest_V</Object>
+<Object>in_stream_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>in_stream_TDATA</name>
+<Object>in_stream_V_data_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>32</Bits>
+<Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>in_stream_TREADY</name>
@@ -173,7 +173,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -184,20 +184,9 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>in_stream_TDATA</name>
-<Object>in_stream_V_data_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>32</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -206,7 +195,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>4</Bits>
 <Attribute>data</Attribute>
@@ -217,7 +206,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>4</Bits>
 <Attribute>data</Attribute>
@@ -228,7 +217,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -239,7 +228,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -250,14 +239,14 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>in_bufI_address1</name>
-<Object>in_bufI</Object>
+<name>bufI_address1</name>
+<Object>bufI</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
@@ -267,8 +256,8 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>in_bufI_ce1</name>
-<Object>in_bufI</Object>
+<name>bufI_ce1</name>
+<Object>bufI</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
@@ -278,8 +267,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>in_bufI_we1</name>
-<Object>in_bufI</Object>
+<name>bufI_we1</name>
+<Object>bufI</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
@@ -289,8 +278,52 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>in_bufI_d1</name>
-<Object>in_bufI</Object>
+<name>bufI_d1</name>
+<Object>bufI</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>16</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>bufQ_address1</name>
+<Object>bufQ</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>10</Bits>
+<Attribute>address</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>bufQ_ce1</name>
+<Object>bufQ</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>bufQ_we1</name>
+<Object>bufQ</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>bufQ_d1</name>
+<Object>bufQ</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>

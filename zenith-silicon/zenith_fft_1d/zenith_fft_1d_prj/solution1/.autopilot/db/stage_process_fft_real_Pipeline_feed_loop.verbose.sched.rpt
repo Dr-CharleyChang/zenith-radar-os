@@ -1,0 +1,157 @@
+
+
+================================================================
+== Vitis HLS Report for 'stage_process_fft_real_Pipeline_feed_loop'
+================================================================
+* Date:           Tue Apr 28 16:25:25 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.078 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |     1027|     1027|  6.850 us|  6.850 us|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- feed_loop  |     1025|     1025|         3|          1|          1|  1024|       yes|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.07>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %in_bufI, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 7 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %in_bufQ, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 8 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fft_in_stream, void @empty_0, i32 0, i32 0, void @empty_9, i32 0, i32 0, void @empty_9, void @empty_9, void @empty_9, i32 0, i32 0, i32 0, i32 0, void @empty_9, void @empty_9, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.29ns)   --->   "%store_ln131 = store i11 0, i11 %i" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 10 'store' 'store_ln131' <Predicate = true> <Delay = 1.29>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i"   --->   Operation 11 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i_6 = load i11 %i" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 12 'load' 'i_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.48ns)   --->   "%icmp_ln131 = icmp_eq  i11 %i_6, i11 1024" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 13 'icmp' 'icmp_ln131' <Predicate = true> <Delay = 1.48> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (1.48ns)   --->   "%add_ln131 = add i11 %i_6, i11 1" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 14 'add' 'add_ln131' <Predicate = true> <Delay = 1.48> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%br_ln131 = br i1 %icmp_ln131, void %for.inc.split.i, void %for.end.i.exitStub" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 15 'br' 'br_ln131' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln131 = zext i11 %i_6" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 16 'zext' 'zext_ln131' <Predicate = (!icmp_ln131)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%in_bufI_addr = getelementptr i16 %in_bufI, i64 0, i64 %zext_ln131" [src/fft_1d_hls.cpp:135->src/fft_1d.cpp:175]   --->   Operation 17 'getelementptr' 'in_bufI_addr' <Predicate = (!icmp_ln131)> <Delay = 0.00>
+ST_1 : Operation 18 [2/2] (2.77ns)   --->   "%real_val = load i10 %in_bufI_addr" [src/fft_1d_hls.cpp:135->src/fft_1d.cpp:175]   --->   Operation 18 'load' 'real_val' <Predicate = (!icmp_ln131)> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%in_bufQ_addr = getelementptr i16 %in_bufQ, i64 0, i64 %zext_ln131" [src/fft_1d_hls.cpp:136->src/fft_1d.cpp:175]   --->   Operation 19 'getelementptr' 'in_bufQ_addr' <Predicate = (!icmp_ln131)> <Delay = 0.00>
+ST_1 : Operation 20 [2/2] (2.77ns)   --->   "%imag_val = load i10 %in_bufQ_addr" [src/fft_1d_hls.cpp:136->src/fft_1d.cpp:175]   --->   Operation 20 'load' 'imag_val' <Predicate = (!icmp_ln131)> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_1 : Operation 21 [1/1] (1.29ns)   --->   "%store_ln131 = store i11 %add_ln131, i11 %i" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 21 'store' 'store_ln131' <Predicate = (!icmp_ln131)> <Delay = 1.29>
+
+State 2 <SV = 1> <Delay = 2.77>
+ST_2 : Operation 22 [1/2] ( I:2.77ns O:2.77ns )   --->   "%real_val = load i10 %in_bufI_addr" [src/fft_1d_hls.cpp:135->src/fft_1d.cpp:175]   --->   Operation 22 'load' 'real_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 23 [1/2] ( I:2.77ns O:2.77ns )   --->   "%imag_val = load i10 %in_bufQ_addr" [src/fft_1d_hls.cpp:136->src/fft_1d.cpp:175]   --->   Operation 23 'load' 'imag_val' <Predicate = true> <Delay = 2.77> <CoreInst = "RAM_2P_BRAM">   --->   Core 90 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 1024> <RAM>
+ST_2 : Operation 30 [1/1] (1.29ns)   --->   "%ret_ln0 = ret"   --->   Operation 30 'ret' 'ret_ln0' <Predicate = (icmp_ln131)> <Delay = 1.29>
+
+State 3 <SV = 2> <Delay = 2.43>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln132 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, i32 4294967295, void @empty_9" [src/fft_1d_hls.cpp:132->src/fft_1d.cpp:175]   --->   Operation 24 'specpipeline' 'specpipeline_ln132' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%speclooptripcount_ln131 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1024, i64 1024, i64 1024" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 25 'speclooptripcount' 'speclooptripcount_ln131' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln131 = specloopname void @_ssdm_op_SpecLoopName, void @empty_11" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 26 'specloopname' 'specloopname_ln131' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%p_0 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %imag_val, i16 %real_val" [src/fft_1d_hls.cpp:138->src/fft_1d.cpp:175]   --->   Operation 27 'bitconcatenate' 'p_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] ( I:2.43ns O:2.43ns )   --->   "%write_ln138 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fft_in_stream, i32 %p_0" [src/fft_1d_hls.cpp:138->src/fft_1d.cpp:175]   --->   Operation 28 'write' 'write_ln138' <Predicate = true> <Delay = 2.43> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 3.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1024> <FIFO>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%br_ln131 = br void %for.inc.i" [src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175]   --->   Operation 29 'br' 'br_ln131' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.670ns, clock uncertainty: 1.801ns.
+
+ <State 1>: 4.078ns
+The critical path consists of the following:
+	'store' operation ('store_ln131', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175) of constant 0 11 bit on local variable 'i', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175 [8]  (1.298 ns)
+	'load' operation 11 bit ('i', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175) on local variable 'i', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175 [11]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln131', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175) [12]  (1.482 ns)
+	'store' operation ('store_ln131', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175) of variable 'add_ln131', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175 11 bit on local variable 'i', src/fft_1d_hls.cpp:131->src/fft_1d.cpp:175 [26]  (1.298 ns)
+
+ <State 2>: 2.771ns
+The critical path consists of the following:
+	'load' operation 16 bit ('real_val', src/fft_1d_hls.cpp:135->src/fft_1d.cpp:175) on array 'in_bufI' [21]  (2.771 ns)
+
+ <State 3>: 2.435ns
+The critical path consists of the following:
+	fifo write operation ('write_ln138', src/fft_1d_hls.cpp:138->src/fft_1d.cpp:175) on port 'fft_in_stream' (src/fft_1d_hls.cpp:138->src/fft_1d.cpp:175) [25]  (2.435 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

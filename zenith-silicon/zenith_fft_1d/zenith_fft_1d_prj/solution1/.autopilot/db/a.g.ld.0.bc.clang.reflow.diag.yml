@@ -1,3 +1,26 @@
+--- !Passed
+Pass:            reflow-check-pragma-conflict
+Name:            FunctionPragmaConflictWarn
+DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h', 
+                   Line: 530, Column: 0 }
+Function:        _ZN8ssdm_intILi16ELb0EEC2Et
+Args:            
+  - String:          'In function '''
+  - Function:        'ssdm_int<16, false>::ssdm_int(unsigned short)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h', 
+                       Line: 530, Column: 0 }
+  - String:          ''', '
+  - String:          'INLINE ('
+  - PragmaLoc:       'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h:530:39'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h', 
+                       Line: 530, Column: 39 }
+  - String:          ') '
+  - String:          'of a non dataflow function into a region with DATAFLOW ('
+  - PragmaLoc:       'src/fft_1d.cpp:171:1'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 171, Column: 1 }
+  - String:          ') '
+  - String:          may break the canonical form
+...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
@@ -13,7 +36,7 @@ Args:
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 29, Column: 31 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 48, Column: 31 }
 Function:        _ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_
 Args:            
   - Callee:          'hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>::axis()'
@@ -21,41 +44,136 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Passed
 Pass:            inline
 Name:            AlwaysInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 33, Column: 15 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 53, Column: 15 }
 Function:        _ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_
 Args:            
   - String:          'Inlining function '''
   - Callee:          'extract_i(ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.hpp, Line: 55, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.hpp, Line: 67, Column: 0 }
   - String:          ''' into '''
   - Caller:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            inline
 Name:            AlwaysInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 34, Column: 15 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 54, Column: 15 }
 Function:        _ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_
 Args:            
   - String:          'Inlining function '''
   - Callee:          'extract_q(ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.hpp, Line: 63, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.hpp, Line: 76, Column: 0 }
   - String:          ''' into '''
   - Caller:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                   Line: 1106, Column: 31 }
+Function:        _ZN3hls7fft_synI15ZenithFFTConfigEEvRNS_6streamISt7complexI8ap_fixedIXmldvplsrT_11input_widthLi7ELi8ELi8EELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEELi0EEERNS2_IS3_IS4_IXmldvplsrS5_12output_widthLi7ELi8ELi8EEXplmimldvplsrS5_12output_widthLi7ELi8ELi8EsrS5_11input_widthLi1EELS6_5ELS7_3ELi0EEELi0EEERNS2_INS_6ip_fft8status_tIS5_EELi0EEERNS2_INSG_8config_tIS5_EELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hls::ip_fft::config_t<ZenithFFTConfig>::getDir(unsigned int)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 319, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void hls::fft_syn<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1061, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                   Line: 1096, Column: 36 }
+Function:        _ZN3hls7fft_synI15ZenithFFTConfigEEvRNS_6streamISt7complexI8ap_fixedIXmldvplsrT_11input_widthLi7ELi8ELi8EELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEELi0EEERNS2_IS3_IS4_IXmldvplsrS5_12output_widthLi7ELi8ELi8EEXplmimldvplsrS5_12output_widthLi7ELi8ELi8EsrS5_11input_widthLi1EELS6_5ELS7_3ELi0EEELi0EEERNS2_INS_6ip_fft8status_tIS5_EELi0EEERNS2_INSG_8config_tIS5_EELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hls::ip_fft::config_t<ZenithFFTConfig>::getSch(unsigned int)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 353, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void hls::fft_syn<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1061, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                   Line: 1405, Column: 2 }
+Function:        _ZN3hls3fftI15ZenithFFTConfigEEvRNS_6streamISt7complexI8ap_fixedIXmldvplsrT_11input_widthLi7ELi8ELi8EELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEELi0EEERNS2_IS3_IS4_IXmldvplsrS5_12output_widthLi7ELi8ELi8EEXplmimldvplsrS5_12output_widthLi7ELi8ELi8EsrS5_11input_widthLi1EELS6_5ELS7_3ELi0EEELi0EEERNS2_INS_6ip_fft8status_tIS5_EELi0EEERNS2_INSG_8config_tIS5_EELi0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void hls::fft_syn<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1061, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void hls::fft<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1401, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 116, Column: 14 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hls::ip_fft::config_t<ZenithFFTConfig>::setDir(bool, unsigned int)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 310, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 118, Column: 14 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hls::ip_fft::config_t<ZenithFFTConfig>::setSch(unsigned int, unsigned int)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 338, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
   - String:          ''''
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 71, Column: 15 }
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 143, Column: 3 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - Callee:          'void hls::fft<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1401, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d.cpp, Line: 102, Column: 15 }
 Function:        _ZL18stage_write_outputP6ap_intILi16EES1_RN3hls6streamINS2_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEE
 Args:            
   - Callee:          'hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>::axis()'
@@ -63,66 +181,66 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Passed
 Pass:            inline
 Name:            AlwaysInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 72, Column: 16 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 103, Column: 16 }
 Function:        _ZL18stage_write_outputP6ap_intILi16EES1_RN3hls6streamINS2_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEE
 Args:            
   - String:          'Inlining function '''
   - Callee:          'pack_iq(ap_int<16>, ap_int<16>)'
-    DebugLoc:        { File: src/fft_1d.hpp, Line: 69, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.hpp, Line: 82, Column: 0 }
   - String:          ''' into '''
   - Caller:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ''''
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 136, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 172, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
   - Callee:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 137, Column: 3 }
-Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
-Args:            
-  - Callee:          'stage_process_fft(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 47, Column: 0 }
-  - String:          ' not inlined into '
-  - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
-  - String:          ' because it should never be inlined (cost=never)'
-...
---- !Missed
-Pass:            inline
-Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 138, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 176, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
   - Callee:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 29, Column: 31 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 175, Column: 3 }
+Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
+Args:            
+  - Callee:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d.cpp, Line: 48, Column: 31 }
 Function:        _ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_
 Args:            
   - Callee:          'hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>::axis()'
@@ -130,13 +248,27 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 71, Column: 15 }
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 143, Column: 3 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - Callee:          'void hls::fft<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                       Line: 1401, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d.cpp, Line: 102, Column: 15 }
 Function:        _ZL18stage_write_outputP6ap_intILi16EES1_RN3hls6streamINS2_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEE
 Args:            
   - Callee:          'hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>::axis()'
@@ -144,46 +276,46 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 136, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 172, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
   - Callee:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 137, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 175, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
-  - Callee:          'stage_process_fft(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 47, Column: 0 }
+  - Callee:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 42, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 138, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 176, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
   - Callee:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
@@ -192,7 +324,7 @@ Name:            NeverInline
 Function:        apatb_fft_1d_top_ir
 Args:            
   - Callee:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          apatb_fft_1d_top_ir
   - String:          ' because it should never be inlined (cost=never)'
@@ -200,7 +332,7 @@ Args:
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
 Function:        _ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_
 Args:            
   - String:          'Inlining function '''
@@ -209,13 +341,13 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ''' into '''
   - Caller:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 22, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
 Function:        _ZL18stage_write_outputP6ap_intILi16EES1_RN3hls6streamINS2_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEE
 Args:            
   - String:          'Inlining function '''
@@ -224,45 +356,153 @@ Args:
                        Line: 217, Column: 0 }
   - String:          ''' into '''
   - Caller:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 51, Column: 46 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            fft_in_stream
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 52, Column: 46 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            fft_out_stream
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !HLSUnsupported
+Pass:            reflow-supported-subset
+Name:            UnsupportedDanglingStream
+Function:        _ZN3hls3fftI15ZenithFFTConfigEEvRNS_6streamISt7complexI8ap_fixedIXmldvplsrT_11input_widthLi7ELi8ELi8EELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEELi0EEERNS2_IS3_IS4_IXmldvplsrS5_12output_widthLi7ELi8ELi8EEXplmimldvplsrS5_12output_widthLi7ELi8ELi8EsrS5_11input_widthLi1EELS6_5ELS7_3ELi0EEELi0EEERNS2_INS_6ip_fft8status_tIS5_EELi0EEERNS2_INSG_8config_tIS5_EELi0EEE
+Args:            
+  - String:          'in function '''
+  - Function:        'void hls::fft<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 0, Column: 0 }
+  - String:          ''': '
+  - String:          Write internal stream is left dangling
+...
+--- !Failure
+Pass:            reflow-dataflow-canon
+Name:            DataflowAggrMerge
+DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
+Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
+Args:            
+  - String:          'Merging processes '
+  - String:          '''stage_read_input'' and ''stage_read_input'''
+  - String:          ' in function '''
+  - FName:           fft_1d_top
+  - String:          ''' '
+  - String:          'due to writes on ''in_bufI'''
+...
+--- !Failure
+Pass:            reflow-lower-intrinsics
+Name:            HiddenIP
+DebugLoc:        { File: 'C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\hls_fft.h', 
+                   Line: 1064, Column: 2 }
+Function:        _ZN3hls3fftI15ZenithFFTConfigEEvRNS_6streamISt7complexI8ap_fixedIXmldvplsrT_11input_widthLi7ELi8ELi8EELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEELi0EEERNS2_IS3_IS4_IXmldvplsrS5_12output_widthLi7ELi8ELi8EEXplmimldvplsrS5_12output_widthLi7ELi8ELi8EsrS5_11input_widthLi1EELS6_5ELS7_3ELi0EEELi0EEERNS2_INS_6ip_fft8status_tIS5_EELi0EEERNS2_INSG_8config_tIS5_EELi0EEE.1
+Args:            
+  - String:          'Impl='
+  - String:          vivado_fft
+  - String:          ' in '
+  - BuiltinName:     __fpga_ip
+  - String:          ' is deprecated. Consider using a different IP implementation.'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 128, Column: 1 }
-Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
+DebugLoc:        { File: src/fft_1d.cpp, Line: 172, Column: 3 }
+Function:        Block_entry_in_bufI_wr_proc
+Args:            
+  - Callee:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*) (.54.1)'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          Block_entry_in_bufI_wr_proc
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d.cpp, Line: 173, Column: 3 }
+Function:        Block_entry_in_bufI_wr_proc
 Args:            
   - Callee:          'stage_read_input(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_int<16>*, ap_int<16>*)'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 40, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          Block_entry_in_bufI_wr_proc
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 123, Column: 55 }
+Function:        _Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE
+Args:            
+  - Callee:          'void hls::fft<ZenithFFTConfig>(hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::input_width) + (7)) / (8)) * (8), 1, (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<std::complex<ap_fixed<(((ZenithFFTConfig::output_width) + (7)) / (8)) * (8), (((((ZenithFFTConfig::output_width) + (7)) / (8)) * (8)) - (ZenithFFTConfig::input_width)) + (1), (ap_q_mode)5, (ap_o_mode)3, 0> >, 0>&, hls::stream<hls::ip_fft::status_t<ZenithFFTConfig>, 0>&, hls::stream<hls::ip_fft::config_t<ZenithFFTConfig>, 0>&) (.1)'
+    DebugLoc:        { File: src/fft_1d_hls.cpp, Line: 0, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 0, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/fft_1d.cpp, Line: 172, Column: 3 }
+Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
+Args:            
+  - Callee:          Block_entry_in_bufI_wr_proc
     DebugLoc:        { File: src/fft_1d.cpp, Line: 0, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 137, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 175, Column: 64 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
-  - Callee:          'stage_process_fft(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 47, Column: 0 }
+  - Callee:          'stage_process_fft_real(ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_int<16>*, ap_uint<16>)'
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 0, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: src/fft_1d.cpp, Line: 138, Column: 3 }
+DebugLoc:        { File: src/fft_1d.cpp, Line: 176, Column: 3 }
 Function:        _Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3_
 Args:            
   - Callee:          'stage_write_output(ap_int<16>*, ap_int<16>*, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 68, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'fft_1d_top(hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, hls::stream<hls::axis<ap_uint<32>, 1ul, 1ul, 1ul, (unsigned char)56, false>, 0>&, ap_uint<32>)'
-    DebugLoc:        { File: src/fft_1d.cpp, Line: 99, Column: 0 }
+    DebugLoc:        { File: src/fft_1d.cpp, Line: 132, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
 ...

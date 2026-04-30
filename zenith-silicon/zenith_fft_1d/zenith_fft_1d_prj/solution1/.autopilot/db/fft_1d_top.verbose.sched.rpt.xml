@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'fft_1d_top'" level="0">
-<item name = "Date">Tue Apr 21 16:25:44 2026
+<item name = "Date">Tue Apr 28 16:25:27 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">zenith_fft_1d_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">6.67 ns, 4.069 ns, 1.80 ns</column>
+<column name="ap_clk">6.67 ns, 4.869 ns, 1.80 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3081, 3081, 20.550 us, 20.550 us, 1024, 1024, dataflow</column>
+<column name="">8339, 8339, 55.621 us, 55.621 us, 5255, 5255, dataflow</column>
 </table>
 </item>
 <item name = "Detail">

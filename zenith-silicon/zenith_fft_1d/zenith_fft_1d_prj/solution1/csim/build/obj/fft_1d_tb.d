@@ -19,4 +19,7 @@ obj/fft_1d_tb.o: ..\..\..\..\tb\fft_1d_tb.cpp fft_1d.hpp \
   C:\AMDDesignTools\2025.2\Vitis\include\etc\ap_fixed_ref.h \
   C:\AMDDesignTools\2025.2\Vitis\include\etc\ap_fixed_special.h \
   C:\AMDDesignTools\2025.2\Vitis\include\hls_stream.h \
-  C:\AMDDesignTools\2025.2\Vitis\include\etc\hls_stream_common.h
+  C:\AMDDesignTools\2025.2\Vitis\include\etc\hls_stream_common.h \
+  C:\AMDDesignTools\2025.2\Vitis\include\hls_fft.h \
+  C:\AMDDesignTools\2025.2\Vitis\include\hls_vector.h \
+  C:\AMDDesignTools\2025.2\Vitis\include\fft\xfft_v9_1_bitacc_cmodel.h

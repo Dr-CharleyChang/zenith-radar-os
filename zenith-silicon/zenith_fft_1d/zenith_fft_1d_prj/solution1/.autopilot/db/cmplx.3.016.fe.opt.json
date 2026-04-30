@@ -1,23 +1,71 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "2 3 1",
+    "calls": "3 6 4",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "fft_1d.cpp",
-    "fileloc": 97,
-    "instructions": 35,
+    "fileloc": 130,
+    "instructions": 37,
     "memory_accesses": 0,
     "name": "fft_1d_top",
-    "total_instructions": 107
+    "total_instructions": 222
   },
   "1": {
     "basicblocks": 4,
     "calls": "",
     "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft_1d.cpp",
+    "fileloc": 38,
+    "instructions": 25,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 4,
+    "name": "stage_read_input",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 25
+  },
+  "2": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 1,
+    "def_use_depth": 2,
+    "file": "fft_1d.cpp",
+    "fileloc": 38,
+    "instructions": 25,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 4,
+    "name": "stage_read_input",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 25
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "1 2",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "fft_1d.cpp",
+    "fileloc": 0,
+    "instructions": 4,
+    "memory_accesses": 0,
+    "name": "_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__",
+    "total_instructions": 54
+  },
+  "4": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 1,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 66,
+    "fileloc": 97,
     "instructions": 32,
     "loads": {
       "L": 2
@@ -29,40 +77,40 @@
     },
     "total_instructions": 32
   },
-  "2": {
-    "basicblocks": 4,
+  "5": {
+    "basicblocks": 6,
     "calls": "",
     "control_depth": 1,
-    "def_use_depth": 2,
-    "file": "fft_1d.cpp",
+    "def_use_depth": 5,
+    "file": "fft_1d_hls.cpp",
     "fileloc": 0,
-    "instructions": 24,
+    "instructions": 33,
     "loads": {
-      "L": 1
+      "L": 2
     },
-    "memory_accesses": 3,
-    "name": "_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 24
-  },
-  "3": {
-    "basicblocks": 4,
-    "calls": "",
-    "control_depth": 1,
-    "def_use_depth": 2,
-    "file": "fft_1d.cpp",
-    "fileloc": 43,
-    "instructions": 16,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 3,
-    "name": "stage_process_fft",
+    "memory_accesses": 4,
+    "name": "_Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE_",
     "stores": {
       "L": 2
     },
-    "total_instructions": 16
+    "total_instructions": 33
+  },
+  "6": {
+    "basicblocks": 7,
+    "calls": "5",
+    "control_depth": 1,
+    "def_use_depth": 7,
+    "file": "fft_1d.cpp",
+    "fileloc": 0,
+    "instructions": 66,
+    "loads": {
+      "L": 3
+    },
+    "memory_accesses": 8,
+    "name": "_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__entry.aft",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 99
   }
 }

@@ -1,23 +1,41 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "1 3 2",
+    "calls": "2 3 1 5",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "fft_1d.cpp",
-    "fileloc": 97,
-    "instructions": 16,
+    "fileloc": 130,
+    "instructions": 19,
     "memory_accesses": 0,
     "name": "fft_1d_top",
-    "total_instructions": 153
+    "total_instructions": 271
   },
   "1": {
+    "basicblocks": 5,
+    "calls": "4",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "fft_1d_hls.cpp",
+    "fileloc": 38,
+    "instructions": 45,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 6,
+    "name": "stage_process_fft_real",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 65
+  },
+  "2": {
     "basicblocks": 3,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 20,
+    "fileloc": 38,
     "instructions": 62,
     "loads": {
       "L": 1
@@ -29,13 +47,43 @@
     },
     "total_instructions": 62
   },
-  "2": {
+  "3": {
     "basicblocks": 3,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 66,
+    "fileloc": 38,
+    "instructions": 62,
+    "loads": {
+      "L": 1
+    },
+    "memory_accesses": 10,
+    "name": "stage_read_input",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 62
+  },
+  "4": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "hls_fft.h",
+    "fileloc": 1396,
+    "instructions": 20,
+    "memory_accesses": 2,
+    "name": "fft<ZenithFFTConfig>",
+    "total_instructions": 20
+  },
+  "5": {
+    "basicblocks": 3,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "fft_1d.cpp",
+    "fileloc": 97,
     "instructions": 63,
     "loads": {
       "L": 2
@@ -46,23 +94,5 @@
       "L": 7
     },
     "total_instructions": 63
-  },
-  "3": {
-    "basicblocks": 3,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "fft_1d.cpp",
-    "fileloc": 43,
-    "instructions": 12,
-    "loads": {
-      "L": 1
-    },
-    "memory_accesses": 3,
-    "name": "stage_process_fft",
-    "stores": {
-      "L": 2
-    },
-    "total_instructions": 12
   }
 }

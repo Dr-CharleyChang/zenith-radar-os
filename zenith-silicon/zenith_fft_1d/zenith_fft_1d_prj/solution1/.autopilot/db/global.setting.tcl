@@ -10,7 +10,7 @@ set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
-set FftOrFirFlag 0
+set FftOrFirFlag 1
 set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
@@ -40,8 +40,8 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7z020:-clg400:-2
-set SourceFiles {sc {} c ../../src/fft_1d.cpp}
-set SourceFlags {sc {} c {{}}}
+set SourceFiles {sc {} c {../../src/fft_1d_hls.cpp ../../src/fft_1d.cpp}}
+set SourceFlags {sc {} c {{} {}}}
 set DirectiveFile {}
 set TBFiles {verilog ../../tb/fft_1d_tb.cpp bc ../../tb/fft_1d_tb.cpp vhdl ../../tb/fft_1d_tb.cpp sc ../../tb/fft_1d_tb.cpp cas ../../tb/fft_1d_tb.cpp c {}}
 set SpecLanguage C

@@ -1,15 +1,15 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "1 3 2",
+    "calls": "1 5 2 3",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "fft_1d.cpp",
-    "fileloc": 97,
-    "instructions": 28,
+    "fileloc": 130,
+    "instructions": 33,
     "memory_accesses": 0,
     "name": "fft_1d_top",
-    "total_instructions": 154
+    "total_instructions": 276
   },
   "1": {
     "basicblocks": 3,
@@ -17,25 +17,43 @@
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 0,
-    "instructions": 45,
+    "fileloc": 38,
+    "instructions": 43,
     "loads": {
       "L": 1
     },
     "memory_accesses": 4,
-    "name": "_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__",
+    "name": "stage_read_input",
     "stores": {
       "L": 2
     },
-    "total_instructions": 46
+    "total_instructions": 44
   },
   "2": {
+    "basicblocks": 5,
+    "calls": "4",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "fft_1d_hls.cpp",
+    "fileloc": 38,
+    "instructions": 43,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 6,
+    "name": "stage_process_fft_real",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 87
+  },
+  "3": {
     "basicblocks": 3,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 5,
     "file": "fft_1d.cpp",
-    "fileloc": 66,
+    "fileloc": 97,
     "instructions": 55,
     "loads": {
       "L": 2
@@ -47,22 +65,34 @@
     },
     "total_instructions": 68
   },
-  "3": {
+  "4": {
+    "basicblocks": 4,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 4,
+    "file": "fft_1d_hls.cpp",
+    "fileloc": 0,
+    "instructions": 19,
+    "memory_accesses": 2,
+    "name": "_Z22stage_process_fft_realP6ap_intILi16EES1_S1_S1_7ap_uintILi16EE_",
+    "total_instructions": 19
+  },
+  "5": {
     "basicblocks": 3,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 43,
-    "instructions": 12,
+    "fileloc": 38,
+    "instructions": 43,
     "loads": {
       "L": 1
     },
-    "memory_accesses": 3,
-    "name": "stage_process_fft",
+    "memory_accesses": 4,
+    "name": "stage_read_input",
     "stores": {
       "L": 2
     },
-    "total_instructions": 12
+    "total_instructions": 44
   }
 }

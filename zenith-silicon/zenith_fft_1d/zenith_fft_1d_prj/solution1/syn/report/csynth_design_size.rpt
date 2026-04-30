@@ -6,44 +6,53 @@
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
 | Phase         | Step                       | Instructions | Description                                                                            |
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
-| Compile/Link  |                            | 989          | After all functions are compiled and linked into a single design                       |
+| Compile/Link  |                            | 2,083        | After all functions are compiled and linked into a single design                       |
 |               |                            |              |                                                                                        |
 | Unroll/Inline |                            |              | After user unroll and inline pragmas are applied                                       |
-|               | (1) unroll                 | 247          | user unroll pragmas are applied                                                        |
-|               | (2) simplification         | 198          | simplification of applied user unroll pragmas                                          |
-|               | (3) inline                 | 191          | user inline pragmas are applied                                                        |
-|               | (4) simplification         | 157          | simplification of applied user inline pragmas                                          |
+|               | (1) unroll                 |   408        | user unroll pragmas are applied                                                        |
+|               | (2) simplification         |   325        | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                 |   307        | user inline pragmas are applied                                                        |
+|               | (4) simplification         |   273        | simplification of applied user inline pragmas                                          |
 |               |                            |              |                                                                                        |
 | Array/Struct  |                            |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
-|               | (1) array partition        | 153          | user array partition pragmas are applied                                               |
-|               | (2) simplification         | 153          | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
-|               | (3) aggregate/disaggregate | 153          | user struct aggregate/disaggregate pragmas are applied                                 |
-|               | (4) array reshape          | 153          | apply array reshape pragmas                                                            |
-|               | (5) access patterns        | 229          | array access pattern optmizations                                                      |
+|               | (1) array partition        |   268        | user array partition pragmas are applied                                               |
+|               | (2) simplification         |   268        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate |   271        | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape          |   291        | apply array reshape pragmas                                                            |
+|               | (5) access patterns        |   362        | array access pattern optmizations                                                      |
 |               |                            |              |                                                                                        |
 | Performance   |                            |              | After transformations are applied to meet performance pragma targets                   |
-|               | (1) loop simplification    | 228          | loop and instruction simplification                                                    |
-|               | (2) parallelization        | 192          | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition        | 156          | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification         | 156          | simplification of design after performance transformations                             |
+|               | (1) loop simplification    |   360        | loop and instruction simplification                                                    |
+|               | (2) parallelization        |   322        | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition        |   280        | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification         |   280        | simplification of design after performance transformations                             |
 |               |                            |              |                                                                                        |
 | HW Transforms |                            |              | After hardware transfomations                                                          |
-|               | (1) lowering               | 138          | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations          | 107          | high level synthesis optimizations                                                     |
+|               | (1) lowering               |   258        | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations          |   222        | high level synthesis optimizations                                                     |
 +---------------+----------------------------+--------------+----------------------------------------------------------------------------------------+
 
 * Instructions per Function for each Compilation Phase
-+-----------------------+---------------+--------------+---------------+--------------+-------------+---------------+
-| Function              | Location      | Compile/Link | Unroll/Inline | Array/Struct | Performance | HW Transforms |
-+-----------------------+---------------+--------------+---------------+--------------+-------------+---------------+
-| + fft_1d_top          | fft_1d.cpp:97 | 989          | 157           | 229          | 156         | 107           |
-|  + stage_read_input   | fft_1d.cpp:20 | 362          |  62           |  54          |  46         |               |
-|     extract_i         | fft_1d.hpp:55 |  51          |               |              |             |               |
-|     extract_q         | fft_1d.hpp:63 |  51          |               |              |             |               |
-|    stage_process_fft  | fft_1d.cpp:43 |  43          |  12           |  12          |  12         |  16           |
-|  + stage_write_output | fft_1d.cpp:66 | 540          |  63           | 133          |  68         |  32           |
-|     pack_iq           | fft_1d.hpp:69 | 123          |               |              |             |               |
-+-----------------------+---------------+--------------+---------------+--------------+-------------+---------------+
++-------------------------------+-------------------+----------------+---------------+---------------+---------------+---------------+
+| Function                      | Location          | Compile/Link   | Unroll/Inline | Array/Struct  | Performance   | HW Transforms |
++-------------------------------+-------------------+----------------+---------------+---------------+---------------+---------------+
+| + fft_1d_top                  | fft_1d.cpp:130    | 2,083          | 273           | 362           | 280           | 222           |
+|  + stage_read_input           | fft_1d.cpp:38     |  724 (2 calls) | 124 (2 calls) | 108 (2 calls) |  92 (2 calls) |               |
+|     extract_i                 | fft_1d.hpp:67     |  102 (2 calls) |               |               |               |               |
+|     extract_q                 | fft_1d.hpp:76     |  102 (2 calls) |               |               |               |               |
+|  + stage_process_fft_real     | fft_1d_hls.cpp:38 |  739           |  63           |  88           |  87           |               |
+|     config_t                  | hls_fft.h:190     |    2           |               |               |               |               |
+|     setDir                    | hls_fft.h:309     |   63           |               |               |               |               |
+|   + setSch                    | hls_fft.h:337     |   78           |               |               |               |               |
+|      checkSch                 | hls_fft.h:232     |    1           |               |               |               |               |
+|   + fft<ZenithFFTConfig>      | hls_fft.h:1396    |  264           |  20           |  18           |  17           |               |
+|    + fft_syn<ZenithFFTConfig> | hls_fft.h:1056    |  262           |               |               |               |               |
+|     + getSch                  | hls_fft.h:352     |   68           |               |               |               |               |
+|        checkSch               | hls_fft.h:232     |    1           |               |               |               |               |
+|       getDir                  | hls_fft.h:318     |  106 (2 calls) |               |               |               |               |
+|  + stage_write_output         | fft_1d.cpp:97     |  540           |  63           | 133           |  68           |  32           |
+|     pack_iq                   | fft_1d.hpp:82     |  123           |               |               |               |               |
++-------------------------------+-------------------+----------------+---------------+---------------+---------------+---------------+
 
 * Design Size Message Settings
 +---------------------------------------------+--------+------------------------------------------------------------------+

@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 1 \
+    id 3 \
     name in_stream_V_data_V \
     reset_level 1 \
     sync_rst true \
     corename {in_stream} \
     metadata {  } \
     op interface \
-    ports { in_stream_TDATA { I 32 vector } } \
+    ports { in_stream_TVALID { I 1 bit } in_stream_TDATA { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_stream_V_data_V'"
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 2 \
+    id 4 \
     name in_stream_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -49,7 +49,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 3 \
+    id 5 \
     name in_stream_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -68,7 +68,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 4 \
+    id 6 \
     name in_stream_V_user_V \
     reset_level 1 \
     sync_rst true \
@@ -87,7 +87,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 5 \
+    id 7 \
     name in_stream_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -106,7 +106,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 6 \
+    id 8 \
     name in_stream_V_id_V \
     reset_level 1 \
     sync_rst true \
@@ -125,14 +125,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 7 \
+    id 9 \
     name in_stream_V_dest_V \
     reset_level 1 \
     sync_rst true \
     corename {in_stream} \
     metadata {  } \
     op interface \
-    ports { in_stream_TVALID { I 1 bit } in_stream_TREADY { O 1 bit } in_stream_TDEST { I 1 vector } } \
+    ports { in_stream_TREADY { O 1 bit } in_stream_TDEST { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_stream_V_dest_V'"
@@ -144,17 +144,36 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 8 \
-    name in_bufI \
+    id 10 \
+    name bufI \
     reset_level 1 \
     sync_rst true \
     dir O \
-    corename in_bufI \
+    corename bufI \
     op interface \
-    ports { in_bufI_address1 { O 10 vector } in_bufI_ce1 { O 1 bit } in_bufI_we1 { O 1 bit } in_bufI_d1 { O 16 vector } } \
+    ports { bufI_address1 { O 10 vector } bufI_ce1 { O 1 bit } bufI_we1 { O 1 bit } bufI_d1 { O 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'in_bufI'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'bufI'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 11 \
+    name bufQ \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename bufQ \
+    op interface \
+    ports { bufQ_address1 { O 10 vector } bufQ_ce1 { O 1 bit } bufQ_we1 { O 1 bit } bufQ_d1 { O 16 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'bufQ'"
 }
 }
 
@@ -169,7 +188,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_ctrl \
     op interface \
-    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } ap_continue { I 1 bit } } \
+    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } } \
 } "
 }
 
@@ -223,45 +242,10 @@ if {${::AESL::PGuard_autoexp_gen}} {
 }
 
 
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler fft_1d_top_regslice_both BINDTYPE {interface} TYPE {adapter} IMPL {reg_slice}
-}
-
-
 # flow_control definition:
-set InstName fft_1d_top_flow_control_loop_pipe_U
-set CompName fft_1d_top_flow_control_loop_pipe
-set name flow_control_loop_pipe
+set InstName fft_1d_top_flow_control_loop_pipe_sequential_init_U
+set CompName fft_1d_top_flow_control_loop_pipe_sequential_init
+set name flow_control_loop_pipe_sequential_init
 if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
 if {[info proc ::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control] == "::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control"} {
 eval "::AESL_LIB_VIRTEX::xil_gen_UPC_flow_control { \

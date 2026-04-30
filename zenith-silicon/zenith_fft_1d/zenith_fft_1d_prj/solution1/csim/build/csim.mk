@@ -23,7 +23,7 @@ __USE_VCXX_CLANG__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../tb/fft_1d_tb.cpp ../../../../src/fft_1d.cpp
+HLS_SOURCES = ../../../../tb/fft_1d_tb.cpp ../../../../src/fft_1d_hls.cpp ../../../../src/fft_1d.cpp
 
 override TARGET := csim.exe
 
@@ -91,6 +91,12 @@ $(ObjDir)/fft_1d_tb.o: ../../../../tb/fft_1d_tb.cpp $(ObjDir)/.dir csim.mk
 	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/fft_1d_tb.d
+
+$(ObjDir)/fft_1d_hls.o: ../../../../src/fft_1d_hls.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../src/fft_1d_hls.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD  -fhls-csim -fhlstoplevel=fft_1d_top $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/fft_1d_hls.d
 
 $(ObjDir)/fft_1d.o: ../../../../src/fft_1d.cpp $(ObjDir)/.dir csim.mk
 	$(Echo) "   Compiling ../../../../src/fft_1d.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

@@ -1,0 +1,30 @@
+<stg><name>fft<ZenithFFTConfig></name>
+
+
+<trans_list>
+</trans_list>
+
+
+
+<state_list>
+</state_list>
+
+
+<ports>
+<port id="1" name="fft_in_stream" dir="0" iftype="3">
+<core>NULL</core><StgValue><ssdm name="fft_in_stream"/></StgValue>
+</port>
+<port id="2" name="fft_out_stream" dir="1" iftype="3">
+<core>NULL</core><StgValue><ssdm name="fft_out_stream"/></StgValue>
+</port>
+<port id="3" name="fft_config_stream" dir="0" iftype="3">
+<core>NULL</core><StgValue><ssdm name="fft_config_stream"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+</dataflows>
+
+
+</stg>

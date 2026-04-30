@@ -1,0 +1,176 @@
+
+
+================================================================
+== Vitis HLS Report for 'stage_process_fft_real'
+================================================================
+* Date:           Tue Apr 28 16:25:30 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.869 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     5254|     5254|  35.044 us|  35.044 us|  5254|  5254|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+-----------+-----------+------+------+-------------------+
+        |                                                       |                                            |  Latency (cycles) |   Latency (absolute)  |   Interval  |      Pipeline     |
+        |                        Instance                       |                   Module                   |   min   |   max   |    min    |    max    |  min |  max |        Type       |
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+-----------+-----------+------+------+-------------------+
+        |grp_stage_process_fft_real_Pipeline_feed_loop_fu_92    |stage_process_fft_real_Pipeline_feed_loop   |     1027|     1027|   6.850 us|   6.850 us|     0|     0|  loop pipeline stp|
+        |grp_fft_ZenithFFTConfig_s_fu_101                       |fft_ZenithFFTConfig_s                       |     3195|     3195|  21.311 us|  21.311 us|  3195|  3195|                 no|
+        |grp_stage_process_fft_real_Pipeline_drain_loop_fu_108  |stage_process_fft_real_Pipeline_drain_loop  |     1027|     1027|   6.850 us|   6.850 us|     0|     0|  loop pipeline stp|
+        +-------------------------------------------------------+--------------------------------------------+---------+---------+-----------+-----------+------+------+-------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      1|    -|
+|FIFO             |        4|    -|     425|    232|    -|
+|Instance         |        3|   12|   10002|   7977|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     92|    -|
+|Register         |        -|    -|      10|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        7|   12|   10437|   8302|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        2|    5|       9|     15|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------------------------+--------------------------------------------+---------+----+------+------+-----+
+    |                        Instance                       |                   Module                   | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+------+------+-----+
+    |grp_fft_ZenithFFTConfig_s_fu_101                       |fft_ZenithFFTConfig_s                       |        3|  12|  9883|  7835|    0|
+    |grp_stage_process_fft_real_Pipeline_drain_loop_fu_108  |stage_process_fft_real_Pipeline_drain_loop  |        0|   0|    71|    71|    0|
+    |grp_stage_process_fft_real_Pipeline_feed_loop_fu_92    |stage_process_fft_real_Pipeline_feed_loop   |        0|   0|    48|    71|    0|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+------+------+-----+
+    |Total                                                  |                                            |        3|  12| 10002|  7977|    0|
+    +-------------------------------------------------------+--------------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +--------------------------+---------+-----+----+-----+------+-----+---------+
+    |           Name           | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +--------------------------+---------+-----+----+-----+------+-----+---------+
+    |fft_config_stream_fifo_U  |        0|   99|   0|    -|     2|   16|       32|
+    |fft_in_stream_fifo_U      |        2|  163|   0|    -|  1024|   32|    32768|
+    |fft_out_stream_fifo_U     |        2|  163|   0|    -|  1024|   32|    32768|
+    +--------------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                     |        4|  425|   0|    0|  2050|   80|    65568|
+    +--------------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   1|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   1|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm               |  29|          7|    1|          7|
+    |ap_done                 |   9|          2|    1|          2|
+    |fft_config_stream_read  |   9|          2|    1|          2|
+    |fft_in_stream_read      |   9|          2|    1|          2|
+    |fft_in_stream_write     |   9|          2|    1|          2|
+    |fft_out_stream_read     |   9|          2|    1|          2|
+    |fft_out_stream_write    |   9|          2|    1|          2|
+    |scaling_schedule_blk_n  |   9|          2|    1|          2|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   |  92|         21|    8|         21|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------------------------------+---+----+-----+-----------+
+    |                                Name                                | FF| LUT| Bits| Const Bits|
+    +--------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                           |  6|   0|    6|          0|
+    |ap_done_reg                                                         |  1|   0|    1|          0|
+    |grp_fft_ZenithFFTConfig_s_fu_101_ap_start_reg                       |  1|   0|    1|          0|
+    |grp_stage_process_fft_real_Pipeline_drain_loop_fu_108_ap_start_reg  |  1|   0|    1|          0|
+    |grp_stage_process_fft_real_Pipeline_feed_loop_fu_92_ap_start_reg    |  1|   0|    1|          0|
+    +--------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                               | 10|   0|   10|          0|
+    +--------------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------------+-----+-----+------------+------------------------+--------------+
+|            RTL Ports            | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++---------------------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                           |   in|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_rst                           |   in|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_start                         |   in|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_done                          |  out|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_continue                      |   in|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_idle                          |  out|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|ap_ready                         |  out|    1|  ap_ctrl_hs|  stage_process_fft_real|  return value|
+|scaling_schedule_dout            |   in|   32|     ap_fifo|        scaling_schedule|       pointer|
+|scaling_schedule_empty_n         |   in|    1|     ap_fifo|        scaling_schedule|       pointer|
+|scaling_schedule_read            |  out|    1|     ap_fifo|        scaling_schedule|       pointer|
+|scaling_schedule_num_data_valid  |   in|    3|     ap_fifo|        scaling_schedule|       pointer|
+|scaling_schedule_fifo_cap        |   in|    3|     ap_fifo|        scaling_schedule|       pointer|
+|in_bufI_address0                 |  out|   10|   ap_memory|                 in_bufI|         array|
+|in_bufI_ce0                      |  out|    1|   ap_memory|                 in_bufI|         array|
+|in_bufI_q0                       |   in|   16|   ap_memory|                 in_bufI|         array|
+|in_bufQ_address0                 |  out|   10|   ap_memory|                 in_bufQ|         array|
+|in_bufQ_ce0                      |  out|    1|   ap_memory|                 in_bufQ|         array|
+|in_bufQ_q0                       |   in|   16|   ap_memory|                 in_bufQ|         array|
+|out_bufI_address1                |  out|   10|   ap_memory|                out_bufI|         array|
+|out_bufI_ce1                     |  out|    1|   ap_memory|                out_bufI|         array|
+|out_bufI_we1                     |  out|    1|   ap_memory|                out_bufI|         array|
+|out_bufI_d1                      |  out|   16|   ap_memory|                out_bufI|         array|
+|out_bufQ_address1                |  out|   10|   ap_memory|                out_bufQ|         array|
+|out_bufQ_ce1                     |  out|    1|   ap_memory|                out_bufQ|         array|
+|out_bufQ_we1                     |  out|    1|   ap_memory|                out_bufQ|         array|
+|out_bufQ_d1                      |  out|   16|   ap_memory|                out_bufQ|         array|
++---------------------------------+-----+-----+------------+------------------------+--------------+
+

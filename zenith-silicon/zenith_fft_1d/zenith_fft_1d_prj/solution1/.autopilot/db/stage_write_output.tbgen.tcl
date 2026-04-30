@@ -15,15 +15,15 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 6
+set cdfgNum 12
 set C_modelName {stage_write_output}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
 dict set ap_memory_interface_dict outI { MEM_WIDTH 16 MEM_SIZE 2048 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
-dict set ap_memory_interface_dict outQ { MEM_WIDTH 1 MEM_SIZE 1024 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
+dict set ap_memory_interface_dict outQ { MEM_WIDTH 16 MEM_SIZE 2048 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
 set C_modelArgList {
 	{ outI int 16 regular {array 1024 { 1 3 } 1 1 }  }
-	{ outQ int 1 regular {array 1024 { 1 3 } 1 1 }  }
+	{ outQ int 16 regular {array 1024 { 1 3 } 1 1 }  }
 	{ out_stream_V_data_V int 32 regular {axi_s 1 volatile  { out_stream Data } }  }
 	{ out_stream_V_keep_V int 4 regular {axi_s 1 volatile  { out_stream Keep } }  }
 	{ out_stream_V_strb_V int 4 regular {axi_s 1 volatile  { out_stream Strb } }  }
@@ -37,7 +37,7 @@ set l_AXIML2Cache [list]
 set AXIMCacheInstDict [dict create]
 set C_modelArgMapList {[ 
 	{ "Name" : "outI", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "outQ", "interface" : "memory", "bitwidth" : 1, "direction" : "READONLY"} , 
+ 	{ "Name" : "outQ", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "out_stream_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "out_stream_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
  	{ "Name" : "out_stream_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
@@ -61,7 +61,7 @@ set portList {
 	{ outI_q0 sc_in sc_lv 16 signal 0 } 
 	{ outQ_address0 sc_out sc_lv 10 signal 1 } 
 	{ outQ_ce0 sc_out sc_logic 1 signal 1 } 
-	{ outQ_q0 sc_in sc_lv 1 signal 1 } 
+	{ outQ_q0 sc_in sc_lv 16 signal 1 } 
 	{ out_stream_TDATA sc_out sc_lv 32 signal 2 } 
 	{ out_stream_TVALID sc_out sc_logic 1 outvld 8 } 
 	{ out_stream_TKEEP sc_out sc_lv 4 signal 3 } 
@@ -85,7 +85,7 @@ set NewPortList {[
  	{ "name": "outI_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "outI", "role": "q0" }} , 
  	{ "name": "outQ_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "outQ", "role": "address0" }} , 
  	{ "name": "outQ_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outQ", "role": "ce0" }} , 
- 	{ "name": "outQ_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "outQ", "role": "q0" }} , 
+ 	{ "name": "outQ_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "outQ", "role": "q0" }} , 
  	{ "name": "out_stream_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "out_stream_V_data_V", "role": "default" }} , 
  	{ "name": "out_stream_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "out_stream_V_dest_V", "role": "default" }} , 
  	{ "name": "out_stream_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_stream_V_keep_V", "role": "default" }} , 
@@ -120,7 +120,7 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	outI { ap_memory {  { outI_address0 mem_address 1 10 }  { outI_ce0 mem_ce 1 1 }  { outI_q0 mem_dout 0 16 } } }
-	outQ { ap_memory {  { outQ_address0 mem_address 1 10 }  { outQ_ce0 mem_ce 1 1 }  { outQ_q0 mem_dout 0 1 } } }
+	outQ { ap_memory {  { outQ_address0 mem_address 1 10 }  { outQ_ce0 mem_ce 1 1 }  { outQ_q0 mem_dout 0 16 } } }
 	out_stream_V_data_V { axis {  { out_stream_TDATA out_data 1 32 } } }
 	out_stream_V_keep_V { axis {  { out_stream_TKEEP out_data 1 4 } } }
 	out_stream_V_strb_V { axis {  { out_stream_TSTRB out_data 1 4 } } }

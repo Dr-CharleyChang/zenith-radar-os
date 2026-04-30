@@ -59,10 +59,9 @@ architecture behav of fft_1d_top is
     attribute DowngradeIPIdentifiedWarnings of behav : architecture is "yes";
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "fft_1d_top_fft_1d_top,hls_ip_2025_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-2,HLS_INPUT_CLOCK=6.670000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.069000,HLS_SYN_LAT=3081,HLS_SYN_TPT=1024,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=156,HLS_SYN_LUT=303,HLS_VERSION=2025_2}";
+    "fft_1d_top_fft_1d_top,hls_ip_2025_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-2,HLS_INPUT_CLOCK=6.670000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.869100,HLS_SYN_LAT=8339,HLS_SYN_TPT=5255,HLS_SYN_MEM=15,HLS_SYN_DSP=0,HLS_SYN_FF=10691,HLS_SYN_LUT=8903,HLS_VERSION=2025_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_S_AXI_DATA_WIDTH : INTEGER := 32;
-    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_lv16_0 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
     constant ap_const_lv10_0 : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
@@ -71,42 +70,62 @@ architecture behav of fft_1d_top is
     signal ap_rst_n_inv : STD_LOGIC;
     signal in_bufI_i_q0 : STD_LOGIC_VECTOR (15 downto 0);
     signal in_bufI_t_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal in_bufQ_i_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal in_bufQ_t_q0 : STD_LOGIC_VECTOR (15 downto 0);
     signal out_bufI_i_q0 : STD_LOGIC_VECTOR (15 downto 0);
     signal out_bufI_t_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal out_bufQ_i_q0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal out_bufQ_t_q0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal out_bufQ_i_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal out_bufQ_t_q0 : STD_LOGIC_VECTOR (15 downto 0);
     signal scaling_schedule : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_start : STD_LOGIC;
     signal ap_ready : STD_LOGIC;
     signal ap_done : STD_LOGIC;
     signal ap_idle : STD_LOGIC;
-    signal stage_read_input_U0_ap_start : STD_LOGIC;
-    signal stage_read_input_U0_ap_done : STD_LOGIC;
-    signal stage_read_input_U0_ap_continue : STD_LOGIC;
-    signal stage_read_input_U0_ap_idle : STD_LOGIC;
-    signal stage_read_input_U0_ap_ready : STD_LOGIC;
-    signal stage_read_input_U0_in_stream_TREADY : STD_LOGIC;
-    signal stage_read_input_U0_in_bufI_address1 : STD_LOGIC_VECTOR (9 downto 0);
-    signal stage_read_input_U0_in_bufI_ce1 : STD_LOGIC;
-    signal stage_read_input_U0_in_bufI_we1 : STD_LOGIC;
-    signal stage_read_input_U0_in_bufI_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal stage_process_fft_U0_ap_start : STD_LOGIC;
-    signal stage_process_fft_U0_ap_done : STD_LOGIC;
-    signal stage_process_fft_U0_ap_continue : STD_LOGIC;
-    signal stage_process_fft_U0_ap_idle : STD_LOGIC;
-    signal stage_process_fft_U0_ap_ready : STD_LOGIC;
-    signal stage_process_fft_U0_bufI_address0 : STD_LOGIC_VECTOR (9 downto 0);
-    signal stage_process_fft_U0_bufI_ce0 : STD_LOGIC;
-    signal stage_process_fft_U0_outI_address1 : STD_LOGIC_VECTOR (9 downto 0);
-    signal stage_process_fft_U0_outI_ce1 : STD_LOGIC;
-    signal stage_process_fft_U0_outI_we1 : STD_LOGIC;
-    signal stage_process_fft_U0_outI_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal stage_process_fft_U0_outQ_address1 : STD_LOGIC_VECTOR (9 downto 0);
-    signal stage_process_fft_U0_outQ_ce1 : STD_LOGIC;
-    signal stage_process_fft_U0_outQ_we1 : STD_LOGIC;
-    signal stage_process_fft_U0_outQ_d1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal entry_proc_U0_ap_start : STD_LOGIC;
+    signal entry_proc_U0_ap_done : STD_LOGIC;
+    signal entry_proc_U0_ap_continue : STD_LOGIC;
+    signal entry_proc_U0_ap_idle : STD_LOGIC;
+    signal entry_proc_U0_ap_ready : STD_LOGIC;
+    signal entry_proc_U0_scaling_schedule_c_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal entry_proc_U0_scaling_schedule_c_write : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_ap_start : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_ap_done : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_ap_continue : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_ap_idle : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_ap_ready : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_stream_TREADY : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufI_address1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufI_ce1 : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufI_we1 : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufI_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufQ_address1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufQ_ce1 : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufQ_we1 : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufQ_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal ap_channel_done_in_bufQ : STD_LOGIC;
+    signal Block_entry_in_bufI_wr_proc_U0_in_bufQ_full_n : STD_LOGIC;
+    signal ap_sync_reg_channel_write_in_bufQ : STD_LOGIC := '0';
+    signal ap_sync_channel_write_in_bufQ : STD_LOGIC;
+    signal stage_process_fft_real_U0_ap_start : STD_LOGIC;
+    signal stage_process_fft_real_U0_ap_done : STD_LOGIC;
+    signal stage_process_fft_real_U0_ap_continue : STD_LOGIC;
+    signal stage_process_fft_real_U0_ap_idle : STD_LOGIC;
+    signal stage_process_fft_real_U0_ap_ready : STD_LOGIC;
+    signal stage_process_fft_real_U0_scaling_schedule_read : STD_LOGIC;
+    signal stage_process_fft_real_U0_in_bufI_address0 : STD_LOGIC_VECTOR (9 downto 0);
+    signal stage_process_fft_real_U0_in_bufI_ce0 : STD_LOGIC;
+    signal stage_process_fft_real_U0_in_bufQ_address0 : STD_LOGIC_VECTOR (9 downto 0);
+    signal stage_process_fft_real_U0_in_bufQ_ce0 : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufI_address1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal stage_process_fft_real_U0_out_bufI_ce1 : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufI_we1 : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufI_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal stage_process_fft_real_U0_out_bufQ_address1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal stage_process_fft_real_U0_out_bufQ_ce1 : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufQ_we1 : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufQ_d1 : STD_LOGIC_VECTOR (15 downto 0);
     signal ap_channel_done_out_bufQ : STD_LOGIC;
-    signal stage_process_fft_U0_outQ_full_n : STD_LOGIC;
+    signal stage_process_fft_real_U0_out_bufQ_full_n : STD_LOGIC;
     signal ap_sync_reg_channel_write_out_bufQ : STD_LOGIC := '0';
     signal ap_sync_channel_write_out_bufQ : STD_LOGIC;
     signal stage_write_output_U0_ap_start : STD_LOGIC;
@@ -128,13 +147,25 @@ architecture behav of fft_1d_top is
     signal stage_write_output_U0_out_stream_TDEST : STD_LOGIC_VECTOR (0 downto 0);
     signal in_bufI_i_full_n : STD_LOGIC;
     signal in_bufI_t_empty_n : STD_LOGIC;
+    signal in_bufQ_i_full_n : STD_LOGIC;
+    signal in_bufQ_t_empty_n : STD_LOGIC;
     signal out_bufI_i_full_n : STD_LOGIC;
     signal out_bufI_t_empty_n : STD_LOGIC;
     signal out_bufQ_i_full_n : STD_LOGIC;
     signal out_bufQ_t_empty_n : STD_LOGIC;
+    signal scaling_schedule_c_full_n : STD_LOGIC;
+    signal scaling_schedule_c_dout : STD_LOGIC_VECTOR (31 downto 0);
+    signal scaling_schedule_c_empty_n : STD_LOGIC;
+    signal scaling_schedule_c_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
+    signal scaling_schedule_c_fifo_cap : STD_LOGIC_VECTOR (2 downto 0);
+    signal ap_sync_ready : STD_LOGIC;
+    signal ap_sync_reg_entry_proc_U0_ap_ready : STD_LOGIC := '0';
+    signal ap_sync_entry_proc_U0_ap_ready : STD_LOGIC;
+    signal ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready : STD_LOGIC := '0';
+    signal ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
-    component fft_1d_top_stage_read_input IS
+    component fft_1d_top_entry_proc IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -143,8 +174,26 @@ architecture behav of fft_1d_top is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        in_stream_TVALID : IN STD_LOGIC;
+        scaling_schedule : IN STD_LOGIC_VECTOR (31 downto 0);
+        scaling_schedule_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        scaling_schedule_c_full_n : IN STD_LOGIC;
+        scaling_schedule_c_write : OUT STD_LOGIC;
+        scaling_schedule_c_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        scaling_schedule_c_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0) );
+    end component;
+
+
+    component fft_1d_top_Block_entry_in_bufI_wr_proc IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
         in_stream_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+        in_stream_TVALID : IN STD_LOGIC;
         in_stream_TREADY : OUT STD_LOGIC;
         in_stream_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
         in_stream_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
@@ -155,11 +204,15 @@ architecture behav of fft_1d_top is
         in_bufI_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
         in_bufI_ce1 : OUT STD_LOGIC;
         in_bufI_we1 : OUT STD_LOGIC;
-        in_bufI_d1 : OUT STD_LOGIC_VECTOR (15 downto 0) );
+        in_bufI_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        in_bufQ_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
+        in_bufQ_ce1 : OUT STD_LOGIC;
+        in_bufQ_we1 : OUT STD_LOGIC;
+        in_bufQ_d1 : OUT STD_LOGIC_VECTOR (15 downto 0) );
     end component;
 
 
-    component fft_1d_top_stage_process_fft IS
+    component fft_1d_top_stage_process_fft_real IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -168,17 +221,25 @@ architecture behav of fft_1d_top is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        bufI_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
-        bufI_ce0 : OUT STD_LOGIC;
-        bufI_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        outI_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
-        outI_ce1 : OUT STD_LOGIC;
-        outI_we1 : OUT STD_LOGIC;
-        outI_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        outQ_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
-        outQ_ce1 : OUT STD_LOGIC;
-        outQ_we1 : OUT STD_LOGIC;
-        outQ_d1 : OUT STD_LOGIC_VECTOR (0 downto 0) );
+        scaling_schedule_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        scaling_schedule_empty_n : IN STD_LOGIC;
+        scaling_schedule_read : OUT STD_LOGIC;
+        scaling_schedule_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        scaling_schedule_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        in_bufI_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
+        in_bufI_ce0 : OUT STD_LOGIC;
+        in_bufI_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        in_bufQ_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
+        in_bufQ_ce0 : OUT STD_LOGIC;
+        in_bufQ_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        out_bufI_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
+        out_bufI_ce1 : OUT STD_LOGIC;
+        out_bufI_we1 : OUT STD_LOGIC;
+        out_bufI_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        out_bufQ_address1 : OUT STD_LOGIC_VECTOR (9 downto 0);
+        out_bufQ_ce1 : OUT STD_LOGIC;
+        out_bufQ_we1 : OUT STD_LOGIC;
+        out_bufQ_d1 : OUT STD_LOGIC_VECTOR (15 downto 0) );
     end component;
 
 
@@ -197,7 +258,7 @@ architecture behav of fft_1d_top is
         outI_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
         outQ_address0 : OUT STD_LOGIC_VECTOR (9 downto 0);
         outQ_ce0 : OUT STD_LOGIC;
-        outQ_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
+        outQ_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
         out_stream_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
         out_stream_TVALID : OUT STD_LOGIC;
         out_stream_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
@@ -240,34 +301,20 @@ architecture behav of fft_1d_top is
     end component;
 
 
-    component fft_1d_top_out_bufQ_RAM_2P_BRAM_1R1W IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
+    component fft_1d_top_fifo_w32_d3_S IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        i_address0 : IN STD_LOGIC_VECTOR (9 downto 0);
-        i_ce0 : IN STD_LOGIC;
-        i_q0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        i_address1 : IN STD_LOGIC_VECTOR (9 downto 0);
-        i_ce1 : IN STD_LOGIC;
-        i_we1 : IN STD_LOGIC;
-        i_d1 : IN STD_LOGIC_VECTOR (0 downto 0);
-        t_address0 : IN STD_LOGIC_VECTOR (9 downto 0);
-        t_ce0 : IN STD_LOGIC;
-        t_q0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        t_address1 : IN STD_LOGIC_VECTOR (9 downto 0);
-        t_ce1 : IN STD_LOGIC;
-        t_we1 : IN STD_LOGIC;
-        t_d1 : IN STD_LOGIC_VECTOR (0 downto 0);
-        i_ce : IN STD_LOGIC;
-        t_ce : IN STD_LOGIC;
-        i_full_n : OUT STD_LOGIC;
-        i_write : IN STD_LOGIC;
-        t_empty_n : OUT STD_LOGIC;
-        t_read : IN STD_LOGIC );
+        if_read_ce : IN STD_LOGIC;
+        if_write_ce : IN STD_LOGIC;
+        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
+        if_full_n : OUT STD_LOGIC;
+        if_write : IN STD_LOGIC;
+        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
+        if_empty_n : OUT STD_LOGIC;
+        if_read : IN STD_LOGIC;
+        if_num_data_valid : OUT STD_LOGIC_VECTOR (2 downto 0);
+        if_fifo_cap : OUT STD_LOGIC_VECTOR (2 downto 0) );
     end component;
 
 
@@ -318,12 +365,12 @@ begin
         i_address0 => ap_const_lv10_0,
         i_ce0 => ap_const_logic_0,
         i_q0 => in_bufI_i_q0,
-        i_address1 => stage_read_input_U0_in_bufI_address1,
-        i_ce1 => stage_read_input_U0_in_bufI_ce1,
-        i_we1 => stage_read_input_U0_in_bufI_we1,
-        i_d1 => stage_read_input_U0_in_bufI_d1,
-        t_address0 => stage_process_fft_U0_bufI_address0,
-        t_ce0 => stage_process_fft_U0_bufI_ce0,
+        i_address1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_address1,
+        i_ce1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_ce1,
+        i_we1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_we1,
+        i_d1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_d1,
+        t_address0 => stage_process_fft_real_U0_in_bufI_address0,
+        t_ce0 => stage_process_fft_real_U0_in_bufI_ce0,
         t_q0 => in_bufI_t_q0,
         t_address1 => ap_const_lv10_0,
         t_ce1 => ap_const_logic_0,
@@ -332,9 +379,38 @@ begin
         i_ce => ap_const_logic_1,
         t_ce => ap_const_logic_1,
         i_full_n => in_bufI_i_full_n,
-        i_write => stage_read_input_U0_ap_done,
+        i_write => ap_channel_done_in_bufQ,
         t_empty_n => in_bufI_t_empty_n,
-        t_read => stage_process_fft_U0_ap_ready);
+        t_read => stage_process_fft_real_U0_ap_ready);
+
+    in_bufQ_U : component fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 1024,
+        AddressWidth => 10)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        i_address0 => ap_const_lv10_0,
+        i_ce0 => ap_const_logic_0,
+        i_q0 => in_bufQ_i_q0,
+        i_address1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_address1,
+        i_ce1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_ce1,
+        i_we1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_we1,
+        i_d1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_d1,
+        t_address0 => stage_process_fft_real_U0_in_bufQ_address0,
+        t_ce0 => stage_process_fft_real_U0_in_bufQ_ce0,
+        t_q0 => in_bufQ_t_q0,
+        t_address1 => ap_const_lv10_0,
+        t_ce1 => ap_const_logic_0,
+        t_we1 => ap_const_logic_0,
+        t_d1 => ap_const_lv16_0,
+        i_ce => ap_const_logic_1,
+        t_ce => ap_const_logic_1,
+        i_full_n => in_bufQ_i_full_n,
+        i_write => ap_channel_done_in_bufQ,
+        t_empty_n => in_bufQ_t_empty_n,
+        t_read => stage_process_fft_real_U0_ap_ready);
 
     out_bufI_U : component fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W
     generic map (
@@ -347,10 +423,10 @@ begin
         i_address0 => ap_const_lv10_0,
         i_ce0 => ap_const_logic_0,
         i_q0 => out_bufI_i_q0,
-        i_address1 => stage_process_fft_U0_outI_address1,
-        i_ce1 => stage_process_fft_U0_outI_ce1,
-        i_we1 => stage_process_fft_U0_outI_we1,
-        i_d1 => stage_process_fft_U0_outI_d1,
+        i_address1 => stage_process_fft_real_U0_out_bufI_address1,
+        i_ce1 => stage_process_fft_real_U0_out_bufI_ce1,
+        i_we1 => stage_process_fft_real_U0_out_bufI_we1,
+        i_d1 => stage_process_fft_real_U0_out_bufI_d1,
         t_address0 => stage_write_output_U0_outI_address0,
         t_ce0 => stage_write_output_U0_outI_ce0,
         t_q0 => out_bufI_t_q0,
@@ -365,9 +441,9 @@ begin
         t_empty_n => out_bufI_t_empty_n,
         t_read => stage_write_output_U0_ap_ready);
 
-    out_bufQ_U : component fft_1d_top_out_bufQ_RAM_2P_BRAM_1R1W
+    out_bufQ_U : component fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W
     generic map (
-        DataWidth => 1,
+        DataWidth => 16,
         AddressRange => 1024,
         AddressWidth => 10)
     port map (
@@ -376,17 +452,17 @@ begin
         i_address0 => ap_const_lv10_0,
         i_ce0 => ap_const_logic_0,
         i_q0 => out_bufQ_i_q0,
-        i_address1 => stage_process_fft_U0_outQ_address1,
-        i_ce1 => stage_process_fft_U0_outQ_ce1,
-        i_we1 => stage_process_fft_U0_outQ_we1,
-        i_d1 => stage_process_fft_U0_outQ_d1,
+        i_address1 => stage_process_fft_real_U0_out_bufQ_address1,
+        i_ce1 => stage_process_fft_real_U0_out_bufQ_ce1,
+        i_we1 => stage_process_fft_real_U0_out_bufQ_we1,
+        i_d1 => stage_process_fft_real_U0_out_bufQ_d1,
         t_address0 => stage_write_output_U0_outQ_address0,
         t_ce0 => stage_write_output_U0_outQ_ce0,
         t_q0 => out_bufQ_t_q0,
         t_address1 => ap_const_lv10_0,
         t_ce1 => ap_const_logic_0,
         t_we1 => ap_const_logic_0,
-        t_d1 => ap_const_lv1_0,
+        t_d1 => ap_const_lv16_0,
         i_ce => ap_const_logic_1,
         t_ce => ap_const_logic_1,
         i_full_n => out_bufQ_i_full_n,
@@ -426,49 +502,77 @@ begin
         ap_done => ap_done,
         ap_idle => ap_idle);
 
-    stage_read_input_U0 : component fft_1d_top_stage_read_input
+    entry_proc_U0 : component fft_1d_top_entry_proc
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => stage_read_input_U0_ap_start,
-        ap_done => stage_read_input_U0_ap_done,
-        ap_continue => stage_read_input_U0_ap_continue,
-        ap_idle => stage_read_input_U0_ap_idle,
-        ap_ready => stage_read_input_U0_ap_ready,
-        in_stream_TVALID => in_stream_TVALID,
+        ap_start => entry_proc_U0_ap_start,
+        ap_done => entry_proc_U0_ap_done,
+        ap_continue => entry_proc_U0_ap_continue,
+        ap_idle => entry_proc_U0_ap_idle,
+        ap_ready => entry_proc_U0_ap_ready,
+        scaling_schedule => scaling_schedule,
+        scaling_schedule_c_din => entry_proc_U0_scaling_schedule_c_din,
+        scaling_schedule_c_full_n => scaling_schedule_c_full_n,
+        scaling_schedule_c_write => entry_proc_U0_scaling_schedule_c_write,
+        scaling_schedule_c_num_data_valid => scaling_schedule_c_num_data_valid,
+        scaling_schedule_c_fifo_cap => scaling_schedule_c_fifo_cap);
+
+    Block_entry_in_bufI_wr_proc_U0 : component fft_1d_top_Block_entry_in_bufI_wr_proc
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => Block_entry_in_bufI_wr_proc_U0_ap_start,
+        ap_done => Block_entry_in_bufI_wr_proc_U0_ap_done,
+        ap_continue => Block_entry_in_bufI_wr_proc_U0_ap_continue,
+        ap_idle => Block_entry_in_bufI_wr_proc_U0_ap_idle,
+        ap_ready => Block_entry_in_bufI_wr_proc_U0_ap_ready,
         in_stream_TDATA => in_stream_TDATA,
-        in_stream_TREADY => stage_read_input_U0_in_stream_TREADY,
+        in_stream_TVALID => in_stream_TVALID,
+        in_stream_TREADY => Block_entry_in_bufI_wr_proc_U0_in_stream_TREADY,
         in_stream_TKEEP => in_stream_TKEEP,
         in_stream_TSTRB => in_stream_TSTRB,
         in_stream_TUSER => in_stream_TUSER,
         in_stream_TLAST => in_stream_TLAST,
         in_stream_TID => in_stream_TID,
         in_stream_TDEST => in_stream_TDEST,
-        in_bufI_address1 => stage_read_input_U0_in_bufI_address1,
-        in_bufI_ce1 => stage_read_input_U0_in_bufI_ce1,
-        in_bufI_we1 => stage_read_input_U0_in_bufI_we1,
-        in_bufI_d1 => stage_read_input_U0_in_bufI_d1);
+        in_bufI_address1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_address1,
+        in_bufI_ce1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_ce1,
+        in_bufI_we1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_we1,
+        in_bufI_d1 => Block_entry_in_bufI_wr_proc_U0_in_bufI_d1,
+        in_bufQ_address1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_address1,
+        in_bufQ_ce1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_ce1,
+        in_bufQ_we1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_we1,
+        in_bufQ_d1 => Block_entry_in_bufI_wr_proc_U0_in_bufQ_d1);
 
-    stage_process_fft_U0 : component fft_1d_top_stage_process_fft
+    stage_process_fft_real_U0 : component fft_1d_top_stage_process_fft_real
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => stage_process_fft_U0_ap_start,
-        ap_done => stage_process_fft_U0_ap_done,
-        ap_continue => stage_process_fft_U0_ap_continue,
-        ap_idle => stage_process_fft_U0_ap_idle,
-        ap_ready => stage_process_fft_U0_ap_ready,
-        bufI_address0 => stage_process_fft_U0_bufI_address0,
-        bufI_ce0 => stage_process_fft_U0_bufI_ce0,
-        bufI_q0 => in_bufI_t_q0,
-        outI_address1 => stage_process_fft_U0_outI_address1,
-        outI_ce1 => stage_process_fft_U0_outI_ce1,
-        outI_we1 => stage_process_fft_U0_outI_we1,
-        outI_d1 => stage_process_fft_U0_outI_d1,
-        outQ_address1 => stage_process_fft_U0_outQ_address1,
-        outQ_ce1 => stage_process_fft_U0_outQ_ce1,
-        outQ_we1 => stage_process_fft_U0_outQ_we1,
-        outQ_d1 => stage_process_fft_U0_outQ_d1);
+        ap_start => stage_process_fft_real_U0_ap_start,
+        ap_done => stage_process_fft_real_U0_ap_done,
+        ap_continue => stage_process_fft_real_U0_ap_continue,
+        ap_idle => stage_process_fft_real_U0_ap_idle,
+        ap_ready => stage_process_fft_real_U0_ap_ready,
+        scaling_schedule_dout => scaling_schedule_c_dout,
+        scaling_schedule_empty_n => scaling_schedule_c_empty_n,
+        scaling_schedule_read => stage_process_fft_real_U0_scaling_schedule_read,
+        scaling_schedule_num_data_valid => scaling_schedule_c_num_data_valid,
+        scaling_schedule_fifo_cap => scaling_schedule_c_fifo_cap,
+        in_bufI_address0 => stage_process_fft_real_U0_in_bufI_address0,
+        in_bufI_ce0 => stage_process_fft_real_U0_in_bufI_ce0,
+        in_bufI_q0 => in_bufI_t_q0,
+        in_bufQ_address0 => stage_process_fft_real_U0_in_bufQ_address0,
+        in_bufQ_ce0 => stage_process_fft_real_U0_in_bufQ_ce0,
+        in_bufQ_q0 => in_bufQ_t_q0,
+        out_bufI_address1 => stage_process_fft_real_U0_out_bufI_address1,
+        out_bufI_ce1 => stage_process_fft_real_U0_out_bufI_ce1,
+        out_bufI_we1 => stage_process_fft_real_U0_out_bufI_we1,
+        out_bufI_d1 => stage_process_fft_real_U0_out_bufI_d1,
+        out_bufQ_address1 => stage_process_fft_real_U0_out_bufQ_address1,
+        out_bufQ_ce1 => stage_process_fft_real_U0_out_bufQ_ce1,
+        out_bufQ_we1 => stage_process_fft_real_U0_out_bufQ_we1,
+        out_bufQ_d1 => stage_process_fft_real_U0_out_bufQ_d1);
 
     stage_write_output_U0 : component fft_1d_top_stage_write_output
     port map (
@@ -495,8 +599,55 @@ begin
         out_stream_TID => stage_write_output_U0_out_stream_TID,
         out_stream_TDEST => stage_write_output_U0_out_stream_TDEST);
 
+    scaling_schedule_c_U : component fft_1d_top_fifo_w32_d3_S
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => entry_proc_U0_scaling_schedule_c_din,
+        if_full_n => scaling_schedule_c_full_n,
+        if_write => entry_proc_U0_scaling_schedule_c_write,
+        if_dout => scaling_schedule_c_dout,
+        if_empty_n => scaling_schedule_c_empty_n,
+        if_read => stage_process_fft_real_U0_scaling_schedule_read,
+        if_num_data_valid => scaling_schedule_c_num_data_valid,
+        if_fifo_cap => scaling_schedule_c_fifo_cap);
 
 
+
+
+
+    ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready <= ap_const_logic_0;
+            else
+                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
+                    ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready <= ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    ap_sync_reg_channel_write_in_bufQ_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_channel_write_in_bufQ <= ap_const_logic_0;
+            else
+                if (((Block_entry_in_bufI_wr_proc_U0_ap_done and Block_entry_in_bufI_wr_proc_U0_ap_continue) = ap_const_logic_1)) then 
+                    ap_sync_reg_channel_write_in_bufQ <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_channel_write_in_bufQ <= ap_sync_channel_write_in_bufQ;
+                end if; 
+            end if;
+        end if;
+    end process;
 
 
     ap_sync_reg_channel_write_out_bufQ_assign_proc : process(ap_clk)
@@ -505,7 +656,7 @@ begin
             if (ap_rst_n_inv = '1') then
                 ap_sync_reg_channel_write_out_bufQ <= ap_const_logic_0;
             else
-                if (((stage_process_fft_U0_ap_done and stage_process_fft_U0_ap_continue) = ap_const_logic_1)) then 
+                if (((stage_process_fft_real_U0_ap_done and stage_process_fft_real_U0_ap_continue) = ap_const_logic_1)) then 
                     ap_sync_reg_channel_write_out_bufQ <= ap_const_logic_0;
                 else 
                     ap_sync_reg_channel_write_out_bufQ <= ap_sync_channel_write_out_bufQ;
@@ -514,18 +665,44 @@ begin
         end if;
     end process;
 
-    ap_channel_done_out_bufQ <= (stage_process_fft_U0_ap_done and (ap_sync_reg_channel_write_out_bufQ xor ap_const_logic_1));
+
+    ap_sync_reg_entry_proc_U0_ap_ready_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                ap_sync_reg_entry_proc_U0_ap_ready <= ap_const_logic_0;
+            else
+                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
+                    ap_sync_reg_entry_proc_U0_ap_ready <= ap_const_logic_0;
+                else 
+                    ap_sync_reg_entry_proc_U0_ap_ready <= ap_sync_entry_proc_U0_ap_ready;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+    Block_entry_in_bufI_wr_proc_U0_ap_continue <= ap_sync_channel_write_in_bufQ;
+    Block_entry_in_bufI_wr_proc_U0_ap_start <= ((ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready xor ap_const_logic_1) and ap_start and ap_const_logic_1);
+    Block_entry_in_bufI_wr_proc_U0_in_bufQ_full_n <= in_bufQ_i_full_n;
+    ap_channel_done_in_bufQ <= ((ap_sync_reg_channel_write_in_bufQ xor ap_const_logic_1) and Block_entry_in_bufI_wr_proc_U0_ap_done);
+    ap_channel_done_out_bufQ <= (stage_process_fft_real_U0_ap_done and (ap_sync_reg_channel_write_out_bufQ xor ap_const_logic_1));
     ap_done <= stage_write_output_U0_ap_done;
-    ap_idle <= (stage_write_output_U0_ap_idle and stage_read_input_U0_ap_idle and stage_process_fft_U0_ap_idle and (out_bufQ_t_empty_n xor ap_const_logic_1) and (in_bufI_t_empty_n xor ap_const_logic_1));
-    ap_ready <= stage_read_input_U0_ap_ready;
+    ap_idle <= (stage_write_output_U0_ap_idle and stage_process_fft_real_U0_ap_idle and (out_bufQ_t_empty_n xor ap_const_logic_1) and (in_bufQ_t_empty_n xor ap_const_logic_1) and entry_proc_U0_ap_idle and Block_entry_in_bufI_wr_proc_U0_ap_idle);
+    ap_ready <= ap_sync_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
     begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    ap_sync_channel_write_out_bufQ <= ((stage_process_fft_U0_outQ_full_n and ap_channel_done_out_bufQ) or ap_sync_reg_channel_write_out_bufQ);
-    in_stream_TREADY <= stage_read_input_U0_in_stream_TREADY;
+    ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready <= (ap_sync_reg_Block_entry_in_bufI_wr_proc_U0_ap_ready or Block_entry_in_bufI_wr_proc_U0_ap_ready);
+    ap_sync_channel_write_in_bufQ <= ((ap_channel_done_in_bufQ and Block_entry_in_bufI_wr_proc_U0_in_bufQ_full_n) or ap_sync_reg_channel_write_in_bufQ);
+    ap_sync_channel_write_out_bufQ <= ((stage_process_fft_real_U0_out_bufQ_full_n and ap_channel_done_out_bufQ) or ap_sync_reg_channel_write_out_bufQ);
+    ap_sync_entry_proc_U0_ap_ready <= (entry_proc_U0_ap_ready or ap_sync_reg_entry_proc_U0_ap_ready);
+    ap_sync_ready <= (ap_sync_entry_proc_U0_ap_ready and ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready);
+    entry_proc_U0_ap_continue <= ap_const_logic_1;
+    entry_proc_U0_ap_start <= ((ap_sync_reg_entry_proc_U0_ap_ready xor ap_const_logic_1) and ap_start and ap_const_logic_1);
+    in_stream_TREADY <= Block_entry_in_bufI_wr_proc_U0_in_stream_TREADY;
     out_stream_TDATA <= stage_write_output_U0_out_stream_TDATA;
     out_stream_TDEST <= stage_write_output_U0_out_stream_TDEST;
     out_stream_TID <= stage_write_output_U0_out_stream_TID;
@@ -534,11 +711,9 @@ begin
     out_stream_TSTRB <= stage_write_output_U0_out_stream_TSTRB;
     out_stream_TUSER <= stage_write_output_U0_out_stream_TUSER;
     out_stream_TVALID <= stage_write_output_U0_out_stream_TVALID;
-    stage_process_fft_U0_ap_continue <= ap_sync_channel_write_out_bufQ;
-    stage_process_fft_U0_ap_start <= in_bufI_t_empty_n;
-    stage_process_fft_U0_outQ_full_n <= out_bufQ_i_full_n;
-    stage_read_input_U0_ap_continue <= in_bufI_i_full_n;
-    stage_read_input_U0_ap_start <= ap_start;
+    stage_process_fft_real_U0_ap_continue <= ap_sync_channel_write_out_bufQ;
+    stage_process_fft_real_U0_ap_start <= in_bufQ_t_empty_n;
+    stage_process_fft_real_U0_out_bufQ_full_n <= out_bufQ_i_full_n;
     stage_write_output_U0_ap_continue <= ap_const_logic_1;
     stage_write_output_U0_ap_start <= out_bufQ_t_empty_n;
 end behav;

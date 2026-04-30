@@ -153,11 +153,7 @@ extern "C" {
 }
 # 2 "<built-in>" 2
 # 1 "src/fft_1d.cpp" 2
-
-
-
-
-
+# 24 "src/fft_1d.cpp"
 # 1 "src/fft_1d.hpp" 1
 # 15 "src/fft_1d.hpp"
 # 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\ap_axi_sdata.h" 1
@@ -50012,12 +50008,2981 @@ private:
 
 # 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot/ap_int.h" 1
 # 22 "src/fft_1d.hpp" 2
-# 32 "src/fft_1d.hpp"
+# 31 "src/fft_1d.hpp"
+# 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h" 1
+# 20 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+# 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot/ap_int.h" 1
+# 21 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h" 2
+
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 1 3
+# 42 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 3
+
+
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\assert.h" 1 3
+# 45 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 2 3
+# 23 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h" 2
+
+# 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h" 1
+
+
+
+
+
+
+
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\array" 1 3
+# 33 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\array" 3
+# 43 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\array" 3
+namespace std
+{
+
+
+  template<typename _Tp, std::size_t _Nm>
+    struct __array_traits
+    {
+      typedef _Tp _Type[_Nm];
+      typedef __is_swappable<_Tp> _Is_swappable;
+      typedef __is_nothrow_swappable<_Tp> _Is_nothrow_swappable;
+
+      static constexpr _Tp&
+      _S_ref(const _Type& __t, std::size_t __n) noexcept
+      { return const_cast<_Tp&>(__t[__n]); }
+
+      static constexpr _Tp*
+      _S_ptr(const _Type& __t) noexcept
+      { return const_cast<_Tp*>(__t); }
+    };
+
+ template<typename _Tp>
+   struct __array_traits<_Tp, 0>
+   {
+     struct _Type { };
+     typedef true_type _Is_swappable;
+     typedef true_type _Is_nothrow_swappable;
+
+     static constexpr _Tp&
+     _S_ref(const _Type&, std::size_t) noexcept
+     { return *static_cast<_Tp*>(nullptr); }
+
+     static constexpr _Tp*
+     _S_ptr(const _Type&) noexcept
+     { return nullptr; }
+   };
+# 93 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\array" 3
+  template<typename _Tp, std::size_t _Nm>
+    struct array
+    {
+      typedef _Tp value_type;
+      typedef value_type* pointer;
+      typedef const value_type* const_pointer;
+      typedef value_type& reference;
+      typedef const value_type& const_reference;
+      typedef value_type* iterator;
+      typedef const value_type* const_iterator;
+      typedef std::size_t size_type;
+      typedef std::ptrdiff_t difference_type;
+      typedef std::reverse_iterator<iterator> reverse_iterator;
+      typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
+
+      typedef std::__array_traits<_Tp, _Nm> _AT_Type;
+      typename _AT_Type::_Type _M_elems;
+
+
+
+
+      void
+      fill(const value_type& __u)
+      { std::fill_n(begin(), size(), __u); }
+
+      void
+      swap(array& __other)
+      noexcept(_AT_Type::_Is_nothrow_swappable::value)
+      { std::swap_ranges(begin(), end(), __other.begin()); }
+
+
+      constexpr iterator
+      begin() noexcept
+      { return iterator(data()); }
+
+      constexpr const_iterator
+      begin() const noexcept
+      { return const_iterator(data()); }
+
+      constexpr iterator
+      end() noexcept
+      { return iterator(data() + _Nm); }
+
+      constexpr const_iterator
+      end() const noexcept
+      { return const_iterator(data() + _Nm); }
+
+      constexpr reverse_iterator
+      rbegin() noexcept
+      { return reverse_iterator(end()); }
+
+      constexpr const_reverse_iterator
+      rbegin() const noexcept
+      { return const_reverse_iterator(end()); }
+
+      constexpr reverse_iterator
+      rend() noexcept
+      { return reverse_iterator(begin()); }
+
+      constexpr const_reverse_iterator
+      rend() const noexcept
+      { return const_reverse_iterator(begin()); }
+
+      constexpr const_iterator
+      cbegin() const noexcept
+      { return const_iterator(data()); }
+
+      constexpr const_iterator
+      cend() const noexcept
+      { return const_iterator(data() + _Nm); }
+
+      constexpr const_reverse_iterator
+      crbegin() const noexcept
+      { return const_reverse_iterator(end()); }
+
+      constexpr const_reverse_iterator
+      crend() const noexcept
+      { return const_reverse_iterator(begin()); }
+
+
+      constexpr size_type
+      size() const noexcept { return _Nm; }
+
+      constexpr size_type
+      max_size() const noexcept { return _Nm; }
+
+      constexpr bool
+      empty() const noexcept { return size() == 0; }
+
+
+      constexpr reference
+      operator[](size_type __n) noexcept
+      { return _AT_Type::_S_ref(_M_elems, __n); }
+
+      constexpr const_reference
+      operator[](size_type __n) const noexcept
+      { return _AT_Type::_S_ref(_M_elems, __n); }
+
+      constexpr reference
+      at(size_type __n)
+      {
+ if (__n >= _Nm)
+   std::__throw_out_of_range_fmt(("array::at: __n (which is %zu) " ">= _Nm (which is %zu)"),
+
+     __n, _Nm);
+ return _AT_Type::_S_ref(_M_elems, __n);
+      }
+
+      constexpr const_reference
+      at(size_type __n) const
+      {
+
+
+ return __n < _Nm ? _AT_Type::_S_ref(_M_elems, __n)
+   : (std::__throw_out_of_range_fmt(("array::at: __n (which is %zu) " ">= _Nm (which is %zu)"),
+
+        __n, _Nm),
+      _AT_Type::_S_ref(_M_elems, 0));
+      }
+
+      constexpr reference
+      front() noexcept
+      { return *begin(); }
+
+      constexpr const_reference
+      front() const noexcept
+      { return _AT_Type::_S_ref(_M_elems, 0); }
+
+      constexpr reference
+      back() noexcept
+      { return _Nm ? *(end() - 1) : *end(); }
+
+      constexpr const_reference
+      back() const noexcept
+      {
+ return _Nm ? _AT_Type::_S_ref(_M_elems, _Nm - 1)
+             : _AT_Type::_S_ref(_M_elems, 0);
+      }
+
+      constexpr pointer
+      data() noexcept
+      { return _AT_Type::_S_ptr(_M_elems); }
+
+      constexpr const_pointer
+      data() const noexcept
+      { return _AT_Type::_S_ptr(_M_elems); }
+    };
+
+
+  template<typename _Tp, typename... _Up>
+    array(_Tp, _Up...)
+      -> array<enable_if_t<(is_same_v<_Tp, _Up> && ...), _Tp>,
+        1 + sizeof...(_Up)>;
+
+
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+    { return std::equal(__one.begin(), __one.end(), __two.begin()); }
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator!=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+    { return !(__one == __two); }
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+    {
+      return std::lexicographical_compare(__a.begin(), __a.end(),
+       __b.begin(), __b.end());
+    }
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator>(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+    { return __two < __one; }
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator<=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+    { return !(__one > __two); }
+
+  template<typename _Tp, std::size_t _Nm>
+    inline bool
+    operator>=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+    { return !(__one < __two); }
+
+
+  template<typename _Tp, std::size_t _Nm>
+    inline
+
+
+    typename enable_if<
+      std::__array_traits<_Tp, _Nm>::_Is_swappable::value
+    >::type
+
+
+
+    swap(array<_Tp, _Nm>& __one, array<_Tp, _Nm>& __two)
+    noexcept(noexcept(__one.swap(__two)))
+    { __one.swap(__two); }
+
+
+  template<typename _Tp, std::size_t _Nm>
+    typename enable_if<
+      !std::__array_traits<_Tp, _Nm>::_Is_swappable::value>::type
+    swap(array<_Tp, _Nm>&, array<_Tp, _Nm>&) = delete;
+
+
+  template<std::size_t _Int, typename _Tp, std::size_t _Nm>
+    constexpr _Tp&
+    get(array<_Tp, _Nm>& __arr) noexcept
+    {
+      static_assert(_Int < _Nm, "array index is within bounds");
+      return std::__array_traits<_Tp, _Nm>::
+ _S_ref(__arr._M_elems, _Int);
+    }
+
+  template<std::size_t _Int, typename _Tp, std::size_t _Nm>
+    constexpr _Tp&&
+    get(array<_Tp, _Nm>&& __arr) noexcept
+    {
+      static_assert(_Int < _Nm, "array index is within bounds");
+      return std::move(std::get<_Int>(__arr));
+    }
+
+  template<std::size_t _Int, typename _Tp, std::size_t _Nm>
+    constexpr const _Tp&
+    get(const array<_Tp, _Nm>& __arr) noexcept
+    {
+      static_assert(_Int < _Nm, "array index is within bounds");
+      return std::__array_traits<_Tp, _Nm>::
+ _S_ref(__arr._M_elems, _Int);
+    }
+
+  template<std::size_t _Int, typename _Tp, std::size_t _Nm>
+    constexpr const _Tp&&
+    get(const array<_Tp, _Nm>&& __arr) noexcept
+    {
+      static_assert(_Int < _Nm, "array index is within bounds");
+      return std::move(std::get<_Int>(__arr));
+    }
+
+
+}
+
+namespace std
+{
+
+
+
+
+
+  template<typename _Tp>
+    struct tuple_size;
+
+
+  template<typename _Tp, std::size_t _Nm>
+    struct tuple_size<std::array<_Tp, _Nm>>
+    : public integral_constant<std::size_t, _Nm> { };
+
+
+  template<std::size_t _Int, typename _Tp>
+    struct tuple_element;
+
+
+  template<std::size_t _Int, typename _Tp, std::size_t _Nm>
+    struct tuple_element<_Int, std::array<_Tp, _Nm>>
+    {
+      static_assert(_Int < _Nm, "index is out of bounds");
+      typedef _Tp type;
+    };
+
+  template<typename _Tp, std::size_t _Nm>
+    struct __is_tuple_like_impl<std::array<_Tp, _Nm>> : true_type
+    { };
+
+
+}
+# 9 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h" 2
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 1 3
+# 42 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 3
+
+
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\assert.h" 1 3
+# 45 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cassert" 2 3
+# 10 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h" 2
+# 1 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cstddef" 1 3
+# 43 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cstddef" 3
+
+
+
+
+
+
+
+# 1 "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\clang-16\\lib\\clang\\16\\include\\stddef.h" 1 3
+# 51 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cstddef" 2 3
+
+
+namespace std
+{
+
+  using ::max_align_t;
+}
+
+
+
+namespace std
+{
+
+
+
+  enum class byte : unsigned char {};
+
+  template<typename _IntegerType> struct __byte_operand { };
+  template<> struct __byte_operand<bool> { using __type = byte; };
+  template<> struct __byte_operand<char> { using __type = byte; };
+  template<> struct __byte_operand<signed char> { using __type = byte; };
+  template<> struct __byte_operand<unsigned char> { using __type = byte; };
+
+  template<> struct __byte_operand<wchar_t> { using __type = byte; };
+
+  template<> struct __byte_operand<char16_t> { using __type = byte; };
+  template<> struct __byte_operand<char32_t> { using __type = byte; };
+  template<> struct __byte_operand<short> { using __type = byte; };
+  template<> struct __byte_operand<unsigned short> { using __type = byte; };
+  template<> struct __byte_operand<int> { using __type = byte; };
+  template<> struct __byte_operand<unsigned int> { using __type = byte; };
+  template<> struct __byte_operand<long> { using __type = byte; };
+  template<> struct __byte_operand<unsigned long> { using __type = byte; };
+  template<> struct __byte_operand<long long> { using __type = byte; };
+  template<> struct __byte_operand<unsigned long long> { using __type = byte; };
+
+  template<> struct __byte_operand<__int128>
+  { using __type = byte; };
+  template<> struct __byte_operand<unsigned __int128>
+  { using __type = byte; };
+# 104 "C:/AMDDesignTools/2025.2/Vitis/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cstddef" 3
+  template<typename _IntegerType>
+    struct __byte_operand<const _IntegerType>
+    : __byte_operand<_IntegerType> { };
+  template<typename _IntegerType>
+    struct __byte_operand<volatile _IntegerType>
+    : __byte_operand<_IntegerType> { };
+  template<typename _IntegerType>
+    struct __byte_operand<const volatile _IntegerType>
+    : __byte_operand<_IntegerType> { };
+
+  template<typename _IntegerType>
+    using __byte_op_t = typename __byte_operand<_IntegerType>::__type;
+
+  template<typename _IntegerType>
+    constexpr __byte_op_t<_IntegerType>&
+    operator<<=(byte& __b, _IntegerType __shift) noexcept
+    { return __b = byte(static_cast<unsigned char>(__b) << __shift); }
+
+  template<typename _IntegerType>
+    constexpr __byte_op_t<_IntegerType>
+    operator<<(byte __b, _IntegerType __shift) noexcept
+    { return byte(static_cast<unsigned char>(__b) << __shift); }
+
+  template<typename _IntegerType>
+    constexpr __byte_op_t<_IntegerType>&
+    operator>>=(byte& __b, _IntegerType __shift) noexcept
+    { return __b = byte(static_cast<unsigned char>(__b) >> __shift); }
+
+  template<typename _IntegerType>
+    constexpr __byte_op_t<_IntegerType>
+    operator>>(byte __b, _IntegerType __shift) noexcept
+    { return byte(static_cast<unsigned char>(__b) >> __shift); }
+
+  constexpr byte&
+  operator|=(byte& __l, byte __r) noexcept
+  {
+    return __l =
+      byte(static_cast<unsigned char>(__l) | static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte
+  operator|(byte __l, byte __r) noexcept
+  {
+    return
+      byte(static_cast<unsigned char>(__l) | static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte&
+  operator&=(byte& __l, byte __r) noexcept
+  {
+   return __l =
+     byte(static_cast<unsigned char>(__l) & static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte
+  operator&(byte __l, byte __r) noexcept
+  {
+    return
+      byte(static_cast<unsigned char>(__l) & static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte&
+  operator^=(byte& __l, byte __r) noexcept
+  {
+    return __l =
+      byte(static_cast<unsigned char>(__l) ^ static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte
+  operator^(byte __l, byte __r) noexcept
+  {
+    return
+      byte(static_cast<unsigned char>(__l) ^ static_cast<unsigned char>(__r));
+  }
+
+  constexpr byte
+  operator~(byte __b) noexcept
+  { return byte(~static_cast<unsigned char>(__b)); }
+
+  template<typename _IntegerType>
+    constexpr _IntegerType
+    to_integer(__byte_op_t<_IntegerType> __b) noexcept
+    { return _IntegerType(__b); }
+
+}
+# 11 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h" 2
+
+
+
+namespace hls {
+# 68 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+using std::is_invocable_r_v;
+using std::is_convertible_v;
+
+
+namespace details {
+
+
+constexpr size_t gp2(size_t n) {
+  if (n == 0)
+    return 0;
+  if (n % 2 != 0)
+    return 1;
+  return 2 * gp2(n / 2);
+}
+
+}
+
+
+template <typename _T, size_t _N>
+class alignas(details::gp2(sizeof(_T) * _N)) vector {
+  static_assert(_N > 0, "vector must have at least one element");
+
+  using data_t = std::array<_T, _N>;
+  data_t data;
+
+public:
+
+
+  using value_type = typename data_t::value_type;
+  using size_type = typename data_t::size_type;
+  using difference_type = typename data_t::difference_type;
+  using reference = typename data_t::reference;
+  using const_reference = typename data_t::const_reference;
+  using pointer = typename data_t::pointer;
+  using const_pointer = typename data_t::const_pointer;
+  using iterator = typename data_t::iterator;
+  using const_iterator = typename data_t::const_iterator;
+  using reverse_iterator = typename data_t::reverse_iterator;
+  using const_reverse_iterator = typename data_t::const_reverse_iterator;
+# 121 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) iterator begin() { pragma(); return data.begin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) iterator end() { pragma(); return data.end(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) reverse_iterator rbegin() { pragma(); return data.rbegin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) reverse_iterator rend() { pragma(); return data.rend(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_iterator begin() const { pragma(); return data.begin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_iterator end() const { pragma(); return data.end(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_iterator cbegin() const { pragma(); return data.cbegin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_iterator cend() const { pragma(); return data.cend(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_reverse_iterator rbegin() const { pragma(); return data.rbegin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_reverse_iterator rend() const { pragma(); return data.rend(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_reverse_iterator crbegin() const { pragma(); return data.crbegin(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const_reverse_iterator crend() const { pragma(); return data.crend(); }
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) bool empty() const { pragma(); return data.empty(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) size_type size() const { pragma(); return data.size(); }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) size_type max_size() const { pragma(); return data.max_size(); }
+
+
+
+
+protected:
+
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) void pragma() const {
+#pragma HLS AGGREGATE variable=this
+  }
+
+public:
+
+  vector() = default;
+
+  vector(const vector &other) = default;
+
+  vector(vector &&other) = default;
+
+  vector &operator=(const vector &other) = default;
+
+  vector &operator=(vector &&other) = default;
+
+  ~vector() = default;
+
+
+
+
+
+
+  template <size_t _N2 = _N, typename = typename std::enable_if_t<_N2 == 1>>
+  inline __attribute__((always_inline)) __attribute__((nodebug)) operator _T() const {
+    pragma();
+    return data[0];
+  }
+
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector(const _T &val) {
+    pragma();
+    VITIS_LOOP_176_1: for (size_t i = 0; i < _N; ++i) {
+#pragma HLS UNROLL
+      data[i] = val;
+    }
+  }
+
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector(const std::array<_T, _N> &data) : data{data} {
+    pragma();
+  }
+
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector(std::initializer_list<_T> l) {
+    pragma();
+    ({ bool _AssertPred = l.size() == _N && "Initializer list must be the same size as the vector"; __builtin_assume(_AssertPred); });
+
+    VITIS_LOOP_192_1: for (size_t i = 0; i < _N; ++i) {
+#pragma HLS UNROLL
+      data[i] = l.begin()[i];
+    }
+  }
+
+
+
+
+  template<typename _L,
+           typename = typename std::enable_if_t<hls::is_invocable_r_v<_T, _L, size_t> &&
+                                               !hls::is_convertible_v<_L, _T>>>
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector(_L init) {
+    pragma();
+    VITIS_LOOP_206_1: for (size_t i = 0; i < _N; ++i) {
+#pragma HLS UNROLL
+      data[i] = init(i);
+    }
+  }
+
+
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T &operator[](size_t idx) {
+    pragma();
+    return data[idx];
+  }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) const _T &operator[](size_t idx) const {
+    pragma();
+    return data[idx];
+  }
+# 232 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator ++() { pragma(); VITIS_LOOP_232_1: for (size_t i = 0; i < _N; ++i) {
+# 232 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 232 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  ++ data[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator --() { pragma(); VITIS_LOOP_233_1: for (size_t i = 0; i < _N; ++i) {
+# 233 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 233 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  -- data[i]; } return *this; }
+# 245 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector operator ++(int) { pragma(); vector orig = *this; ++ *this; return orig; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector operator --(int) { pragma(); vector orig = *this; -- *this; return orig; }
+# 261 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator +=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_261_1: for (size_t i = 0; i < _N; ++i) {
+# 261 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 261 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] += rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator -=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_262_1: for (size_t i = 0; i < _N; ++i) {
+# 262 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 262 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] -= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator *=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_263_1: for (size_t i = 0; i < _N; ++i) {
+# 263 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 263 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] *= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator /=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_264_1: for (size_t i = 0; i < _N; ++i) {
+# 264 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 264 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] /= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator %=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_265_1: for (size_t i = 0; i < _N; ++i) {
+# 265 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 265 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] %= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator &=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_266_1: for (size_t i = 0; i < _N; ++i) {
+# 266 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 266 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] &= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator |=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_267_1: for (size_t i = 0; i < _N; ++i) {
+# 267 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 267 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] |= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator ^=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_268_1: for (size_t i = 0; i < _N; ++i) {
+# 268 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 268 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] ^= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator <<=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_269_1: for (size_t i = 0; i < _N; ++i) {
+# 269 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 269 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] <<= rhs[i]; } return *this; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) vector &operator >>=(const vector &rhs) { pragma(); rhs.pragma(); VITIS_LOOP_270_1: for (size_t i = 0; i < _N; ++i) {
+# 270 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 270 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  data[i] >>= rhs[i]; } return *this; }
+# 285 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T reduce_add() const { pragma(); _T res = data[0]; VITIS_LOOP_285_1: for (size_t i = 1; i < _N; ++i) {
+# 285 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 285 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  res += data[i]; } return res; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T reduce_mult() const { pragma(); _T res = data[0]; VITIS_LOOP_286_1: for (size_t i = 1; i < _N; ++i) {
+# 286 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 286 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  res *= data[i]; } return res; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T reduce_and() const { pragma(); _T res = data[0]; VITIS_LOOP_287_1: for (size_t i = 1; i < _N; ++i) {
+# 287 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 287 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  res &= data[i]; } return res; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T reduce_or() const { pragma(); _T res = data[0]; VITIS_LOOP_288_1: for (size_t i = 1; i < _N; ++i) {
+# 288 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 288 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  res |= data[i]; } return res; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) _T reduce_xor() const { pragma(); _T res = data[0]; VITIS_LOOP_289_1: for (size_t i = 1; i < _N; ++i) {
+# 289 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 289 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  res ^= data[i]; } return res; }
+# 320 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator <(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_320_1: for (size_t i = 0; i < _N; ++i) {
+# 320 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 320 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] < rhs[i]; } return _T{} < _T{}; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator <=(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_321_1: for (size_t i = 0; i < _N; ++i) {
+# 321 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 321 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] <= rhs[i]; } return _T{} <= _T{}; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator ==(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_322_1: for (size_t i = 0; i < _N; ++i) {
+# 322 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 322 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] == rhs[i]; } return _T{} == _T{}; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator !=(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_323_1: for (size_t i = 0; i < _N; ++i) {
+# 323 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 323 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] != rhs[i]; } return _T{} != _T{}; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator >=(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_324_1: for (size_t i = 0; i < _N; ++i) {
+# 324 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 324 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] >= rhs[i]; } return _T{} >= _T{}; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend bool operator >(const vector &lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); VITIS_LOOP_325_1: for (size_t i = 0; i < _N; ++i) {
+# 325 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+#pragma HLS UNROLL
+# 325 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  if (lhs[i] == rhs[i]) continue; return lhs[i] > rhs[i]; } return _T{} > _T{}; }
+# 338 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_vector.h"
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator +(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs += rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator -(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs -= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator *(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs *= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator /(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs /= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator %(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs %= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator &(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs &= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator |(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs |= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator ^(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs ^= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator <<(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs <<= rhs; }
+  inline __attribute__((always_inline)) __attribute__((nodebug)) friend vector operator >>(vector lhs, const vector &rhs) { lhs.pragma(); rhs.pragma(); return lhs >>= rhs; }
+
+
+
+
+  static inline __attribute__((always_inline)) __attribute__((nodebug)) vector iota(_T start = {}) {
+    return vector([start](size_t i) { return start + i; });
+  }
+};
+
+}
+# 25 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h" 2
+# 44 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+namespace hls {
+
+
+
+
+
+enum fft_T0_t { inlined };
+enum fft_T1_t { streamed };
+enum fft_T2_t { nonblocking };
+enum fft_T3_t { wrapped };
+
+namespace ip_fft {
+# 67 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+static const char* fftErrChkHead = "ERROR:hls::fft ";
+
+enum ordering {bit_reversed_order = 0, natural_order};
+enum scaling {scaled = 0, unscaled, block_floating_point};
+enum arch {
+ radix_4_burst_io = 0, radix_2_burst_io,
+ pipelined_streaming_io, radix_2_lite_burst_io
+};
+enum rounding {truncation = 0, convergent_rounding};
+enum mem { block_ram = 0, distributed_ram };
+enum opt {
+ use_luts = 0, use_mults_resources,
+ use_mults_performance, use_xtremedsp_slices
+};
+enum type { fixed_point = 0, floating_point, native_floating_point };
+static const char* fft_data_format_str[] = {"fixed_point", "floating_point", "native_floating_point"};
+enum ssr {ssr_1=1, ssr_2=2, ssr_4=4, ssr_8=8, ssr_16=16, ssr_32=32, ssr_64=64};
+
+
+
+
+
+template<bool _COND>
+int constexpr my_assert() {
+    static_assert(_COND, "Both old and new parameter name used for hls::ip_fft::params_t");
+    return 0;
+}
+# 130 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+struct params_t
+{
+    using Default = params_t;
+
+ static const unsigned input_width = 16;
+ static const unsigned output_width = 16;
+ static const unsigned status_width = 8;
+ static const unsigned config_width = 16;
+ static const unsigned max_nfft = 10;
+    static const unsigned log2_transform_length = 10;
+ static const bool has_nfft = false;
+ static const bool run_time_configurable_transform_length = false;
+ static const unsigned channels = 1;
+ static const unsigned arch_opt = pipelined_streaming_io;
+ static const unsigned implementation_options = pipelined_streaming_io;
+ static const unsigned phase_factor_width = 16;
+ static const unsigned ordering_opt = bit_reversed_order;
+ static const unsigned output_ordering = bit_reversed_order;
+ static const bool ovflo = true;
+ static const unsigned scaling_opt = scaled;
+ static const unsigned scaling_options = scaled;
+ static const unsigned rounding_opt = truncation;
+ static const unsigned rounding_modes = truncation;
+ static const unsigned mem_data = block_ram;
+ static const unsigned memory_options_data = block_ram;
+ static const unsigned mem_phase_factors = block_ram;
+ static const unsigned memory_options_phase_factors = block_ram;
+ static const unsigned mem_reorder = block_ram;
+ static const unsigned memory_options_reorder = block_ram;
+ static const unsigned stages_block_ram = ((max_nfft < 10) ? 1 : (max_nfft - 9));
+ static const unsigned number_of_stages_using_block_ram_for_data_and_phase_factors = ((log2_transform_length < 10) ? 1 : (log2_transform_length - 9));
+ static const bool mem_hybrid = false;
+ static const bool memory_options_hybrid = false;
+ static const unsigned complex_mult_type = use_mults_resources;
+ static const unsigned butterfly_type = use_luts;
+ static const unsigned super_sample_rate = ssr_1;
+ static const unsigned super_sample_rates = ssr_1;
+ static const bool use_native_float = false;
+    static const bool systolicfft_inv = false;
+
+
+ static const bool xk_index = false;
+ static const bool cyclic_prefix_insertion = false;
+};
+
+
+struct ssr_params_t: params_t
+{
+    using Default = params_t;
+
+ static const unsigned phase_factor_width = 32;
+ static const unsigned output_ordering = natural_order;
+ static const bool ovflo = false;
+ static const unsigned complex_mult_type = use_mults_performance;
+ static const unsigned butterfly_type = use_xtremedsp_slices;
+};
+
+template <typename _CONFIG_T>
+struct config_t
+{
+ config_t() {
+ }
+
+ ap_uint<_CONFIG_T::config_width> data;
+
+ inline __attribute__((always_inline)) void checkBitWidth(ip_fft::type data_type = ip_fft::fixed_point)
+ {
+# 217 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void checkCpLen(bool cp_len_enable)
+ {
+# 230 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void checkSch(unsigned scaling_opt)
+ {
+# 243 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void setNfft(unsigned nfft)
+ {
+
+  if (((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft))) {
+   data.range(7, 0) = nfft;
+
+
+
+
+  } else if (nfft != ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+
+
+
+  }
+ }
+ inline __attribute__((always_inline)) unsigned getNfft()
+ {
+
+  if (((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)))
+   return data.range(7, 0);
+  else
+   return ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ }
+ inline __attribute__((always_inline)) unsigned getNfft() const
+ {
+
+  if (((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)))
+   return data.range(7, 0);
+  else
+   return ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ }
+
+ inline __attribute__((always_inline)) void setCpLen(unsigned cp_len)
+ {
+
+  checkCpLen(_CONFIG_T::cyclic_prefix_insertion);
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  data.range(cp_len_bits+nfft_bits-1, nfft_bits) = cp_len;
+ }
+ inline __attribute__((always_inline)) unsigned getCpLen()
+ {
+
+  checkCpLen(_CONFIG_T::cyclic_prefix_insertion);
+  unsigned ret = 0;
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  ret = data.range(cp_len_bits+nfft_bits-1, nfft_bits);
+  return ret;
+ }
+ inline __attribute__((always_inline)) unsigned getCpLen() const
+ {
+
+  checkCpLen(_CONFIG_T::cyclic_prefix_insertion);
+  unsigned ret = 0;
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  ret = data.range(cp_len_bits+nfft_bits-1, nfft_bits);
+  return ret;
+ }
+
+ inline __attribute__((always_inline)) void setDir(bool dir, unsigned ch = 0)
+ {
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  data.range(ch_bits*(ch+1)+ch_lo-1, ch_bits*ch+ch_lo) = dir;
+ }
+ inline __attribute__((always_inline)) unsigned getDir(unsigned ch = 0)
+ {
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  return data.range(ch_bits*(ch+1)+ch_lo-1, ch_bits*ch+ch_lo);
+ }
+ inline __attribute__((always_inline)) unsigned getDir(unsigned ch = 0) const
+ {
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  return data.range(ch_bits*(ch+1)+ch_lo-1, ch_bits*ch+ch_lo);
+ }
+
+ inline __attribute__((always_inline)) void setSch(unsigned sch, unsigned ch = 0)
+ {
+
+  checkSch(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  unsigned arch = ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt));
+  unsigned tmp_bits = (arch == unsigned(pipelined_streaming_io) || arch == unsigned(radix_4_burst_io)) ? ((max_nfft+1)>>1) * 2 : 2 * max_nfft;
+  unsigned sch_bits = (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled)) ? tmp_bits : 0;
+  unsigned sch_lo = ch_lo + _CONFIG_T::channels * ch_bits;
+  data.range(sch_bits*(ch+1)+sch_lo-1, sch_bits*ch+sch_lo) = sch;
+ }
+ inline __attribute__((always_inline)) unsigned getSch(unsigned ch = 0)
+ {
+
+  checkSch(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  unsigned arch = ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt));
+  unsigned tmp_bits = (arch == unsigned(pipelined_streaming_io) || arch == unsigned(radix_4_burst_io)) ? ((max_nfft+1)>>1) * 2 : 2 * max_nfft;
+  unsigned sch_bits = (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled)) ? tmp_bits : 0;
+  unsigned sch_lo = ch_lo + _CONFIG_T::channels * ch_bits;
+  return data.range(sch_bits*(ch+1)+sch_lo-1, sch_bits*ch+sch_lo);
+ }
+ inline __attribute__((always_inline)) unsigned getSch(unsigned ch = 0) const
+ {
+
+  checkSch(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  unsigned max_nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+  unsigned nfft_bits = ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)) ? 8 : 0;
+  unsigned cp_len_bits = _CONFIG_T::cyclic_prefix_insertion ? (((max_nfft + 7) >> 3) << 3) : 0;
+  unsigned ch_lo = cp_len_bits + nfft_bits;
+  unsigned ch_bits = 1;
+  unsigned arch = ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt));
+  unsigned tmp_bits = (arch == unsigned(pipelined_streaming_io) || arch == unsigned(radix_4_burst_io)) ? ((max_nfft+1)>>1) * 2 : 2 * max_nfft;
+  unsigned sch_bits = (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled)) ? tmp_bits : 0;
+  unsigned sch_lo = ch_lo + _CONFIG_T::channels * ch_bits;
+  return data.range(sch_bits*(ch+1)+sch_lo-1, sch_bits*ch+sch_lo);
+ }
+};
+
+template<typename _CONFIG_T>
+struct status_t
+{
+ typedef ap_uint<_CONFIG_T::status_width> status_data_t;
+ status_data_t data;
+
+
+
+ inline __attribute__((always_inline)) void checkBitWidth()
+ {
+# 407 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void checkBlkExp(unsigned scaling_opt)
+ {
+# 420 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void checkOvflo(bool has_ovflo)
+ {
+# 434 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+ }
+
+ inline __attribute__((always_inline)) void setBlkExp(status_data_t exp)
+ {
+  checkBitWidth();
+  checkBlkExp(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  data = exp;
+ }
+ inline __attribute__((always_inline)) unsigned getBlkExp(unsigned ch = 0)
+ {
+  checkBitWidth();
+  unsigned blk_exp_bits = (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(block_floating_point)) ? 8 : 0;
+  checkBlkExp(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  return data.range(blk_exp_bits*(ch+1)-1, blk_exp_bits*ch);
+ }
+ inline __attribute__((always_inline)) unsigned getBlkExp(unsigned ch = 0) const
+ {
+  checkBitWidth();
+  unsigned blk_exp_bits = (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(block_floating_point)) ? 8 : 0;
+  checkBlkExp(((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)));
+  return data.range(blk_exp_bits*(ch+1)-1, blk_exp_bits*ch);
+ }
+
+ inline __attribute__((always_inline)) void setOvflo(status_data_t ovflo)
+ {
+  checkBitWidth();
+  bool has_ovflo = _CONFIG_T::ovflo && (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled));
+  checkOvflo(has_ovflo);
+  data = ovflo;
+ }
+ inline __attribute__((always_inline)) unsigned getOvflo(unsigned ch = 0)
+ {
+  checkBitWidth();
+  bool has_ovflo = _CONFIG_T::ovflo && (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled));
+  unsigned ovflo_bits = has_ovflo ? 1 : 0;
+  checkOvflo(has_ovflo);
+  return data.range(ovflo_bits*(ch+1)-1, ovflo_bits*ch);
+ }
+ inline __attribute__((always_inline)) unsigned getOvflo(unsigned ch = 0) const
+ {
+  checkBitWidth();
+  bool has_ovflo = _CONFIG_T::ovflo && (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(scaled));
+  unsigned ovflo_bits = has_ovflo ? 1 : 0;
+  checkOvflo(has_ovflo);
+  return data.range(ovflo_bits*(ch+1)-1, ovflo_bits*ch);
+ }
+};
+
+}
+
+template<
+typename _CONFIG_T,
+char _FFT_INPUT_WIDTH,
+char _FFT_OUTPUT_WIDTH,
+typename _FFT_INPUT_T,
+typename _FFT_OUTPUT_T,
+int _FFT_LENGTH,
+char _FFT_CHANNELS,
+ip_fft::type _FFT_DATA_FORMAT,
+char _FFT_SUPER_SAMPLE_RATE
+>
+inline __attribute__((always_inline)) void fft_core(
+  std::complex<_FFT_INPUT_T> xn[_FFT_CHANNELS][_FFT_LENGTH],
+  std::complex<_FFT_OUTPUT_T> xk[_FFT_CHANNELS][_FFT_LENGTH],
+  ip_fft::status_t<_CONFIG_T>* status,
+  ip_fft::config_t<_CONFIG_T>* config_ch)
+{
+
+
+
+
+
+
+
+#pragma HLS inline
+ __fpga_ip("Vivado_FFT",
+
+   "channels", _FFT_CHANNELS,
+   "transform_length", 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[_FFT_DATA_FORMAT],
+   "input_width", _FFT_INPUT_WIDTH,
+   "output_width", _FFT_OUTPUT_WIDTH,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", _FFT_SUPER_SAMPLE_RATE
+ );
+ ip_fft::status_t<_CONFIG_T> status_t;
+ ip_fft::config_t<_CONFIG_T> config_ch_t = *config_ch;
+
+ bool has_scaling_sch = config_ch_t.getSch();
+ bool has_direction = config_ch_t.getDir();
+
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_545_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+#pragma HLS unroll factor=_FFT_SUPER_SAMPLE_RATE skip_exit_check
+   VITIS_LOOP_548_2: for (int c = 0; c < _FFT_CHANNELS; ++c)
+   {
+#pragma HLS unroll
+    xk[c][i] = xn[c][i];
+   }
+  }
+
+ status_t.data = config_ch_t.getDir();
+ *status = status_t;
+# 959 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T,
+char _FFT_INPUT_WIDTH,
+char _FFT_OUTPUT_WIDTH,
+typename _FFT_INPUT_T,
+typename _FFT_OUTPUT_T,
+int _FFT_LENGTH,
+char _FFT_CHANNELS,
+ip_fft::type _FFT_DATA_FORMAT,
+char _FFT_SUPER_SAMPLE_RATE
+>
+void fft_core(
+  std::complex<_FFT_INPUT_T> xn[_FFT_LENGTH],
+  std::complex<_FFT_OUTPUT_T> xk[_FFT_LENGTH],
+  ip_fft::status_t<_CONFIG_T>* status,
+  ip_fft::config_t<_CONFIG_T>* config_ch)
+{
+
+#pragma HLS inline
+
+ __fpga_ip("Vivado_FFT",
+
+   "channels", _FFT_CHANNELS,
+   "transform_length", _FFT_LENGTH,
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[_FFT_DATA_FORMAT],
+   "input_width", _FFT_INPUT_WIDTH,
+   "output_width", _FFT_OUTPUT_WIDTH,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", _FFT_SUPER_SAMPLE_RATE
+ );
+ ip_fft::status_t<_CONFIG_T> status_t;
+ ip_fft::config_t<_CONFIG_T> config_ch_t = *config_ch;
+
+ bool has_scaling_sch = config_ch_t.getSch();
+ bool has_direction = config_ch_t.getDir();
+
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_1018_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+#pragma HLS unroll factor=_FFT_SUPER_SAMPLE_RATE skip_exit_check
+   xk[i] = xn[i];
+  }
+
+ status_t.data = config_ch_t.getDir();
+ *status = status_t;
+# 1049 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft_syn(
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > > &xn,
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > > &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+#pragma HLS inline
+
+ __fpga_ip("Vivado_FFT",
+
+   "channels", 1,
+   "transform_length", 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[ip_fft::fixed_point],
+   "input_width", _CONFIG_T::input_width,
+   "output_width", _CONFIG_T::output_width,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ );
+
+
+ ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+ bool has_scaling_sch = config_tmp.getSch();
+ bool has_direction = config_tmp.getDir();
+ int _FFT_LENGTH = 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_1100_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+   xk.write(xn.read());
+  }
+
+ ip_fft::status_t<_CONFIG_T> status_tmp;
+ status_tmp.data = config_tmp.getDir();
+ status_data_V.write(status_tmp);
+
+}
+
+
+template<typename _CONFIG_T>
+void fft_syn(
+  hls::stream<hls::vector<std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> >, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> > &xn,
+  hls::stream<hls::vector<std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> >, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> > &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+#pragma HLS inline
+ __fpga_ip("Vivado_FFT",
+
+   "channels", 1,
+   "transform_length", 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[ip_fft::fixed_point],
+   "input_width", _CONFIG_T::input_width,
+   "output_width", _CONFIG_T::output_width,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ );
+
+ ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+ bool has_scaling_sch = config_tmp.getSch();
+ bool has_direction = config_tmp.getDir();
+ int _FFT_LENGTH = 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_1155_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+   xk.write(xn.read());
+  }
+ ip_fft::status_t<_CONFIG_T> status_tmp;
+ status_tmp.data = config_tmp.getDir();
+ status_data_V.write(status_tmp);
+}
+
+
+
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft_syn(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+#pragma HLS inline off
+
+ __fpga_ip("Vivado_FFT",
+
+   "channels", 1,
+   "transform_length", 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[ip_fft::fixed_point],
+   "input_width", _CONFIG_T::input_width,
+   "output_width", _CONFIG_T::output_width,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ );
+
+
+ ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+ bool has_scaling_sch = config_tmp.getSch();
+ bool has_direction = config_tmp.getDir();
+ int _FFT_LENGTH = 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_1216_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+   xk[i] = xn[i];
+  }
+
+ ip_fft::status_t<_CONFIG_T> status_tmp;
+ status_tmp.data = config_tmp.getDir();
+ status_data_V.write(status_tmp);
+
+}
+
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft_syn(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+#pragma HLS inline off
+
+ __fpga_ip("Vivado_FFT",
+
+   "channels", _CONFIG_T::channels,
+   "transform_length", 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+   "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+   "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+   "data_format", ip_fft::fft_data_format_str[ip_fft::fixed_point],
+   "input_width", _CONFIG_T::input_width,
+   "output_width", _CONFIG_T::output_width,
+   "phase_factor_width", _CONFIG_T::phase_factor_width,
+   "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+   "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+   "aclken", "true",
+   "aresetn", "true",
+   "ovflo", _CONFIG_T::ovflo,
+   "xk_index", _CONFIG_T::xk_index,
+   "throttle_scheme", "nonrealtime",
+   "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+   "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+   "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+   "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+   "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+   "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+   "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+   "complex_mult_type", _CONFIG_T::complex_mult_type,
+   "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+   "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ );
+
+ ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+ bool has_scaling_sch = config_tmp.getSch();
+ bool has_direction = config_tmp.getDir();
+ int _FFT_LENGTH = 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft));
+ int _FFT_CHANNELS = _CONFIG_T::channels;
+ if ( has_direction || has_scaling_sch )
+  VITIS_LOOP_1278_1: for (int i = 0; i < _FFT_LENGTH; ++i)
+  {
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+   VITIS_LOOP_1281_2: for (int c = 0; c < _FFT_CHANNELS; ++c)
+   {
+#pragma HLS unroll
+    xk[c][i] = xn[c][i];
+   }
+  }
+
+ ip_fft::status_t<_CONFIG_T> status_tmp;
+ status_tmp.data = config_tmp.getDir();
+ status_data_V.write(status_tmp);
+
+}
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft_sim(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch)
+{
+ fft_core<
+ _CONFIG_T,
+ _CONFIG_T::input_width,
+ _CONFIG_T::output_width,
+ ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1>,
+ ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1>,
+ 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+ 1,
+ ip_fft::fixed_point,
+ ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ >(xn, xk, status, config_ch);
+}
+
+template<
+typename _CONFIG_T
+>
+void data_copy_from_ap_fix_to_ap_uint(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ap_uint<((_CONFIG_T::input_width+7)/8)*8*2> xn_cp[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+
+ VITIS_LOOP_1325_1: for (unsigned i = 0; i < (1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))); i++) {
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn_tmp = xn[i];
+  ap_uint<((_CONFIG_T::input_width+7)/8)*8*2> xn_cp_tmp;
+  xn_cp_tmp(((_CONFIG_T::input_width+7)/8)*8 - 1, 0) = xn_tmp.real().range(((_CONFIG_T::input_width+7)/8)*8 - 1, 0);
+  xn_cp_tmp(((_CONFIG_T::input_width+7)/8)*8*2 - 1, ((_CONFIG_T::input_width+7)/8)*8) = xn_tmp.imag().range(((_CONFIG_T::input_width+7)/8)*8 - 1, 0);
+  xn_cp[i] = xn_cp_tmp;
+ }
+}
+
+template<
+typename _CONFIG_T
+>
+void data_copy_from_ap_uint_to_ap_fixed(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ap_uint<((_CONFIG_T::input_width+7)/8)*8*2> xk_cp[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+ VITIS_LOOP_1340_1: for (unsigned i = 0; i < (1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))); i++) {
+  ap_uint<((_CONFIG_T::input_width+7)/8)*8*2> xk_cp_tmp = xk_cp[i];
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, 1> > xk_tmp;
+  ap_fixed<((_CONFIG_T::output_width+7)/8)*8, 1> tmp;
+  tmp.range(((_CONFIG_T::output_width+7)/8)*8 - 1, 0) = xk_cp_tmp.range(((_CONFIG_T::output_width+7)/8)*8 - 1, 0);
+  xk_tmp.real(tmp);
+  tmp.range(((_CONFIG_T::output_width+7)/8)*8 - 1, 0) = xk_cp_tmp.range(((_CONFIG_T::output_width+7)/8)*8*2 - 1, ((_CONFIG_T::output_width+7)/8)*8);
+  xk_tmp.imag(tmp);
+  xk[i] = xk_tmp;
+ }
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  hls::stream<hls::vector<std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> >,((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> > &xn,
+  hls::stream<hls::vector<std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> >, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> > &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1390 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > > &xn,
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > > &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1421 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template<
+typename _CONFIG_T, fft_T2_t _TAG
+>
+void fft(
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > > &xn,
+  hls::stream<std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > > &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V)
+{
+
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1453 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1482 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T, fft_T2_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1511 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template<
+typename _CONFIG_T, fft_T0_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+
+
+
+}
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch)
+{
+
+#pragma HLS dataflow
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+
+
+
+}
+
+
+
+template<
+typename _CONFIG_T
+>
+void fft_copy(hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V, ip_fft::status_t<_CONFIG_T> *status, bool &flag) {
+
+ if (flag) *status = status_data_V.read();
+}
+
+template<
+typename _CONFIG_T
+>
+void fft_wrapper(std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V, bool &flag) {
+#pragma HLS dataflow
+        fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+        flag = true;
+
+}
+
+
+
+
+template<
+typename _CONFIG_T, fft_T3_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch)
+{
+
+#pragma HLS dataflow
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ bool flag;
+#pragma HLS STREAM variable=flag type=pipo
+ config_ch_data_V.write(*config_ch);
+ fft_wrapper<_CONFIG_T>(xn, xk, config_ch_data_V, status_data_V, flag);
+ fft_copy(status_data_V, status, flag);
+
+
+
+}
+
+
+template<
+typename _CONFIG_T, fft_T1_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status_data_V,
+  ip_fft::config_t<_CONFIG_T> *config_ch_data_V)
+{
+
+
+#pragma HLS inline off
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS stream variable=status_data_V
+#pragma HLS stream variable=config_ch_data_V
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_core<
+ _CONFIG_T,
+ _CONFIG_T::input_width,
+ _CONFIG_T::output_width,
+ ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1>,
+ ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1>,
+ 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+ 1,
+ ip_fft::fixed_point,
+ ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>(xn, xk, status_data_V, config_ch_data_V);
+
+
+
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8,
+  ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS array_reshape dim=1 variable=xn
+#pragma HLS array_reshape dim=1 variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape dim=2 cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape dim=2 cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1704 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T, fft_T2_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8,
+  ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS array_reshape dim=1 variable=xn
+#pragma HLS array_reshape dim=1 variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+# 1748 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8,
+  ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T>* status,
+  ip_fft::config_t<_CONFIG_T>* config_ch)
+{
+
+#pragma HLS dataflow
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS array_reshape dim=1 variable=xn
+#pragma HLS array_reshape dim=1 variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+# 1789 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T, fft_T0_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8,
+  ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T>* status,
+  ip_fft::config_t<_CONFIG_T>* config_ch)
+{
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS array_reshape dim=1 variable=xn
+#pragma HLS array_reshape dim=1 variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+# 1830 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template<
+typename _CONFIG_T, fft_T1_t _TAG
+>
+void fft(
+  std::complex<ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1> > xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<ap_fixed<((_CONFIG_T::output_width+7)/8)*8,
+  ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1> > xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T>* status_data_V,
+  ip_fft::config_t<_CONFIG_T>* config_ch_data_V)
+{
+#pragma HLS inline off
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS array_reshape dim=1 variable=xn
+#pragma HLS array_reshape dim=1 variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS stream variable=status_data_V
+#pragma HLS stream variable=config_ch_data_V
+
+ fft_core<
+ _CONFIG_T,
+ _CONFIG_T::input_width,
+ _CONFIG_T::output_width,
+ ap_fixed<((_CONFIG_T::input_width+7)/8)*8, 1>,
+ ap_fixed<((_CONFIG_T::output_width+7)/8)*8, ((_CONFIG_T::output_width+7)/8)*8-_CONFIG_T::input_width+1>,
+ 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+ _CONFIG_T::channels,
+ ip_fft::fixed_point,
+ ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ >(xn, xk, status_data_V, config_ch_data_V);
+
+}
+
+
+union U {
+ float f;
+ unsigned i;
+};
+
+template <typename _CONFIG_T>
+static void
+data_copy_from_float_to_int64(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  uint64_t xn_cp[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+ VITIS_LOOP_1879_1: for (unsigned i = 0; i < (1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))); i++) {
+  std::complex<float> xn_tmp = xn[i];
+  U u;
+  u.f = xn_tmp.real();
+  uint64_t xn_cp_tmp = u.i;
+  u.f = xn_tmp.imag();
+  xn_cp_tmp |= (((uint64_t)u.i) << 32);
+  xn_cp[i] = xn_cp_tmp;
+ }
+}
+
+template <typename _CONFIG_T>
+static void
+data_copy_from_int64_to_float(std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  uint64_t xk_cp[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+ VITIS_LOOP_1894_1: for (unsigned i = 0; i < (1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))); i++) {
+  uint64_t xk_cp_tmp = xk_cp[i];
+  U u;
+  u.i = unsigned(xk_cp_tmp);
+  std::complex<float> xk_tmp;
+  xk_tmp.real(u.f);
+  u.i = unsigned(xk_cp_tmp >> 32);
+  xk_tmp.imag(u.f);
+  xk[i] = xk_tmp;
+ }
+}
+
+
+
+
+template <typename _CONFIG_T, char _FFT_INPUT_WIDTH, char _FFT_OUTPUT_WIDTH,
+int _FFT_LENGTH, char _FFT_CHANNELS, ip_fft::type _FFT_DATA_FORMAT>
+void fft_syn(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline off
+
+
+__fpga_ip("Vivado_FFT",
+
+  "channels", _FFT_CHANNELS,
+  "transform_length", _FFT_LENGTH,
+  "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+  "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+  "data_format", ip_fft::fft_data_format_str[_FFT_DATA_FORMAT],
+  "input_width", _FFT_INPUT_WIDTH,
+  "output_width", _FFT_OUTPUT_WIDTH,
+  "phase_factor_width", _CONFIG_T::phase_factor_width,
+  "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+  "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+  "aclken", "true",
+  "aresetn", "true",
+  "ovflo", _CONFIG_T::ovflo,
+  "xk_index", _CONFIG_T::xk_index,
+  "throttle_scheme", "nonrealtime",
+  "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+  "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+  "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+  "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+  "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+  "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+  "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+  "complex_mult_type", _CONFIG_T::complex_mult_type,
+  "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+  "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+);
+
+ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+bool has_scaling_sch = config_tmp.getSch();
+bool has_direction = config_tmp.getDir();
+
+if (has_direction || has_scaling_sch)
+ VITIS_LOOP_1953_1: for (int i = 0; i < _FFT_LENGTH; ++i) {
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+  xk[i] = xn[i];
+ }
+
+ip_fft::status_t<_CONFIG_T> status_tmp;
+status_tmp.data = config_tmp.getDir();
+status_data_V.write(status_tmp);
+}
+
+
+template <typename _CONFIG_T, char _FFT_INPUT_WIDTH, char _FFT_OUTPUT_WIDTH,
+int _FFT_LENGTH, char _FFT_CHANNELS, ip_fft::type _FFT_DATA_FORMAT>
+void fft_syn(hls::stream<std::complex<float>> &xn,
+  hls::stream<std::complex<float>> &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline
+
+__fpga_ip("Vivado_FFT",
+
+  "channels", _FFT_CHANNELS,
+  "transform_length", _FFT_LENGTH,
+  "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+  "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+  "data_format", ip_fft::fft_data_format_str[_FFT_DATA_FORMAT],
+  "input_width", _FFT_INPUT_WIDTH,
+  "output_width", _FFT_OUTPUT_WIDTH,
+  "phase_factor_width", _CONFIG_T::phase_factor_width,
+  "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+  "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+  "aclken", "true",
+  "aresetn", "true",
+  "ovflo", _CONFIG_T::ovflo,
+  "xk_index", _CONFIG_T::xk_index,
+  "throttle_scheme", "nonrealtime",
+  "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+  "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+  "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+  "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+  "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+  "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+  "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+  "complex_mult_type", _CONFIG_T::complex_mult_type,
+  "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+  "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+);
+
+ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+bool has_scaling_sch = config_tmp.getSch();
+bool has_direction = config_tmp.getDir();
+
+if (has_direction || has_scaling_sch)
+ VITIS_LOOP_2007_1: for (int i = 0; i < _FFT_LENGTH; ++i) {
+  xk.write(xn.read());
+ }
+
+ip_fft::status_t<_CONFIG_T> status_tmp;
+status_tmp.data = config_tmp.getDir();
+status_data_V.write(status_tmp);
+}
+
+
+template <typename _CONFIG_T, char _FFT_INPUT_WIDTH, char _FFT_OUTPUT_WIDTH,
+int _FFT_LENGTH, char _FFT_CHANNELS, ip_fft::type _FFT_DATA_FORMAT>
+void fft_syn(hls::stream<hls::vector<std::complex<float>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>> &xn,
+  hls::stream<hls::vector<std::complex<float>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>> &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline
+
+__fpga_ip("Vivado_FFT",
+
+  "channels", _FFT_CHANNELS,
+  "transform_length", _FFT_LENGTH,
+  "implementation_options", ((_CONFIG_T::implementation_options) != (ip_fft::pipelined_streaming_io) ? (_CONFIG_T::implementation_options) : (_CONFIG_T::arch_opt)),
+  "run_time_configurable_transform_length", ((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)),
+  "data_format", ip_fft::fft_data_format_str[_FFT_DATA_FORMAT],
+  "input_width", _FFT_INPUT_WIDTH,
+  "output_width", _FFT_OUTPUT_WIDTH,
+  "phase_factor_width", _CONFIG_T::phase_factor_width,
+  "scaling_options", ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)),
+  "rounding_modes", ((_CONFIG_T::rounding_modes) != (ip_fft::truncation) ? (_CONFIG_T::rounding_modes) : (_CONFIG_T::rounding_opt)),
+  "aclken", "true",
+  "aresetn", "true",
+  "ovflo", _CONFIG_T::ovflo,
+  "xk_index", _CONFIG_T::xk_index,
+  "throttle_scheme", "nonrealtime",
+  "output_ordering", ((_CONFIG_T::output_ordering) != (ip_fft::bit_reversed_order) ? (_CONFIG_T::output_ordering) : (_CONFIG_T::ordering_opt)),
+  "cyclic_prefix_insertion", _CONFIG_T::cyclic_prefix_insertion,
+  "memory_options_data", ((_CONFIG_T::memory_options_data) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_data) : (_CONFIG_T::mem_data)),
+  "memory_options_phase_factors", ((_CONFIG_T::memory_options_phase_factors) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_phase_factors) : (_CONFIG_T::mem_phase_factors)),
+  "memory_options_reorder", ((_CONFIG_T::memory_options_reorder) != (ip_fft::block_ram) ? (_CONFIG_T::memory_options_reorder) : (_CONFIG_T::mem_reorder)),
+  "number_of_stages_using_block_ram_for_data_and_phase_factors", ((_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) != (((_CONFIG_T::log2_transform_length < 10) ? 1 : (_CONFIG_T::log2_transform_length - 9))) ? (_CONFIG_T::number_of_stages_using_block_ram_for_data_and_phase_factors) : (_CONFIG_T::stages_block_ram)),
+  "memory_options_hybrid", ((_CONFIG_T::memory_options_hybrid) != (false) ? (_CONFIG_T::memory_options_hybrid) : (_CONFIG_T::mem_hybrid)),
+  "complex_mult_type", _CONFIG_T::complex_mult_type,
+  "butterfly_type", _CONFIG_T::butterfly_type,
+   "systolicfft_inv", _CONFIG_T::systolicfft_inv,
+  "super_sample_rates", ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+);
+
+ip_fft::config_t<_CONFIG_T> config_tmp = config_ch_data_V.read();
+bool has_scaling_sch = config_tmp.getSch();
+bool has_direction = config_tmp.getDir();
+
+if (has_direction || has_scaling_sch)
+ VITIS_LOOP_2060_1: for (int i = 0; i < (1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)) ); ++i) {
+  xk.write(xn.read());
+ }
+
+ip_fft::status_t<_CONFIG_T> status_tmp;
+status_tmp.data = config_tmp.getDir();
+status_data_V.write(status_tmp);
+}
+
+
+template<
+typename _CONFIG_T
+>
+void fft_wrapper(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::config_t<_CONFIG_T> > &config_ch_data_V,
+  hls::stream<ip_fft::status_t<_CONFIG_T> > &status_data_V, bool &flag) {
+#pragma HLS dataflow
+        fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+        flag = true;
+}
+
+
+
+
+template <typename _CONFIG_T>
+void fft_sim(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch) {
+ fft_core<
+ _CONFIG_T,
+ 32,
+ 32,
+ float,
+ float,
+ 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+ 1,
+ ip_fft::floating_point,
+ ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ >(xn, xk, status, config_ch);
+}
+
+
+template <typename _CONFIG_T>
+void fft(hls::stream<hls::vector<std::complex<float>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>> &xn,
+  hls::stream<hls::vector<std::complex<float>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>> &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+# 2138 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+template <typename _CONFIG_T>
+void fft(hls::stream<std::complex<float>> &xn,
+  hls::stream<std::complex<float>> &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+# 2165 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template <typename _CONFIG_T, fft_T2_t _TAG>
+void fft(hls::stream<std::complex<float>> &xn,
+  hls::stream<std::complex<float>> &xk,
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+#pragma HLS inline off
+
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+# 2193 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template <typename _CONFIG_T>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+    fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,_CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+# 2219 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template <typename _CONFIG_T, fft_T2_t _TAG>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  hls::stream<ip_fft::status_t<_CONFIG_T>> &status_data_V,
+  hls::stream<ip_fft::config_t<_CONFIG_T>> &config_ch_data_V) {
+
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+# 2247 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_fft.h"
+}
+
+
+
+template <typename _CONFIG_T>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch) {
+
+
+#pragma HLS dataflow
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+
+
+
+
+}
+
+
+template <typename _CONFIG_T, fft_T0_t _TAG>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch) {
+
+
+#pragma HLS inline
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+ config_ch_data_V.write(*config_ch);
+ fft_syn<_CONFIG_T, 32, 32, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1,
+   _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point>(xn, xk, status_data_V, config_ch_data_V);
+ *status = status_data_V.read();
+
+
+
+
+}
+
+
+template <typename _CONFIG_T, fft_T1_t _TAG>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status_data_V,
+  ip_fft::config_t<_CONFIG_T> *config_ch_data_V) {
+
+
+#pragma HLS inline off
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS stream variable=status_data_V
+#pragma HLS stream variable=config_ch_data_V
+
+ fft_core<_CONFIG_T, 32, 32, float, float, 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), 1, _CONFIG_T::use_native_float ? ip_fft::native_floating_point : ip_fft::floating_point, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>(xn, xk, status_data_V, config_ch_data_V);
+
+
+
+}
+
+
+template <typename _CONFIG_T, fft_T3_t _TAG>
+void fft(std::complex<float> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  std::complex<float> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+  ip_fft::status_t<_CONFIG_T> *status,
+  ip_fft::config_t<_CONFIG_T> *config_ch) {
+
+
+#pragma HLS dataflow
+#pragma HLS aggregate variable=xn
+#pragma HLS aggregate variable=xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xn factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=xk factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+ hls::stream<ip_fft::config_t<_CONFIG_T>, 2> config_ch_data_V;
+ hls::stream<ip_fft::status_t<_CONFIG_T>, 2> status_data_V;
+        bool flag;
+#pragma HLS STREAM variable=flag type=pipo
+ config_ch_data_V.write(*config_ch);
+ fft_wrapper<_CONFIG_T>(xn, xk, config_ch_data_V, status_data_V, flag);
+        fft_copy(status_data_V, status, flag);
+
+
+
+}
+
+
+
+
+template<typename _CONFIG_T>
+void set_config(hls::ip_fft::config_t<_CONFIG_T> &config,
+                bool fwd_inv = false,
+                int scale_sch = -1,
+                unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                int cp_len = -1) {
+        hls::ip_fft::config_t<_CONFIG_T> config_tmp;
+        config_tmp.setDir(fwd_inv);
+        if (((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)))
+            config_tmp.setNfft(nfft);
+        config_tmp.setSch(scale_sch >= 0 ? scale_sch : 0x2AA);
+        if (cp_len >=0)
+            config_tmp.setCpLen(cp_len);
+        config = config_tmp;
+}
+
+
+template<typename _CONFIG_T>
+void set_config(hls::ip_fft::config_t<_CONFIG_T> &config,
+                hls::vector<bool, _CONFIG_T::channels> &fwd_inv,
+                hls::vector<int, _CONFIG_T::channels> &scale_sch,
+                unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                int cp_len = -1) {
+        hls::ip_fft::config_t<_CONFIG_T> config_tmp;
+        if (((_CONFIG_T::run_time_configurable_transform_length) != (false) ? (_CONFIG_T::run_time_configurable_transform_length) : (_CONFIG_T::has_nfft)))
+            config_tmp.setNfft(nfft);
+        if (cp_len >=0)
+            config_tmp.setCpLen(cp_len);
+        VITIS_LOOP_2387_1: for (int i = 0; i < _CONFIG_T::channels; i++) {
+#pragma HLS unroll
+            config_tmp.setDir(fwd_inv[i], i);
+            if (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == ip_fft::scaled)
+                config_tmp.setSch(scale_sch[i], i);
+        }
+        config = config_tmp;
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void set_data(unsigned int nfft,
+              hls::stream<std::complex<_DATA_IN_T>>& in,
+              std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+
+        VITIS_LOOP_2407_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+            out[i] = in.read();
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void set_data(unsigned int nfft,
+              hls::stream<hls::vector<std::complex<_DATA_IN_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& in,
+              std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+
+        VITIS_LOOP_2424_1: for (int i=0; i<length; i += ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))) {
+#pragma HLS pipeline II=1 rewind style=flp
+                hls::vector<std::complex<_DATA_IN_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> tmp = in.read();
+                VITIS_LOOP_2427_2: for (int j = 0; j < ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)); j++) {
+                    out[i + j] = tmp[j];
+                }
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void set_data(unsigned int nfft,
+              std::complex<_DATA_IN_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+
+        VITIS_LOOP_2444_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+            out[i] = in[i];
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void set_data(unsigned int nfft,
+              std::complex<_DATA_IN_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              std::complex<_DATA_IN_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))]) {
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+
+        VITIS_LOOP_2462_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+            VITIS_LOOP_2465_2: for (int k = 0; k < _CONFIG_T::channels; k++) {
+                out[k][i] = in[k][i];
+            }
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void inputdatamover(hls::stream<std::complex<_DATA_IN_T>>& in,
+                    std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    hls::ip_fft::config_t<_CONFIG_T> &config,
+                    unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                    bool fwd_inv = false,
+                    int scale_sch = -1,
+                    int cp_len = -1) {
+#pragma HLS dataflow
+#pragma HLS inline
+#pragma HLS STREAM variable=config type=pipo
+
+    set_config<_CONFIG_T>(config, fwd_inv, scale_sch, nfft, cp_len);
+ set_data<_CONFIG_T, _DATA_IN_T>(nfft, in, out);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void inputdatamover(hls::stream<hls::vector<std::complex<_DATA_IN_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& in,
+                    std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    hls::ip_fft::config_t<_CONFIG_T> &config,
+                    unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                    bool fwd_inv = false,
+                    int scale_sch = -1,
+                    int cp_len = -1) {
+#pragma HLS dataflow
+#pragma HLS inline
+#pragma HLS STREAM variable=config type=pipo
+
+    set_config<_CONFIG_T>(config, fwd_inv, scale_sch, nfft, cp_len);
+ set_data<_CONFIG_T, _DATA_IN_T>(nfft, in, out);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void inputdatamover(std::complex<_DATA_IN_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    std::complex<_DATA_IN_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    hls::ip_fft::config_t<_CONFIG_T> &config,
+                    unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                    bool fwd_inv = false,
+                    int scale_sch = -1,
+                    int cp_len = -1) {
+#pragma HLS dataflow
+#pragma HLS inline
+    set_config<_CONFIG_T>(config, fwd_inv, scale_sch, nfft, cp_len);
+    set_data<_CONFIG_T, _DATA_IN_T>(nfft, in, out);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_IN_T>
+void inputdatamover(std::complex<_DATA_IN_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    std::complex<_DATA_IN_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                    hls::ip_fft::config_t<_CONFIG_T> &config,
+                    hls::vector<bool, _CONFIG_T::channels> &fwd_inv,
+                    hls::vector<int, _CONFIG_T::channels> &scale_sch,
+                    unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)),
+                    int cp_len = -1) {
+#pragma HLS dataflow
+#pragma HLS inline
+    set_config<_CONFIG_T>(config, fwd_inv, scale_sch, nfft, cp_len);
+    set_data<_CONFIG_T, _DATA_IN_T>(nfft, in, out);
+}
+
+
+
+template<typename _CONFIG_T>
+void get_status(hls::ip_fft::status_t<_CONFIG_T> &status,
+                bool *ovflo = 0,
+                unsigned *blk_exp = 0) {
+    const bool has_ovflo = _CONFIG_T::ovflo && (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(ip_fft::scaled));
+    const bool has_blk_exp = ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(ip_fft::block_floating_point);
+
+
+
+    if constexpr (has_ovflo)
+        *ovflo = status.getOvflo();
+    if constexpr (has_blk_exp)
+        *blk_exp = status.getBlkExp();
+}
+
+
+template<typename _CONFIG_T>
+void get_status(hls::ip_fft::status_t<_CONFIG_T> &status,
+                hls::vector<bool, _CONFIG_T::channels> *ovflo = 0,
+                hls::vector<unsigned, _CONFIG_T::channels> *blk_exp = 0) {
+    const bool has_ovflo = _CONFIG_T::ovflo && (((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(ip_fft::scaled));
+    const bool has_blk_exp = ((_CONFIG_T::scaling_options) != (ip_fft::scaled) ? (_CONFIG_T::scaling_options) : (_CONFIG_T::scaling_opt)) == unsigned(ip_fft::block_floating_point);
+
+
+
+    if constexpr (has_ovflo) {
+        VITIS_LOOP_2567_1: for (int i = 0; i < _CONFIG_T::channels; i++) {
+#pragma HLS unroll
+            (*ovflo)[i] = status.getOvflo(i);
+        }
+    }
+    if constexpr (has_blk_exp) {
+        VITIS_LOOP_2573_2: for (int i = 0; i < _CONFIG_T::channels; i++) {
+#pragma HLS unroll
+            (*blk_exp)[i] = status.getBlkExp(i);
+        }
+    }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void get_data(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              std::complex<_DATA_OUT_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+        VITIS_LOOP_2590_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+                std::complex<_DATA_OUT_T> tmp = in[i];
+                out[i] = tmp;
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void get_data(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              hls::stream<std::complex<_DATA_OUT_T>>& out,
+              unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+        VITIS_LOOP_2608_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+                std::complex<_DATA_OUT_T> tmp = in[i];
+                out.write(tmp);
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void get_data(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              hls::stream<hls::vector<std::complex<_DATA_OUT_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& out,
+              unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+        VITIS_LOOP_2625_1: for (int i=0; i<length; i += ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))) {
+#pragma HLS pipeline II=1 rewind style=flp
+                hls::vector<std::complex<_DATA_OUT_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))> tmp;
+                VITIS_LOOP_2628_2: for (int j = 0; j < ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)); j++) {
+                    tmp[j] = in[i + j];
+                }
+                out.write(tmp);
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void get_data(std::complex<_DATA_OUT_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              std::complex<_DATA_OUT_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+              unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+        unsigned length = 1 << nfft;
+        ({ bool _AssertPred = nfft <= ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length <= 1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)); __builtin_assume(_AssertPred); });
+        ({ bool _AssertPred = length>0; __builtin_assume(_AssertPred); });
+        VITIS_LOOP_2645_1: for (int i=0; i<length; i++) {
+#pragma HLS pipeline II=1 rewind style=flp
+#pragma HLS unroll factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate)) skip_exit_check
+            VITIS_LOOP_2648_2: for (int k = 0; k < _CONFIG_T::channels; k++) {
+                out[k][i] = in[k][i];
+            }
+        }
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void outputdatamover(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     hls::stream<std::complex<_DATA_OUT_T>>& out,
+                     hls::ip_fft::status_t<_CONFIG_T> &status,
+                     bool *ovflo = 0,
+                     unsigned *blk_exp = 0,
+                     unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+#pragma HLS dataflow
+#pragma HLS inline
+
+        get_status<_CONFIG_T>(status, ovflo, blk_exp);
+        get_data<_CONFIG_T, _DATA_OUT_T>(in, out, nfft);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void outputdatamover(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     hls::stream<hls::vector<std::complex<_DATA_OUT_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& out,
+                     hls::ip_fft::status_t<_CONFIG_T> &status,
+                     bool *ovflo = 0,
+                     unsigned *blk_exp = 0,
+                     unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+#pragma HLS dataflow
+#pragma HLS inline
+
+        get_status<_CONFIG_T>(status, ovflo, blk_exp);
+        get_data<_CONFIG_T, _DATA_OUT_T>(in, out, nfft);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void outputdatamover(std::complex<_DATA_OUT_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     std::complex<_DATA_OUT_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     hls::ip_fft::status_t<_CONFIG_T> &status,
+                     bool *ovflo = 0,
+                     unsigned *blk_exp = 0,
+                     unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+#pragma HLS dataflow
+#pragma HLS inline
+
+        get_status<_CONFIG_T>(status, ovflo, blk_exp);
+        get_data<_CONFIG_T, _DATA_OUT_T>(in, out, nfft);
+}
+
+
+template<typename _CONFIG_T,
+         typename _DATA_OUT_T>
+void outputdatamover(std::complex<_DATA_OUT_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     std::complex<_DATA_OUT_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+                     hls::ip_fft::status_t<_CONFIG_T> &status,
+                     hls::vector<bool, _CONFIG_T::channels> *ovflo = 0,
+                     hls::vector<unsigned, _CONFIG_T::channels> *blk_exp = 0,
+                     unsigned nfft = ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))) {
+#pragma HLS dataflow
+#pragma HLS inline
+
+        get_status<_CONFIG_T>(status, ovflo, blk_exp);
+        get_data<_CONFIG_T, _DATA_OUT_T>(in, out, nfft);
+}
+
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(hls::stream<std::complex<_DATA_IN_T>>& in,
+         hls::stream<std::complex<_DATA_OUT_T>>& out,
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)));
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(unsigned nfft,
+         hls::stream<std::complex<_DATA_IN_T>>& in,
+         hls::stream<std::complex<_DATA_OUT_T>>& out,
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, nfft, fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, nfft);
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::ssr_params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(hls::stream<hls::vector<std::complex<_DATA_IN_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& in,
+         hls::stream<hls::vector<std::complex<_DATA_OUT_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& out,
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)));
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::ssr_params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(unsigned nfft,
+         hls::stream<hls::vector<std::complex<_DATA_IN_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& in,
+         hls::stream<hls::vector<std::complex<_DATA_OUT_T>, ((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>>& out,
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, nfft, fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, nfft);
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(std::complex<_DATA_IN_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         std::complex<_DATA_OUT_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=in factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=out factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)));
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(unsigned nfft,
+         std::complex<_DATA_IN_T> in[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         std::complex<_DATA_OUT_T> out[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         bool fwd_inv = false,
+         int scale_sch = -1,
+         int cp_len = -1,
+         bool *ovflo = 0,
+         unsigned *blk_exp = 0) {
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=in factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic variable=out factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, nfft, fwd_inv, scale_sch, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, nfft);
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(std::complex<_DATA_IN_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         std::complex<_DATA_OUT_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         hls::vector<bool, _CONFIG_T::channels> &fwd_inv,
+         hls::vector<int, _CONFIG_T::channels> &scale_sch,
+         int cp_len = -1,
+         hls::vector<bool, _CONFIG_T::channels> *ovflo = 0,
+         hls::vector<unsigned, _CONFIG_T::channels> *blk_exp = 0) {
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=in factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS array_reshape complete dim=1 variable=in
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=out factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS array_reshape complete dim=1 variable=out
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, fwd_inv, scale_sch, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)), cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft)));
+}
+
+
+template<typename _CONFIG_T = hls::ip_fft::params_t,
+         typename _DATA_IN_T,
+         typename _DATA_OUT_T>
+void fft(unsigned nfft,
+         std::complex<_DATA_IN_T> in[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         std::complex<_DATA_OUT_T> out[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))],
+         hls::vector<bool, _CONFIG_T::channels> &fwd_inv,
+         hls::vector<int, _CONFIG_T::channels> &scale_sch,
+         int cp_len = -1,
+         hls::vector<bool, _CONFIG_T::channels> *ovflo = 0,
+         hls::vector<unsigned, _CONFIG_T::channels> *blk_exp = 0) {
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=in factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS array_reshape complete dim=1 variable=in
+
+#pragma HLS if (((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))>1) array_reshape cyclic dim=2 variable=out factor=((_CONFIG_T::super_sample_rates) != (ip_fft::ssr_1) ? (_CONFIG_T::super_sample_rates) : (_CONFIG_T::super_sample_rate))
+
+#pragma HLS array_reshape complete dim=1 variable=out
+#pragma HLS dataflow
+
+    hls::ip_fft::config_t<_CONFIG_T> config;
+    hls::ip_fft::status_t<_CONFIG_T> status;
+    std::complex<_DATA_IN_T> xn[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+    std::complex<_DATA_OUT_T> xk[_CONFIG_T::channels][1 << ((_CONFIG_T::log2_transform_length) != (10) ? (_CONFIG_T::log2_transform_length) : (_CONFIG_T::max_nfft))] __attribute__((no_ctor));
+#pragma HLS stream depth=8 variable=xn
+#pragma HLS stream depth=8 variable=xk
+
+    inputdatamover(in, xn, config, fwd_inv, scale_sch, nfft, cp_len);
+    fft<_CONFIG_T>(xn, xk, &status, &config);
+    outputdatamover(xk, out, status, ovflo, blk_exp, nfft);
+}
+
+}
+# 32 "src/fft_1d.hpp" 2
+
+
+
+
+
+
+
+
 constexpr int FFT_LENGTH = 1024;
 
 
 
+
 constexpr int IQ_STREAM_WIDTH = 32;
+
 
 
 
@@ -50029,14 +52994,9 @@ using iq_sample_t = ap_fixed<16, 1, AP_TRN, AP_WRAP>;
 
 
 typedef ap_axiu<IQ_STREAM_WIDTH, 1, 1, 1> axis_iq_t;
-
-
-
-
-
-
-
+# 67 "src/fft_1d.hpp"
 inline ap_int<16> extract_i(ap_uint<32> tdata) {
+
 
 
 #pragma HLS INLINE
@@ -50061,21 +53021,62 @@ inline ap_uint<32> pack_iq(ap_int<16> i_val, ap_int<16> q_val) {
 
 
 
-__attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq_t>& in_stream,
-                hls::stream<axis_iq_t>& out_stream,
+
+__attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq_t> &in_stream,
+                hls::stream<axis_iq_t> &out_stream,
                 ap_uint<32> scaling_schedule);
-# 7 "src/fft_1d.cpp" 2
-# 20 "src/fft_1d.cpp"
-static void stage_read_input(hls::stream<axis_iq_t>& in_stream,
+# 105 "src/fft_1d.hpp"
+struct ZenithFFTConfig : hls::ip_fft::params_t {
+
+
+
+  static const unsigned max_nfft = 10;
+
+
+
+
+  static const bool has_nfft = false;
+
+
+
+
+  static const unsigned input_width = 16;
+  static const unsigned output_width = 16;
+
+
+
+
+  static const unsigned config_width = 16;
+
+
+
+
+  static const unsigned ordering_opt = hls::ip_fft::natural_order;
+
+
+
+
+  static const unsigned rounding_opt = hls::ip_fft::convergent_rounding;
+
+
+
+
+  static const bool ovflo = false;
+};
+# 25 "src/fft_1d.cpp" 2
+# 38 "src/fft_1d.cpp"
+static void stage_read_input(hls::stream<axis_iq_t> &in_stream,
                              ap_int<16> bufI[FFT_LENGTH],
                              ap_int<16> bufQ[FFT_LENGTH]) {
-  VITIS_LOOP_23_1: for (int i = 0; i < FFT_LENGTH; i++) {
+  VITIS_LOOP_41_1: for (int i = 0; i < FFT_LENGTH; i++) {
 
 
 
 #pragma HLS PIPELINE II = 1
 
+
     axis_iq_t pkt = in_stream.read();
+
 
 
 
@@ -50083,42 +53084,24 @@ static void stage_read_input(hls::stream<axis_iq_t>& in_stream,
     bufQ[i] = extract_q(pkt.data);
   }
 }
-
-
-
-
-
-
-static void stage_process_fft(ap_int<16> bufI[FFT_LENGTH],
-                              ap_int<16> bufQ[FFT_LENGTH],
-                              ap_int<16> outI[FFT_LENGTH],
-                              ap_int<16> outQ[FFT_LENGTH],
-                              ap_uint<32> scaling_schedule) {
-
-
-
-  (void)bufQ;
-  (void)scaling_schedule;
-
-  VITIS_LOOP_54_1: for (int i = 0; i < FFT_LENGTH; i++) {
-#pragma HLS PIPELINE II = 1
-    outI[i] = bufI[i];
-
-
-
-
-    outQ[i] = 0;
-  }
-}
+# 88 "src/fft_1d.cpp"
+void stage_process_fft_real(
+    ap_int<16> in_bufI[FFT_LENGTH],
+    ap_int<16> in_bufQ[FFT_LENGTH],
+    ap_int<16> out_bufI[FFT_LENGTH],
+    ap_int<16> out_bufQ[FFT_LENGTH],
+    ap_uint<16> scaling_schedule
+);
 
 
 static void stage_write_output(ap_int<16> outI[FFT_LENGTH],
                                ap_int<16> outQ[FFT_LENGTH],
-                               hls::stream<axis_iq_t>& out_stream) {
-  VITIS_LOOP_69_1: for (int i = 0; i < FFT_LENGTH; i++) {
+                               hls::stream<axis_iq_t> &out_stream) {
+  VITIS_LOOP_100_1: for (int i = 0; i < FFT_LENGTH; i++) {
 #pragma HLS PIPELINE II = 1
     axis_iq_t pkt;
     pkt.data = pack_iq(outI[i], outQ[i]);
+
 
 
 
@@ -50133,6 +53116,7 @@ static void stage_write_output(ap_int<16> outI[FFT_LENGTH],
 
 
 
+
     pkt.user = 0;
     pkt.id = 0;
     pkt.dest = 0;
@@ -50143,12 +53127,12 @@ static void stage_write_output(ap_int<16> outI[FFT_LENGTH],
 }
 
 
-__attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq_t>& in_stream,
-                hls::stream<axis_iq_t>& out_stream,
+__attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq_t> &in_stream,
+                hls::stream<axis_iq_t> &out_stream,
                 ap_uint<32> scaling_schedule) {
-#line 12 "C:/Projects/zenith_radar_os/zenith-silicon/zenith_fft_1d/run_csynth.tcl"
+#line 13 "C:/Projects/zenith_radar_os/zenith-silicon/zenith_fft_1d/run_csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=fft_1d_top
-# 99 "src/fft_1d.cpp"
+# 132 "src/fft_1d.cpp"
 
 
 
@@ -50157,6 +53141,7 @@ __attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq
 
 #pragma HLS INTERFACE axis port = in_stream
 #pragma HLS INTERFACE axis port = out_stream
+
 
 
 
@@ -50177,6 +53162,7 @@ __attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq
 
 
 
+
 #pragma HLS BIND_STORAGE variable = in_bufI type = RAM_2P impl = BRAM
 #pragma HLS BIND_STORAGE variable = in_bufQ type = RAM_2P impl = BRAM
 #pragma HLS BIND_STORAGE variable = out_bufI type = RAM_2P impl = BRAM
@@ -50185,8 +53171,11 @@ __attribute__((sdx_kernel("fft_1d_top", 0))) void fft_1d_top(hls::stream<axis_iq
 
 
 
+
 #pragma HLS DATAFLOW
   stage_read_input(in_stream, in_bufI, in_bufQ);
-  stage_process_fft(in_bufI, in_bufQ, out_bufI, out_bufQ, scaling_schedule);
+  stage_read_input(in_stream, in_bufI, in_bufQ);
+
+  stage_process_fft_real(in_bufI, in_bufQ, out_bufI, out_bufQ, scaling_schedule);
   stage_write_output(out_bufI, out_bufQ, out_stream);
 }

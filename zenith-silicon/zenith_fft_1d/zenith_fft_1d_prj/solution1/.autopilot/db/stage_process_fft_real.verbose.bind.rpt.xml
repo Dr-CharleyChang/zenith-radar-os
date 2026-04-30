@@ -1,0 +1,48 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'stage_process_fft_real'" level="0">
+<item name = "Date">Tue Apr 28 16:25:27 2026
+</item>
+<item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
+<item name = "Project">zenith_fft_1d_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.67 ns, 4.869 ns, 1.80 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">5254, 5254, 35.044 us, 35.044 us, 5254, 5254, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_stage_process_fft_real_Pipeline_feed_loop_fu_92">stage_process_fft_real_Pipeline_feed_loop, 1027, 1027, 6.850 us, 6.850 us, 0, 0, loop pipeline stp</column>
+<column name="grp_fft_ZenithFFTConfig_s_fu_101">fft_ZenithFFTConfig_s, 3195, 3195, 21.311 us, 21.311 us, 3195, 3195, no</column>
+<column name="grp_stage_process_fft_real_Pipeline_drain_loop_fu_108">stage_process_fft_real_Pipeline_drain_loop, 1027, 1027, 6.850 us, 6.850 us, 0, 0, loop pipeline stp</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

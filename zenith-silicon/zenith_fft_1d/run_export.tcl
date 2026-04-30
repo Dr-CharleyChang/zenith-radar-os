@@ -2,6 +2,7 @@ open_project zenith_fft_1d_prj
 set_top fft_1d_top
 
 add_files src/fft_1d.cpp
+add_files src/fft_1d_hls.cpp
 add_files src/fft_1d.hpp
 add_files -tb tb/fft_1d_tb.cpp
 

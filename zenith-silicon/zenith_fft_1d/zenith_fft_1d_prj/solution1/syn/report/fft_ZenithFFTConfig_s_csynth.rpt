@@ -1,0 +1,111 @@
+
+
+================================================================
+== Vitis HLS Report for 'fft_ZenithFFTConfig_s'
+================================================================
+* Date:           Tue Apr 28 16:25:29 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  2.000 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     3195|     3195|  21.311 us|  21.311 us|  3195|  3195|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       -|      -|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        3|   12|    9883|   7835|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|      -|    -|
+|Register         |        -|    -|       -|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        3|   12|    9883|   7835|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        1|    5|       9|     14|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+----------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++---------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_ce                      |   in|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  fft<ZenithFFTConfig>|  return value|
+|fft_in_stream_dout         |   in|   32|     ap_fifo|         fft_in_stream|       pointer|
+|fft_in_stream_empty_n      |   in|    1|     ap_fifo|         fft_in_stream|       pointer|
+|fft_in_stream_read         |  out|    1|     ap_fifo|         fft_in_stream|       pointer|
+|fft_out_stream_din         |  out|   32|     ap_fifo|        fft_out_stream|       pointer|
+|fft_out_stream_full_n      |   in|    1|     ap_fifo|        fft_out_stream|       pointer|
+|fft_out_stream_write       |  out|    1|     ap_fifo|        fft_out_stream|       pointer|
+|fft_config_stream_dout     |   in|   16|     ap_fifo|     fft_config_stream|       pointer|
+|fft_config_stream_empty_n  |   in|    1|     ap_fifo|     fft_config_stream|       pointer|
+|fft_config_stream_read     |  out|    1|     ap_fifo|     fft_config_stream|       pointer|
++---------------------------+-----+-----+------------+----------------------+--------------+
+

@@ -12,7 +12,6 @@ module fft_1d_top_stage_read_input (
         ap_rst,
         ap_start,
         ap_done,
-        ap_continue,
         ap_idle,
         ap_ready,
         in_stream_TVALID,
@@ -24,19 +23,22 @@ module fft_1d_top_stage_read_input (
         in_stream_TLAST,
         in_stream_TID,
         in_stream_TDEST,
-        in_bufI_address1,
-        in_bufI_ce1,
-        in_bufI_we1,
-        in_bufI_d1
+        bufI_address1,
+        bufI_ce1,
+        bufI_we1,
+        bufI_d1,
+        bufQ_address1,
+        bufQ_ce1,
+        bufQ_we1,
+        bufQ_d1
 );
 
-parameter    ap_ST_fsm_state1 = 1'd1;
+parameter    ap_ST_fsm_pp0_stage0 = 1'd1;
 
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
 output   ap_done;
-input   ap_continue;
 output   ap_idle;
 output   ap_ready;
 input   in_stream_TVALID;
@@ -48,76 +50,63 @@ input  [0:0] in_stream_TUSER;
 input  [0:0] in_stream_TLAST;
 input  [0:0] in_stream_TID;
 input  [0:0] in_stream_TDEST;
-output  [9:0] in_bufI_address1;
-output   in_bufI_ce1;
-output   in_bufI_we1;
-output  [15:0] in_bufI_d1;
+output  [9:0] bufI_address1;
+output   bufI_ce1;
+output   bufI_we1;
+output  [15:0] bufI_d1;
+output  [9:0] bufQ_address1;
+output   bufQ_ce1;
+output   bufQ_we1;
+output  [15:0] bufQ_d1;
 
 reg ap_idle;
+reg in_stream_TREADY;
 
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
-wire    ap_CS_fsm_state1;
-reg    ap_done_reg;
-reg    ap_block_state1_pp0_stage0_iter0;
-wire   [0:0] icmp_ln23_fu_131_p2;
+wire    ap_CS_fsm_pp0_stage0;
+wire    ap_enable_reg_pp0_iter0;
+reg    ap_enable_reg_pp0_iter1;
+reg    ap_idle_pp0;
+reg    ap_block_pp0_stage0_subdone;
+wire   [0:0] icmp_ln41_fu_134_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
 reg    in_stream_TDATA_blk_n;
-wire   [63:0] zext_ln23_fu_111_p1;
-reg   [9:0] i_fu_64;
-wire   [9:0] i_6_fu_125_p2;
+wire    ap_block_pp0_stage0_grp1;
+reg   [10:0] i_5_reg_181;
+reg    ap_block_pp0_stage0_11001;
+wire   [63:0] zext_ln41_fu_151_p1;
+reg   [10:0] i_fu_70;
+wire   [10:0] add_ln41_fu_140_p2;
 wire    ap_loop_init;
-reg   [9:0] ap_sig_allocacmp_i_4;
-reg    in_bufI_we1_local;
-wire   [15:0] trunc_ln60_fu_120_p1;
-reg    in_bufI_ce1_local;
+reg   [10:0] ap_sig_allocacmp_i_5;
+wire    ap_block_pp0_stage0;
+reg    ap_block_pp0_stage0_11001_grp1;
+reg    bufI_we1_local;
+wire   [15:0] trunc_ln73_fu_160_p1;
+reg    bufI_ce1_local;
+reg    bufQ_we1_local;
+reg    bufQ_ce1_local;
+reg    ap_done_reg;
 wire    ap_continue_int;
 reg    ap_done_int;
 reg   [0:0] ap_NS_fsm;
-reg    ap_ST_fsm_state1_blk;
+wire    ap_enable_pp0;
 wire    ap_start_int;
 wire    ap_ready_sig;
 wire    ap_done_sig;
-wire    regslice_both_in_stream_V_data_V_U_apdone_blk;
-wire   [31:0] in_stream_TDATA_int_regslice;
-wire    in_stream_TVALID_int_regslice;
-reg    in_stream_TREADY_int_regslice;
-wire    regslice_both_in_stream_V_data_V_U_ack_in;
-wire    regslice_both_in_stream_V_keep_V_U_apdone_blk;
-wire   [3:0] in_stream_TKEEP_int_regslice;
-wire    regslice_both_in_stream_V_keep_V_U_vld_out;
-wire    regslice_both_in_stream_V_keep_V_U_ack_in;
-wire    regslice_both_in_stream_V_strb_V_U_apdone_blk;
-wire   [3:0] in_stream_TSTRB_int_regslice;
-wire    regslice_both_in_stream_V_strb_V_U_vld_out;
-wire    regslice_both_in_stream_V_strb_V_U_ack_in;
-wire    regslice_both_in_stream_V_user_V_U_apdone_blk;
-wire   [0:0] in_stream_TUSER_int_regslice;
-wire    regslice_both_in_stream_V_user_V_U_vld_out;
-wire    regslice_both_in_stream_V_user_V_U_ack_in;
-wire    regslice_both_in_stream_V_last_V_U_apdone_blk;
-wire   [0:0] in_stream_TLAST_int_regslice;
-wire    regslice_both_in_stream_V_last_V_U_vld_out;
-wire    regslice_both_in_stream_V_last_V_U_ack_in;
-wire    regslice_both_in_stream_V_id_V_U_apdone_blk;
-wire   [0:0] in_stream_TID_int_regslice;
-wire    regslice_both_in_stream_V_id_V_U_vld_out;
-wire    regslice_both_in_stream_V_id_V_U_ack_in;
-wire    regslice_both_in_stream_V_dest_V_U_apdone_blk;
-wire   [0:0] in_stream_TDEST_int_regslice;
-wire    regslice_both_in_stream_V_dest_V_U_vld_out;
-wire    regslice_both_in_stream_V_dest_V_U_ack_in;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 1'd1;
+#0 ap_enable_reg_pp0_iter1 = 1'b0;
+#0 i_fu_70 = 11'd0;
 #0 ap_done_reg = 1'b0;
-#0 i_fu_64 = 10'd0;
 end
 
-fft_1d_top_flow_control_loop_pipe flow_control_loop_pipe_U(
+fft_1d_top_flow_control_loop_pipe_sequential_init flow_control_loop_pipe_sequential_init_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
     .ap_start(ap_start),
@@ -129,111 +118,12 @@ fft_1d_top_flow_control_loop_pipe flow_control_loop_pipe_U(
     .ap_loop_exit_ready(ap_condition_exit_pp0_iter0_stage0),
     .ap_loop_exit_done(ap_done_int),
     .ap_continue_int(ap_continue_int),
-    .ap_done_int(ap_done_int),
-    .ap_continue(ap_continue)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 32 ))
-regslice_both_in_stream_V_data_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TDATA),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_data_V_U_ack_in),
-    .data_out(in_stream_TDATA_int_regslice),
-    .vld_out(in_stream_TVALID_int_regslice),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_data_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 4 ))
-regslice_both_in_stream_V_keep_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TKEEP),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_keep_V_U_ack_in),
-    .data_out(in_stream_TKEEP_int_regslice),
-    .vld_out(regslice_both_in_stream_V_keep_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_keep_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 4 ))
-regslice_both_in_stream_V_strb_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TSTRB),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_strb_V_U_ack_in),
-    .data_out(in_stream_TSTRB_int_regslice),
-    .vld_out(regslice_both_in_stream_V_strb_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_strb_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 1 ))
-regslice_both_in_stream_V_user_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TUSER),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_user_V_U_ack_in),
-    .data_out(in_stream_TUSER_int_regslice),
-    .vld_out(regslice_both_in_stream_V_user_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_user_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 1 ))
-regslice_both_in_stream_V_last_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TLAST),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_last_V_U_ack_in),
-    .data_out(in_stream_TLAST_int_regslice),
-    .vld_out(regslice_both_in_stream_V_last_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_last_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 1 ))
-regslice_both_in_stream_V_id_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TID),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_id_V_U_ack_in),
-    .data_out(in_stream_TID_int_regslice),
-    .vld_out(regslice_both_in_stream_V_id_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_id_V_U_apdone_blk)
-);
-
-fft_1d_top_regslice_both #(
-    .DataWidth( 1 ))
-regslice_both_in_stream_V_dest_V_U(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .data_in(in_stream_TDEST),
-    .vld_in(in_stream_TVALID),
-    .ack_in(regslice_both_in_stream_V_dest_V_U_ack_in),
-    .data_out(in_stream_TDEST_int_regslice),
-    .vld_out(regslice_both_in_stream_V_dest_V_U_vld_out),
-    .ack_out(in_stream_TREADY_int_regslice),
-    .apdone_blk(regslice_both_in_stream_V_dest_V_U_apdone_blk)
+    .ap_done_int(ap_done_int)
 );
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
+        ap_CS_fsm <= ap_ST_fsm_pp0_stage0;
     end else begin
         ap_CS_fsm <= ap_NS_fsm;
     end
@@ -245,28 +135,42 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue_int == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if (((ap_loop_exit_ready == 1'b1) & (1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if (((ap_loop_exit_ready == 1'b1) & (1'b0 == ap_block_pp0_stage0_subdone) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
             ap_done_reg <= 1'b1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
-        i_fu_64 <= i_6_fu_125_p2;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_block_state1_pp0_stage0_iter0)) begin
-        ap_ST_fsm_state1_blk = 1'b1;
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter1 <= 1'b0;
     end else begin
-        ap_ST_fsm_state1_blk = 1'b0;
+        if ((1'b1 == ap_condition_exit_pp0_iter0_stage0)) begin
+            ap_enable_reg_pp0_iter1 <= 1'b0;
+        end else if (((1'b0 == ap_block_pp0_stage0_subdone) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+            ap_enable_reg_pp0_iter1 <= ap_start_int;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        if (((icmp_ln41_fu_134_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            i_fu_70 <= add_ln41_fu_140_p2;
+        end else if ((ap_loop_init == 1'b1)) begin
+            i_fu_70 <= 11'd0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        i_5_reg_181 <= ap_sig_allocacmp_i_5;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln23_fu_131_p2 == 1'd1) & (1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((icmp_ln41_fu_134_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -274,7 +178,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_loop_exit_ready == 1'b1) & (1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_loop_exit_ready == 1'b1) & (1'b0 == ap_block_pp0_stage0_subdone) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_done_int = 1'b1;
     end else begin
         ap_done_int = ap_done_reg;
@@ -282,7 +186,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (ap_start_int == 1'b0))) begin
+    if (((ap_idle_pp0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_start_int == 1'b0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -290,7 +194,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_enable_reg_pp0_iter1 == 1'b0) & (ap_enable_reg_pp0_iter0 == 1'b0))) begin
+        ap_idle_pp0 = 1'b1;
+    end else begin
+        ap_idle_pp0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_ready_int = 1'b1;
     end else begin
         ap_ready_int = 1'b0;
@@ -298,49 +210,65 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_sig_allocacmp_i_4 = 10'd0;
+    if (((ap_loop_init == 1'b1) & (1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_sig_allocacmp_i_5 = 11'd0;
     end else begin
-        ap_sig_allocacmp_i_4 = i_fu_64;
+        ap_sig_allocacmp_i_5 = i_fu_70;
     end
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
-        in_bufI_ce1_local = 1'b1;
+    if (((1'b0 == ap_block_pp0_stage0_11001_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        bufI_ce1_local = 1'b1;
     end else begin
-        in_bufI_ce1_local = 1'b0;
+        bufI_ce1_local = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
-        in_bufI_we1_local = 1'b1;
+    if (((1'b0 == ap_block_pp0_stage0_11001_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        bufI_we1_local = 1'b1;
     end else begin
-        in_bufI_we1_local = 1'b0;
+        bufI_we1_local = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((~((ap_done_reg == 1'b1) | (ap_start_int == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        in_stream_TDATA_blk_n = in_stream_TVALID_int_regslice;
+    if (((1'b0 == ap_block_pp0_stage0_11001_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        bufQ_ce1_local = 1'b1;
+    end else begin
+        bufQ_ce1_local = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        bufQ_we1_local = 1'b1;
+    end else begin
+        bufQ_we1_local = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        in_stream_TDATA_blk_n = in_stream_TVALID;
     end else begin
         in_stream_TDATA_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state1_pp0_stage0_iter0) & (1'b1 == ap_CS_fsm_state1))) begin
-        in_stream_TREADY_int_regslice = 1'b1;
+    if (((1'b0 == ap_block_pp0_stage0_11001_grp1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        in_stream_TREADY = 1'b1;
     end else begin
-        in_stream_TREADY_int_regslice = 1'b0;
+        in_stream_TREADY = 1'b0;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            ap_NS_fsm = ap_ST_fsm_state1;
+        ap_ST_fsm_pp0_stage0 : begin
+            ap_NS_fsm = ap_ST_fsm_pp0_stage0;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -348,34 +276,56 @@ always @ (*) begin
     endcase
 end
 
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+assign add_ln41_fu_140_p2 = (ap_sig_allocacmp_i_5 + 11'd1);
+
+assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
+
+assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_state1_pp0_stage0_iter0 = ((ap_done_reg == 1'b1) | (in_stream_TVALID_int_regslice == 1'b0) | (ap_start_int == 1'b0));
+    ap_block_pp0_stage0_11001 = ((in_stream_TVALID == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1));
+end
+
+always @ (*) begin
+    ap_block_pp0_stage0_11001_grp1 = ((in_stream_TVALID == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1));
+end
+
+assign ap_block_pp0_stage0_grp1 = ~(1'b1 == 1'b1);
+
+always @ (*) begin
+    ap_block_pp0_stage0_subdone = ((in_stream_TVALID == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b1));
 end
 
 assign ap_done = ap_done_sig;
+
+assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
+
+assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = ap_ready_sig;
 
-assign i_6_fu_125_p2 = (ap_sig_allocacmp_i_4 + 10'd1);
+assign bufI_address1 = zext_ln41_fu_151_p1;
 
-assign icmp_ln23_fu_131_p2 = ((ap_sig_allocacmp_i_4 == 10'd1023) ? 1'b1 : 1'b0);
+assign bufI_ce1 = bufI_ce1_local;
 
-assign in_bufI_address1 = zext_ln23_fu_111_p1;
+assign bufI_d1 = trunc_ln73_fu_160_p1;
 
-assign in_bufI_ce1 = in_bufI_ce1_local;
+assign bufI_we1 = bufI_we1_local;
 
-assign in_bufI_d1 = trunc_ln60_fu_120_p1;
+assign bufQ_address1 = zext_ln41_fu_151_p1;
 
-assign in_bufI_we1 = in_bufI_we1_local;
+assign bufQ_ce1 = bufQ_ce1_local;
 
-assign in_stream_TREADY = regslice_both_in_stream_V_data_V_U_ack_in;
+assign bufQ_d1 = {{in_stream_TDATA[31:16]}};
 
-assign trunc_ln60_fu_120_p1 = in_stream_TDATA_int_regslice[15:0];
+assign bufQ_we1 = bufQ_we1_local;
 
-assign zext_ln23_fu_111_p1 = ap_sig_allocacmp_i_4;
+assign icmp_ln41_fu_134_p2 = ((ap_sig_allocacmp_i_5 == 11'd1024) ? 1'b1 : 1'b0);
+
+assign trunc_ln73_fu_160_p1 = in_stream_TDATA[15:0];
+
+assign zext_ln41_fu_151_p1 = i_5_reg_181;
 
 endmodule //fft_1d_top_stage_read_input

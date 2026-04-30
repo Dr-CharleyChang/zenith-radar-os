@@ -1,5 +1,5 @@
    
-    parameter PROC_NUM = 3;
+    parameter PROC_NUM = 4;
     parameter ST_IDLE = 3'b000;
     parameter ST_FILTER_FAKE = 3'b001;
     parameter ST_DL_DETECTED = 3'b010;
@@ -216,18 +216,21 @@
     endfunction
 
     // get the proc path based on dl vector
-    function [384:0] proc_path(input [PROC_NUM - 1:0] dl_vec);
+    function [456:0] proc_path(input [PROC_NUM - 1:0] dl_vec);
         integer index;
         begin
             index = proc_index(dl_vec);
             case (index)
                 0 : begin
-                    proc_path = "fft_1d_top_fft_1d_top.stage_read_input_U0";
+                    proc_path = "fft_1d_top_fft_1d_top.entry_proc_U0";
                 end
                 1 : begin
-                    proc_path = "fft_1d_top_fft_1d_top.stage_process_fft_U0";
+                    proc_path = "fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0";
                 end
                 2 : begin
+                    proc_path = "fft_1d_top_fft_1d_top.stage_process_fft_real_U0";
+                end
+                3 : begin
                     proc_path = "fft_1d_top_fft_1d_top.stage_write_output_U0";
                 end
                 default : begin
@@ -248,7 +251,7 @@
     endtask
 
     // print the start of a cycle
-    task print_cycle_start(input reg [384:0] proc_path, input integer cycle_id);
+    task print_cycle_start(input reg [456:0] proc_path, input integer cycle_id);
         begin
             $display("/////////////////////////");
             $display("// Dependence cycle %0d:", cycle_id);
@@ -273,7 +276,7 @@
     endtask
 
     // print one proc component in the cycle
-    task print_cycle_proc_comp(input reg [384:0] proc_path, input integer cycle_comp_id);
+    task print_cycle_proc_comp(input reg [456:0] proc_path, input integer cycle_comp_id);
         begin
             $display("// (%0d): Process: %0s", cycle_comp_id, proc_path);
             $fdisplay(fp, "Dependence_Process_ID %0d", cycle_comp_id);
@@ -283,55 +286,133 @@
 
     // print one channel component in the cycle
     task print_cycle_chan_comp(input [PROC_NUM - 1:0] dl_vec1, input [PROC_NUM - 1:0] dl_vec2);
-        reg [296:0] chan_path;
+        reg [376:0] chan_path;
         integer index1;
         integer index2;
         begin
             index1 = proc_index(dl_vec1);
             index2 = proc_index(dl_vec2);
             case (index1)
-                0 : begin // for proc 'fft_1d_top_fft_1d_top.stage_read_input_U0'
+                0 : begin // for proc 'fft_1d_top_fft_1d_top.entry_proc_U0'
                     case(index2)
-                    1: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_process_fft_U0'
-// for dep channel 'fft_1d_top_fft_1d_top.in_bufI_U' info is :
-// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufI_U.i_full_n & fft_1d_top_fft_1d_top_inst.stage_read_input_U0.ap_done & ap_done_reg_0 & ~fft_1d_top_fft_1d_top_inst.in_bufI_U.t_read} data_PIPO}
-                        if ((~in_bufI_U.i_full_n & stage_read_input_U0.ap_done & ap_done_reg_0 & ~in_bufI_U.t_read)) begin
-                            if (~in_bufI_U.t_empty_n) begin
-                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
+                    2: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'
+// for dep channel 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' info is :
+// blk sig is {~fft_1d_top_fft_1d_top_inst.entry_proc_U0.scaling_schedule_c_blk_n data_FIFO}
+                        if ((~entry_proc_U0.scaling_schedule_c_blk_n)) begin
+                            if (~scaling_schedule_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.scaling_schedule_c_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~in_bufI_U.i_full_n) begin
-                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
+                            else if (~scaling_schedule_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.scaling_schedule_c_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
+                        end
+                    end
+                    1: begin //  for dep proc 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'
+// for dep channel '' info is :
+// blk sig is {{fft_1d_top_fft_1d_top_inst.ap_sync_entry_proc_U0_ap_ready & fft_1d_top_fft_1d_top_inst.entry_proc_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready} input_sync}
+                        if ((ap_sync_entry_proc_U0_ap_ready & entry_proc_U0.ap_idle & ~ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready)) begin
+                            $display("//      Blocked by input sync logic with process : 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'");
                         end
                     end
                     endcase
                 end
-                1 : begin // for proc 'fft_1d_top_fft_1d_top.stage_process_fft_U0'
+                1 : begin // for proc 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'
                     case(index2)
-                    0: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_read_input_U0'
+                    2: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'
 // for dep channel 'fft_1d_top_fft_1d_top.in_bufI_U' info is :
-// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufI_U.t_empty_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.in_bufI_U.i_write} data_PIPO}
-                        if ((~in_bufI_U.t_empty_n & stage_process_fft_U0.ap_idle & ~in_bufI_U.i_write)) begin
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufI_U.i_full_n & fft_1d_top_fft_1d_top_inst.Block_entry_in_bufI_wr_proc_U0.ap_done & ap_done_reg_0 & ~fft_1d_top_fft_1d_top_inst.in_bufI_U.t_read} data_PIPO}
+                        if ((~in_bufI_U.i_full_n & Block_entry_in_bufI_wr_proc_U0.ap_done & ap_done_reg_0 & ~in_bufI_U.t_read)) begin
                             if (~in_bufI_U.t_empty_n) begin
-                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_read_input_U0'");
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~in_bufI_U.i_full_n) begin
-                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' read by process 'fft_1d_top_fft_1d_top.stage_read_input_U0'");
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
+// for dep channel 'fft_1d_top_fft_1d_top.in_bufQ_U' info is :
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufQ_U.i_full_n & fft_1d_top_fft_1d_top_inst.Block_entry_in_bufI_wr_proc_U0.ap_done & ap_done_reg_0 & ~fft_1d_top_fft_1d_top_inst.in_bufQ_U.t_read} data_PIPO}
+                        if ((~in_bufQ_U.i_full_n & Block_entry_in_bufI_wr_proc_U0.ap_done & ap_done_reg_0 & ~in_bufQ_U.t_read)) begin
+                            if (~in_bufQ_U.t_empty_n) begin
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufQ_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufQ_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~in_bufQ_U.i_full_n) begin
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufQ_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufQ_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
                     end
-                    2: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_write_output_U0'
+                    0: begin //  for dep proc 'fft_1d_top_fft_1d_top.entry_proc_U0'
+// for dep channel '' info is :
+// blk sig is {{fft_1d_top_fft_1d_top_inst.ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready & fft_1d_top_fft_1d_top_inst.Block_entry_in_bufI_wr_proc_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.ap_sync_entry_proc_U0_ap_ready} input_sync}
+                        if ((ap_sync_Block_entry_in_bufI_wr_proc_U0_ap_ready & Block_entry_in_bufI_wr_proc_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready)) begin
+                            $display("//      Blocked by input sync logic with process : 'fft_1d_top_fft_1d_top.entry_proc_U0'");
+                        end
+                    end
+                    endcase
+                end
+                2 : begin // for proc 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'
+                    case(index2)
+                    0: begin //  for dep proc 'fft_1d_top_fft_1d_top.entry_proc_U0'
+// for dep channel 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' info is :
+// blk sig is {~fft_1d_top_fft_1d_top_inst.stage_process_fft_real_U0.scaling_schedule_blk_n data_FIFO}
+                        if ((~stage_process_fft_real_U0.scaling_schedule_blk_n)) begin
+                            if (~scaling_schedule_c_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' written by process 'fft_1d_top_fft_1d_top.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.scaling_schedule_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~scaling_schedule_c_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'fft_1d_top_fft_1d_top.scaling_schedule_c_U' read by process 'fft_1d_top_fft_1d_top.entry_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.scaling_schedule_c_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                    end
+                    1: begin //  for dep proc 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'
+// for dep channel 'fft_1d_top_fft_1d_top.in_bufI_U' info is :
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufI_U.t_empty_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_real_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.in_bufI_U.i_write} data_PIPO}
+                        if ((~in_bufI_U.t_empty_n & stage_process_fft_real_U0.ap_idle & ~in_bufI_U.i_write)) begin
+                            if (~in_bufI_U.t_empty_n) begin
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' written by process 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~in_bufI_U.i_full_n) begin
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufI_U' read by process 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufI_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+// for dep channel 'fft_1d_top_fft_1d_top.in_bufQ_U' info is :
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.in_bufQ_U.t_empty_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_real_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.in_bufQ_U.i_write} data_PIPO}
+                        if ((~in_bufQ_U.t_empty_n & stage_process_fft_real_U0.ap_idle & ~in_bufQ_U.i_write)) begin
+                            if (~in_bufQ_U.t_empty_n) begin
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.in_bufQ_U' written by process 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufQ_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~in_bufQ_U.i_full_n) begin
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.in_bufQ_U' read by process 'fft_1d_top_fft_1d_top.Block_entry_in_bufI_wr_proc_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.in_bufQ_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                    end
+                    3: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_write_output_U0'
 // for dep channel 'fft_1d_top_fft_1d_top.out_bufI_U' info is :
-// blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufI_U.i_full_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_U0.ap_done & ap_done_reg_1 & ~fft_1d_top_fft_1d_top_inst.out_bufI_U.t_read} data_PIPO}
-                        if ((~out_bufI_U.i_full_n & stage_process_fft_U0.ap_done & ap_done_reg_1 & ~out_bufI_U.t_read)) begin
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufI_U.i_full_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_real_U0.ap_done & ap_done_reg_1 & ~fft_1d_top_fft_1d_top_inst.out_bufI_U.t_read} data_PIPO}
+                        if ((~out_bufI_U.i_full_n & stage_process_fft_real_U0.ap_done & ap_done_reg_1 & ~out_bufI_U.t_read)) begin
                             if (~out_bufI_U.t_empty_n) begin
                                 $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_write_output_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufI_U");
@@ -344,8 +425,8 @@
                             end
                         end
 // for dep channel 'fft_1d_top_fft_1d_top.out_bufQ_U' info is :
-// blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufQ_U.i_full_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_U0.ap_done & ap_done_reg_1 & ~fft_1d_top_fft_1d_top_inst.out_bufQ_U.t_read} data_PIPO}
-                        if ((~out_bufQ_U.i_full_n & stage_process_fft_U0.ap_done & ap_done_reg_1 & ~out_bufQ_U.t_read)) begin
+// blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufQ_U.i_full_n & fft_1d_top_fft_1d_top_inst.stage_process_fft_real_U0.ap_done & ap_done_reg_1 & ~fft_1d_top_fft_1d_top_inst.out_bufQ_U.t_read} data_PIPO}
+                        if ((~out_bufQ_U.i_full_n & stage_process_fft_real_U0.ap_done & ap_done_reg_1 & ~out_bufQ_U.t_read)) begin
                             if (~out_bufQ_U.t_empty_n) begin
                                 $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufQ_U' written by process 'fft_1d_top_fft_1d_top.stage_write_output_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufQ_U");
@@ -360,19 +441,19 @@
                     end
                     endcase
                 end
-                2 : begin // for proc 'fft_1d_top_fft_1d_top.stage_write_output_U0'
+                3 : begin // for proc 'fft_1d_top_fft_1d_top.stage_write_output_U0'
                     case(index2)
-                    1: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_process_fft_U0'
+                    2: begin //  for dep proc 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'
 // for dep channel 'fft_1d_top_fft_1d_top.out_bufI_U' info is :
 // blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufI_U.t_empty_n & fft_1d_top_fft_1d_top_inst.stage_write_output_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.out_bufI_U.i_write} data_PIPO}
                         if ((~out_bufI_U.t_empty_n & stage_write_output_U0.ap_idle & ~out_bufI_U.i_write)) begin
                             if (~out_bufI_U.t_empty_n) begin
-                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufI_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufI_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~out_bufI_U.i_full_n) begin
-                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.out_bufI_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.out_bufI_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufI_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
@@ -381,12 +462,12 @@
 // blk sig is {{~fft_1d_top_fft_1d_top_inst.out_bufQ_U.t_empty_n & fft_1d_top_fft_1d_top_inst.stage_write_output_U0.ap_idle & ~fft_1d_top_fft_1d_top_inst.out_bufQ_U.i_write} data_PIPO}
                         if ((~out_bufQ_U.t_empty_n & stage_write_output_U0.ap_idle & ~out_bufQ_U.i_write)) begin
                             if (~out_bufQ_U.t_empty_n) begin
-                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufQ_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
+                                $display("//      Blocked by empty input PIPO 'fft_1d_top_fft_1d_top.out_bufQ_U' written by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufQ_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~out_bufQ_U.i_full_n) begin
-                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.out_bufQ_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_U0'");
+                                $display("//      Blocked by full output PIPO 'fft_1d_top_fft_1d_top.out_bufQ_U' read by process 'fft_1d_top_fft_1d_top.stage_process_fft_real_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path fft_1d_top_fft_1d_top.out_bufQ_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end

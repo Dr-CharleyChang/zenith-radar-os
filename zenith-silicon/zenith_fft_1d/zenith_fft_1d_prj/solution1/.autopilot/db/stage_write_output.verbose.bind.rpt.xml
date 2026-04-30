@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'stage_write_output'" level="0">
-<item name = "Date">Tue Apr 21 16:25:44 2026
+<item name = "Date">Tue Apr 28 16:25:27 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">zenith_fft_1d_prj</item>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_69_1">1025, 1025, 3, 1, 1, 1024, yes</column>
+<column name="- VITIS_LOOP_100_1">1025, 1025, 3, 1, 1, 1024, yes</column>
 </table>
 </item>
 </section>

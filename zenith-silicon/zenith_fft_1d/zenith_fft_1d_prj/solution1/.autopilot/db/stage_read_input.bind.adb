@@ -9,7 +9,7 @@
 		<module_structure>Sequential</module_structure>
 		<ret_bitwidth>0</ret_bitwidth>
 		<ports class_id="2" tracking_level="0" version="0">
-			<count>8</count>
+			<count>9</count>
 			<item_version>0</item_version>
 			<item class_id="3" tracking_level="1" version="0" object_id="_1">
 				<Value class_id="4" tracking_level="0" version="0">
@@ -268,7 +268,7 @@
 					<Obj>
 						<type>1</type>
 						<id>8</id>
-						<name>in_bufI</name>
+						<name>bufI</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -299,19 +299,55 @@
 					<item_version>0</item_version>
 				</bit_vecs>
 			</item>
+			<item class_id_reference="3" object_id="_9">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>9</id>
+						<name>bufQ</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>bufQ</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName>RAM_2P_BRAM</coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
+				</Value>
+				<direction>1</direction>
+				<if_type>1</if_type>
+				<array_size>1024</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
 		</ports>
 		<nodes class_id="8" tracking_level="0" version="0">
-			<count>15</count>
+			<count>19</count>
 			<item_version>0</item_version>
-			<item class_id="9" tracking_level="1" version="0" object_id="_9">
+			<item class_id="9" tracking_level="1" version="0" object_id="_10">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>9</id>
+						<id>10</id>
 						<name>i</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -320,21 +356,14 @@
 							<item class_id="10" tracking_level="0" version="0">
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second class_id="11" tracking_level="0" version="0">
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item class_id="12" tracking_level="0" version="0">
 										<first class_id="13" tracking_level="0" version="0">
 											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -350,12 +379,12 @@
 						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>10</bitwidth>
+					<bitwidth>11</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>34</item>
+					<item>47</item>
 				</oprand_edges>
 				<opcode>alloca</opcode>
 				<m_Display>0</m_Display>
@@ -366,15 +395,15 @@
 				<m_topoIndex>1</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_10">
+			<item class_id_reference="9" object_id="_11">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>13</id>
-						<name>i_write_ln23</name>
+						<id>21</id>
+						<name>i_write_ln41</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -383,21 +412,14 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -418,8 +440,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>36</item>
-					<item>37</item>
+					<item>49</item>
+					<item>50</item>
 				</oprand_edges>
 				<opcode>store</opcode>
 				<m_Display>0</m_Display>
@@ -430,15 +452,15 @@
 				<m_topoIndex>2</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_11">
+			<item class_id_reference="9" object_id="_12">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>14</id>
-						<name>br_ln23</name>
+						<id>22</id>
+						<name>br_ln41</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -447,21 +469,14 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -482,7 +497,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>38</item>
+					<item>51</item>
 				</oprand_edges>
 				<opcode>br</opcode>
 				<m_Display>0</m_Display>
@@ -493,15 +508,15 @@
 				<m_topoIndex>3</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_12">
+			<item class_id_reference="9" object_id="_13">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>16</id>
-						<name>i_4</name>
+						<id>24</id>
+						<name>i_5</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -510,21 +525,14 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -540,13 +548,13 @@
 						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>10</bitwidth>
+					<bitwidth>11</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>39</item>
-					<item>146</item>
+					<item>52</item>
+					<item>296</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -557,346 +565,15 @@
 				<m_topoIndex>4</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_13">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>17</id>
-						<name>zext_ln23</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>23</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>64</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>40</item>
-				</oprand_edges>
-				<opcode>zext</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>5</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
 			<item class_id_reference="9" object_id="_14">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>21</id>
-						<name>empty</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>29</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>29</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control>auto</control>
-						<opType>adapter</opType>
-						<implIndex>reg_slice</implIndex>
-						<coreName>regslice</coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>135</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>44</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>8</count>
-					<item_version>0</item_version>
-					<item>42</item>
-					<item>43</item>
-					<item>44</item>
-					<item>45</item>
-					<item>46</item>
-					<item>47</item>
-					<item>48</item>
-					<item>49</item>
-				</oprand_edges>
-				<opcode>read</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.39</m_delay>
-				<m_topoIndex>6</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_15">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>22</id>
-						<name>tdata</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>29</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>29</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>tdata</originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>50</item>
-				</oprand_edges>
-				<opcode>extractvalue</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>7</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_16">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>23</id>
-						<name>trunc_ln60</name>
-						<fileName>src/fft_1d.hpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>60</lineNumber>
-						<contextFuncName>extract_i</contextFuncName>
-						<contextNormFuncName>extract_i</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>3</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>33</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.hpp</first>
-											<second>extract_i</second>
-										</first>
-										<second>60</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>51</item>
-				</oprand_edges>
-				<opcode>trunc</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>8</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_17">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>24</id>
-						<name>in_bufI_addr</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>33</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>33</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>10</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>3</count>
-					<item_version>0</item_version>
-					<item>52</item>
-					<item>54</item>
-					<item>55</item>
-				</oprand_edges>
-				<opcode>getelementptr</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>9</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_18">
-				<Value>
-					<Obj>
-						<type>0</type>
 						<id>25</id>
-						<name>in_bufI_addr_write_ln33</name>
+						<name>icmp_ln41</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>33</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -905,149 +582,14 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>33</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control>auto</control>
-						<opType>ram_2p</opType>
-						<implIndex>bram</implIndex>
-						<coreName>RAM_2P_BRAM</coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>90</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>56</item>
-					<item>57</item>
-				</oprand_edges>
-				<opcode>store</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>2.77</m_delay>
-				<m_topoIndex>10</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_19">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>26</id>
-						<name>i_6</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>23</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control>auto</control>
-						<opType>add</opType>
-						<implIndex>fabric</implIndex>
-						<coreName>Adder</coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>10</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>58</item>
-					<item>60</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.41</m_delay>
-				<m_topoIndex>11</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_20">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>27</id>
-						<name>icmp_ln23</name>
-						<fileName>src/fft_1d.cpp</fileName>
-						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
-						<contextFuncName>stage_read_input</contextFuncName>
-						<contextNormFuncName>stage_read_input</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>stage_read_input</second>
-										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -1068,27 +610,27 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>61</item>
-					<item>63</item>
+					<item>53</item>
+					<item>55</item>
 				</oprand_edges>
 				<opcode>icmp</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.41</m_delay>
-				<m_topoIndex>12</m_topoIndex>
+				<m_delay>1.48</m_delay>
+				<m_topoIndex>5</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_21">
+			<item class_id_reference="9" object_id="_15">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>28</id>
-						<name>i_write_ln23</name>
+						<id>26</id>
+						<name>add_ln41</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -1097,64 +639,55 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
 						<originalName></originalName>
 						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
+						<control>auto</control>
+						<opType>add</opType>
+						<implIndex>fabric</implIndex>
+						<coreName>Adder</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
+						<coreId>1</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>0</bitwidth>
+					<bitwidth>11</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>4</count>
+					<count>2</count>
 					<item_version>0</item_version>
-					<item>64</item>
-					<item>65</item>
-					<item>145</item>
-					<item>147</item>
+					<item>56</item>
+					<item>58</item>
 				</oprand_edges>
-				<opcode>store</opcode>
+				<opcode>add</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.29</m_delay>
-				<m_topoIndex>13</m_topoIndex>
+				<m_delay>1.48</m_delay>
+				<m_topoIndex>6</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_22">
+			<item class_id_reference="9" object_id="_16">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>29</id>
-						<name>br_ln23</name>
+						<id>27</id>
+						<name>br_ln41</name>
 						<fileName>src/fft_1d.cpp</fileName>
 						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
-						<lineNumber>23</lineNumber>
+						<lineNumber>41</lineNumber>
 						<contextFuncName>stage_read_input</contextFuncName>
 						<contextNormFuncName>stage_read_input</contextNormFuncName>
 						<inlineStackInfo>
@@ -1163,21 +696,14 @@
 							<item>
 								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/fft_1d.cpp</first>
-											<second>_Z10fft_1d_topRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_S3__</second>
-										</first>
-										<second>136</second>
-									</item>
 									<item>
 										<first>
 											<first>src/fft_1d.cpp</first>
 											<second>stage_read_input</second>
 										</first>
-										<second>23</second>
+										<second>41</second>
 									</item>
 								</second>
 							</item>
@@ -1198,11 +724,307 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
+					<item>59</item>
+					<item>60</item>
+					<item>61</item>
+				</oprand_edges>
+				<opcode>br</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>7</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_17">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>29</id>
+						<name>zext_ln41</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>41</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>41</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>62</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>10</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_18">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>33</id>
+						<name>empty</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>48</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>48</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control>auto</control>
+						<opType>adapter</opType>
+						<implIndex>reg_slice</implIndex>
+						<coreName>regslice</coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>135</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>44</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>8</count>
+					<item_version>0</item_version>
+					<item>64</item>
+					<item>65</item>
 					<item>66</item>
 					<item>67</item>
 					<item>68</item>
+					<item>69</item>
+					<item>70</item>
+					<item>71</item>
 				</oprand_edges>
-				<opcode>br</opcode>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.39</m_delay>
+				<m_topoIndex>11</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_19">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>34</id>
+						<name>tdata</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>48</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>48</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName>tdata</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>72</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>12</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_20">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>35</id>
+						<name>trunc_ln73</name>
+						<fileName>src/fft_1d.hpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>73</lineNumber>
+						<contextFuncName>extract_i</contextFuncName>
+						<contextNormFuncName>extract_i</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>53</second>
+									</item>
+									<item>
+										<first>
+											<first>src/fft_1d.hpp</first>
+											<second>extract_i</second>
+										</first>
+										<second>73</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>73</item>
+				</oprand_edges>
+				<opcode>trunc</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>13</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_21">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>36</id>
+						<name>bufI_addr</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>53</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>53</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>10</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>74</item>
+					<item>76</item>
+					<item>77</item>
+				</oprand_edges>
+				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -1211,20 +1033,386 @@
 				<m_topoIndex>14</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
+			<item class_id_reference="9" object_id="_22">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>37</id>
+						<name>bufI_addr_write_ln53</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>53</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>53</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control>auto</control>
+						<opType>ram_2p</opType>
+						<implIndex>bram</implIndex>
+						<coreName>RAM_2P_BRAM</coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>90</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>78</item>
+					<item>79</item>
+				</oprand_edges>
+				<opcode>store</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>2.77</m_delay>
+				<m_topoIndex>15</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
 			<item class_id_reference="9" object_id="_23">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>31</id>
-						<name>_ln0</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
+						<id>38</id>
+						<name>tmp_2</name>
+						<fileName>src/fft_1d.hpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>79</lineNumber>
+						<contextFuncName>extract_q</contextFuncName>
+						<contextNormFuncName>extract_q</contextNormFuncName>
 						<inlineStackInfo>
-							<count>0</count>
+							<count>1</count>
 							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>2</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>54</second>
+									</item>
+									<item>
+										<first>
+											<first>src/fft_1d.hpp</first>
+											<second>extract_q</second>
+										</first>
+										<second>79</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>81</item>
+					<item>82</item>
+					<item>84</item>
+				</oprand_edges>
+				<opcode>partselect</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>16</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_24">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>39</id>
+						<name>bufQ_addr</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>54</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>54</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>10</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>85</item>
+					<item>86</item>
+					<item>87</item>
+				</oprand_edges>
+				<opcode>getelementptr</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>17</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_25">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>40</id>
+						<name>bufQ_addr_write_ln54</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>54</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>54</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control>auto</control>
+						<opType>ram_2p</opType>
+						<implIndex>bram</implIndex>
+						<coreName>RAM_2P_BRAM</coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>90</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>88</item>
+					<item>89</item>
+				</oprand_edges>
+				<opcode>store</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>2.77</m_delay>
+				<m_topoIndex>18</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_26">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>41</id>
+						<name>i_write_ln41</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>41</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>41</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>90</item>
+					<item>91</item>
+					<item>297</item>
+					<item>298</item>
+				</oprand_edges>
+				<opcode>store</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.29</m_delay>
+				<m_topoIndex>8</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_27">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>42</id>
+						<name>br_ln41</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>41</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>41</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>92</item>
+				</oprand_edges>
+				<opcode>br</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>19</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_28">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>44</id>
+						<name>_ln56</name>
+						<fileName>src/fft_1d.cpp</fileName>
+						<fileDirectory>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</fileDirectory>
+						<lineNumber>56</lineNumber>
+						<contextFuncName>stage_read_input</contextFuncName>
+						<contextNormFuncName>stage_read_input</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/fft_1d.cpp</first>
+											<second>stage_read_input</second>
+										</first>
+										<second>56</second>
+									</item>
+								</second>
+							</item>
 						</inlineStackInfo>
 						<originalName></originalName>
 						<rtlName></rtlName>
@@ -1249,18 +1437,18 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>1.29</m_delay>
-				<m_topoIndex>15</m_topoIndex>
+				<m_topoIndex>9</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 		</nodes>
 		<consts class_id="15" tracking_level="0" version="0">
-			<count>5</count>
+			<count>6</count>
 			<item_version>0</item_version>
-			<item class_id="16" tracking_level="1" version="0" object_id="_24">
+			<item class_id="16" tracking_level="1" version="0" object_id="_29">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>33</id>
+						<id>46</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -1287,11 +1475,11 @@
 				<const_type>0</const_type>
 				<content>1</content>
 			</item>
-			<item class_id_reference="16" object_id="_25">
+			<item class_id_reference="16" object_id="_30">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>35</id>
+						<id>48</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -1313,16 +1501,78 @@
 						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>10</bitwidth>
+					<bitwidth>11</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>0</content>
 			</item>
-			<item class_id_reference="16" object_id="_26">
+			<item class_id_reference="16" object_id="_31">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>53</id>
+						<id>54</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>11</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>1024</content>
+			</item>
+			<item class_id_reference="16" object_id="_32">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>57</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>11</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>1</content>
+			</item>
+			<item class_id_reference="16" object_id="_33">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>75</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -1349,11 +1599,11 @@
 				<const_type>0</const_type>
 				<content>0</content>
 			</item>
-			<item class_id_reference="16" object_id="_27">
+			<item class_id_reference="16" object_id="_34">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>59</id>
+						<id>83</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -1375,51 +1625,20 @@
 						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>10</bitwidth>
+					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>1</content>
-			</item>
-			<item class_id_reference="16" object_id="_28">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>62</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>10</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>1023</content>
+				<content>16</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
-			<count>3</count>
+			<count>4</count>
 			<item_version>0</item_version>
-			<item class_id="18" tracking_level="1" version="0" object_id="_29">
+			<item class_id="18" tracking_level="1" version="0" object_id="_35">
 				<Obj>
 					<type>3</type>
-					<id>15</id>
-					<name>newFuncRoot</name>
+					<id>23</id>
+					<name>entry</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -1443,16 +1662,50 @@
 				<node_objs>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>9</item>
-					<item>13</item>
-					<item>14</item>
+					<item>10</item>
+					<item>21</item>
+					<item>22</item>
 				</node_objs>
 			</item>
-			<item class_id_reference="18" object_id="_30">
+			<item class_id_reference="18" object_id="_36">
 				<Obj>
 					<type>3</type>
-					<id>30</id>
-					<name>for.inc.i.split</name>
+					<id>28</id>
+					<name>for.inc</name>
+					<fileName></fileName>
+					<fileDirectory></fileDirectory>
+					<lineNumber>0</lineNumber>
+					<contextFuncName></contextFuncName>
+					<contextNormFuncName></contextNormFuncName>
+					<inlineStackInfo>
+						<count>0</count>
+						<item_version>0</item_version>
+					</inlineStackInfo>
+					<originalName></originalName>
+					<rtlName></rtlName>
+					<control></control>
+					<opType></opType>
+					<implIndex></implIndex>
+					<coreName></coreName>
+					<isStorage>0</isStorage>
+					<storageDepth>0</storageDepth>
+					<coreId>4294967295</coreId>
+					<rtlModuleName></rtlModuleName>
+				</Obj>
+				<node_objs>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>24</item>
+					<item>25</item>
+					<item>26</item>
+					<item>27</item>
+				</node_objs>
+			</item>
+			<item class_id_reference="18" object_id="_37">
+				<Obj>
+					<type>3</type>
+					<id>43</id>
+					<name>for.inc.split</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -1476,24 +1729,24 @@
 				<node_objs>
 					<count>11</count>
 					<item_version>0</item_version>
-					<item>16</item>
-					<item>17</item>
-					<item>21</item>
-					<item>22</item>
-					<item>23</item>
-					<item>24</item>
-					<item>25</item>
-					<item>26</item>
-					<item>27</item>
-					<item>28</item>
 					<item>29</item>
+					<item>33</item>
+					<item>34</item>
+					<item>35</item>
+					<item>36</item>
+					<item>37</item>
+					<item>38</item>
+					<item>39</item>
+					<item>40</item>
+					<item>41</item>
+					<item>42</item>
 				</node_objs>
 			</item>
-			<item class_id_reference="18" object_id="_31">
+			<item class_id_reference="18" object_id="_38">
 				<Obj>
 					<type>3</type>
-					<id>32</id>
-					<name>_ZL16stage_read_inputRN3hls6streamINS_4axisI7ap_uintILi32EELm1ELm1ELm1ELh56ELb0EEELi0EEEP6ap_intILi16EES9_.67.exit</name>
+					<id>45</id>
+					<name>for.end</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -1517,256 +1770,319 @@
 				<node_objs>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>31</item>
+					<item>44</item>
 				</node_objs>
 			</item>
 		</blocks>
 		<edges class_id="19" tracking_level="0" version="0">
-			<count>35</count>
+			<count>44</count>
 			<item_version>0</item_version>
-			<item class_id="20" tracking_level="1" version="0" object_id="_32">
-				<id>34</id>
+			<item class_id="20" tracking_level="1" version="0" object_id="_39">
+				<id>47</id>
 				<edge_type>1</edge_type>
-				<source_obj>33</source_obj>
-				<sink_obj>9</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_33">
-				<id>36</id>
-				<edge_type>1</edge_type>
-				<source_obj>35</source_obj>
-				<sink_obj>13</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_34">
-				<id>37</id>
-				<edge_type>1</edge_type>
-				<source_obj>9</source_obj>
-				<sink_obj>13</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_35">
-				<id>38</id>
-				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>14</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_36">
-				<id>39</id>
-				<edge_type>1</edge_type>
-				<source_obj>9</source_obj>
-				<sink_obj>16</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_37">
-				<id>40</id>
-				<edge_type>1</edge_type>
-				<source_obj>16</source_obj>
-				<sink_obj>17</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_38">
-				<id>43</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>21</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_39">
-				<id>44</id>
-				<edge_type>1</edge_type>
-				<source_obj>2</source_obj>
-				<sink_obj>21</sink_obj>
+				<source_obj>46</source_obj>
+				<sink_obj>10</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_40">
-				<id>45</id>
+				<id>49</id>
 				<edge_type>1</edge_type>
-				<source_obj>3</source_obj>
+				<source_obj>48</source_obj>
 				<sink_obj>21</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_41">
-				<id>46</id>
+				<id>50</id>
 				<edge_type>1</edge_type>
-				<source_obj>4</source_obj>
+				<source_obj>10</source_obj>
 				<sink_obj>21</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_42">
-				<id>47</id>
-				<edge_type>1</edge_type>
-				<source_obj>5</source_obj>
-				<sink_obj>21</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_43">
-				<id>48</id>
-				<edge_type>1</edge_type>
-				<source_obj>6</source_obj>
-				<sink_obj>21</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_44">
-				<id>49</id>
-				<edge_type>1</edge_type>
-				<source_obj>7</source_obj>
-				<sink_obj>21</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_45">
-				<id>50</id>
-				<edge_type>1</edge_type>
-				<source_obj>21</source_obj>
+				<id>51</id>
+				<edge_type>2</edge_type>
+				<source_obj>28</source_obj>
 				<sink_obj>22</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_46">
-				<id>51</id>
-				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
-				<sink_obj>23</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_47">
+			<item class_id_reference="20" object_id="_43">
 				<id>52</id>
 				<edge_type>1</edge_type>
-				<source_obj>8</source_obj>
+				<source_obj>10</source_obj>
 				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_48">
-				<id>54</id>
-				<edge_type>1</edge_type>
-				<source_obj>53</source_obj>
-				<sink_obj>24</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_49">
-				<id>55</id>
-				<edge_type>1</edge_type>
-				<source_obj>17</source_obj>
-				<sink_obj>24</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_50">
-				<id>56</id>
-				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
-				<sink_obj>25</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_51">
-				<id>57</id>
+			<item class_id_reference="20" object_id="_44">
+				<id>53</id>
 				<edge_type>1</edge_type>
 				<source_obj>24</source_obj>
 				<sink_obj>25</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_52">
+			<item class_id_reference="20" object_id="_45">
+				<id>55</id>
+				<edge_type>1</edge_type>
+				<source_obj>54</source_obj>
+				<sink_obj>25</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_46">
+				<id>56</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>26</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_47">
 				<id>58</id>
 				<edge_type>1</edge_type>
-				<source_obj>16</source_obj>
+				<source_obj>57</source_obj>
 				<sink_obj>26</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_48">
+				<id>59</id>
+				<edge_type>1</edge_type>
+				<source_obj>25</source_obj>
+				<sink_obj>27</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_49">
+				<id>60</id>
+				<edge_type>2</edge_type>
+				<source_obj>43</source_obj>
+				<sink_obj>27</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_50">
+				<id>61</id>
+				<edge_type>2</edge_type>
+				<source_obj>45</source_obj>
+				<sink_obj>27</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_51">
+				<id>62</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>29</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_52">
+				<id>65</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_53">
-				<id>60</id>
+				<id>66</id>
 				<edge_type>1</edge_type>
-				<source_obj>59</source_obj>
-				<sink_obj>26</sink_obj>
+				<source_obj>2</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_54">
-				<id>61</id>
+				<id>67</id>
 				<edge_type>1</edge_type>
-				<source_obj>16</source_obj>
-				<sink_obj>27</sink_obj>
+				<source_obj>3</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_55">
-				<id>63</id>
+				<id>68</id>
 				<edge_type>1</edge_type>
-				<source_obj>62</source_obj>
-				<sink_obj>27</sink_obj>
+				<source_obj>4</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_56">
-				<id>64</id>
+				<id>69</id>
 				<edge_type>1</edge_type>
-				<source_obj>26</source_obj>
-				<sink_obj>28</sink_obj>
+				<source_obj>5</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_57">
-				<id>65</id>
+				<id>70</id>
 				<edge_type>1</edge_type>
-				<source_obj>9</source_obj>
-				<sink_obj>28</sink_obj>
+				<source_obj>6</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_58">
-				<id>66</id>
+				<id>71</id>
 				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
-				<sink_obj>29</sink_obj>
+				<source_obj>7</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_59">
-				<id>67</id>
-				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>29</sink_obj>
+				<id>72</id>
+				<edge_type>1</edge_type>
+				<source_obj>33</source_obj>
+				<sink_obj>34</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_60">
-				<id>68</id>
-				<edge_type>2</edge_type>
-				<source_obj>32</source_obj>
-				<sink_obj>29</sink_obj>
+				<id>73</id>
+				<edge_type>1</edge_type>
+				<source_obj>34</source_obj>
+				<sink_obj>35</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_61">
-				<id>142</id>
-				<edge_type>2</edge_type>
-				<source_obj>15</source_obj>
-				<sink_obj>30</sink_obj>
+				<id>74</id>
+				<edge_type>1</edge_type>
+				<source_obj>8</source_obj>
+				<sink_obj>36</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_62">
-				<id>143</id>
-				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>32</sink_obj>
+				<id>76</id>
+				<edge_type>1</edge_type>
+				<source_obj>75</source_obj>
+				<sink_obj>36</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_63">
-				<id>144</id>
-				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>30</sink_obj>
-				<is_back_edge>1</is_back_edge>
+				<id>77</id>
+				<edge_type>1</edge_type>
+				<source_obj>29</source_obj>
+				<sink_obj>36</sink_obj>
+				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_64">
-				<id>145</id>
-				<edge_type>4</edge_type>
-				<source_obj>16</source_obj>
-				<sink_obj>28</sink_obj>
+				<id>78</id>
+				<edge_type>1</edge_type>
+				<source_obj>35</source_obj>
+				<sink_obj>37</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_65">
-				<id>146</id>
-				<edge_type>4</edge_type>
-				<source_obj>13</source_obj>
-				<sink_obj>16</sink_obj>
+				<id>79</id>
+				<edge_type>1</edge_type>
+				<source_obj>36</source_obj>
+				<sink_obj>37</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_66">
-				<id>147</id>
-				<edge_type>4</edge_type>
-				<source_obj>13</source_obj>
+				<id>82</id>
+				<edge_type>1</edge_type>
+				<source_obj>34</source_obj>
+				<sink_obj>38</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_67">
+				<id>84</id>
+				<edge_type>1</edge_type>
+				<source_obj>83</source_obj>
+				<sink_obj>38</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_68">
+				<id>85</id>
+				<edge_type>1</edge_type>
+				<source_obj>9</source_obj>
+				<sink_obj>39</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_69">
+				<id>86</id>
+				<edge_type>1</edge_type>
+				<source_obj>75</source_obj>
+				<sink_obj>39</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_70">
+				<id>87</id>
+				<edge_type>1</edge_type>
+				<source_obj>29</source_obj>
+				<sink_obj>39</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_71">
+				<id>88</id>
+				<edge_type>1</edge_type>
+				<source_obj>38</source_obj>
+				<sink_obj>40</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_72">
+				<id>89</id>
+				<edge_type>1</edge_type>
+				<source_obj>39</source_obj>
+				<sink_obj>40</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_73">
+				<id>90</id>
+				<edge_type>1</edge_type>
+				<source_obj>26</source_obj>
+				<sink_obj>41</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_74">
+				<id>91</id>
+				<edge_type>1</edge_type>
+				<source_obj>10</source_obj>
+				<sink_obj>41</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_75">
+				<id>92</id>
+				<edge_type>2</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>42</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_76">
+				<id>292</id>
+				<edge_type>2</edge_type>
+				<source_obj>23</source_obj>
 				<sink_obj>28</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_77">
+				<id>293</id>
+				<edge_type>2</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>45</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_78">
+				<id>294</id>
+				<edge_type>2</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>43</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_79">
+				<id>295</id>
+				<edge_type>2</edge_type>
+				<source_obj>43</source_obj>
+				<sink_obj>28</sink_obj>
+				<is_back_edge>1</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_80">
+				<id>296</id>
+				<edge_type>4</edge_type>
+				<source_obj>21</source_obj>
+				<sink_obj>24</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_81">
+				<id>297</id>
+				<edge_type>4</edge_type>
+				<source_obj>21</source_obj>
+				<sink_obj>41</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_82">
+				<id>298</id>
+				<edge_type>4</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>41</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 		</edges>
@@ -1774,7 +2090,7 @@
 	<cdfg_regions class_id="21" tracking_level="0" version="0">
 		<count>4</count>
 		<item_version>0</item_version>
-		<item class_id="22" tracking_level="1" version="0" object_id="_67">
+		<item class_id="22" tracking_level="1" version="0" object_id="_83">
 			<mId>1</mId>
 			<mTag>stage_read_input</mTag>
 			<mNormTag>stage_read_input</mNormTag>
@@ -1794,12 +2110,12 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>1025</mMinLatency>
-			<mMaxLatency>1025</mMaxLatency>
+			<mMinLatency>1026</mMinLatency>
+			<mMaxLatency>1026</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_68">
+		<item class_id_reference="22" object_id="_84">
 			<mId>2</mId>
 			<mTag>Entry</mTag>
 			<mNormTag>Entry</mNormTag>
@@ -1811,7 +2127,7 @@
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>15</item>
+				<item>23</item>
 			</basic_blocks>
 			<mII>-1</mII>
 			<mDepth>-1</mDepth>
@@ -1822,30 +2138,31 @@
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_69">
+		<item class_id_reference="22" object_id="_85">
 			<mId>3</mId>
-			<mTag>VITIS_LOOP_23_1</mTag>
-			<mNormTag>VITIS_LOOP_23_1</mNormTag>
+			<mTag>VITIS_LOOP_41_1</mTag>
+			<mNormTag>VITIS_LOOP_41_1</mNormTag>
 			<mType>1</mType>
 			<sub_regions>
 				<count>0</count>
 				<item_version>0</item_version>
 			</sub_regions>
 			<basic_blocks>
-				<count>1</count>
+				<count>2</count>
 				<item_version>0</item_version>
-				<item>30</item>
+				<item>28</item>
+				<item>43</item>
 			</basic_blocks>
 			<mII>1</mII>
-			<mDepth>1</mDepth>
+			<mDepth>2</mDepth>
 			<mMinTripCount>1024</mMinTripCount>
 			<mMaxTripCount>1024</mMaxTripCount>
-			<mMinLatency>1023</mMinLatency>
-			<mMaxLatency>1023</mMaxLatency>
+			<mMinLatency>1024</mMinLatency>
+			<mMaxLatency>1024</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_70">
+		<item class_id_reference="22" object_id="_86">
 			<mId>4</mId>
 			<mTag>Return</mTag>
 			<mNormTag>Return</mNormTag>
@@ -1857,7 +2174,7 @@
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>32</item>
+				<item>45</item>
 			</basic_blocks>
 			<mII>-1</mII>
 			<mDepth>-1</mDepth>
@@ -1869,117 +2186,179 @@
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
 	</cdfg_regions>
-	<fsm class_id="24" tracking_level="1" version="0" object_id="_71">
+	<fsm class_id="24" tracking_level="1" version="0" object_id="_87">
 		<states class_id="25" tracking_level="0" version="0">
-			<count>1</count>
+			<count>2</count>
 			<item_version>0</item_version>
-			<item class_id="26" tracking_level="1" version="0" object_id="_72">
+			<item class_id="26" tracking_level="1" version="0" object_id="_88">
 				<id>1</id>
 				<operations class_id="27" tracking_level="0" version="0">
-					<count>21</count>
+					<count>19</count>
 					<item_version>0</item_version>
-					<item class_id="28" tracking_level="1" version="0" object_id="_73">
-						<id>9</id>
-						<stage>1</stage>
-						<latency>1</latency>
-					</item>
-					<item class_id_reference="28" object_id="_74">
+					<item class_id="28" tracking_level="1" version="0" object_id="_89">
 						<id>10</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_75">
+					<item class_id_reference="28" object_id="_90">
 						<id>11</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_76">
+					<item class_id_reference="28" object_id="_91">
 						<id>12</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_77">
+					<item class_id_reference="28" object_id="_92">
 						<id>13</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_78">
+					<item class_id_reference="28" object_id="_93">
 						<id>14</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_79">
+					<item class_id_reference="28" object_id="_94">
+						<id>15</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_95">
 						<id>16</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_80">
+					<item class_id_reference="28" object_id="_96">
 						<id>17</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_81">
+					<item class_id_reference="28" object_id="_97">
 						<id>18</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_82">
+					<item class_id_reference="28" object_id="_98">
 						<id>19</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_83">
+					<item class_id_reference="28" object_id="_99">
 						<id>20</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_84">
+					<item class_id_reference="28" object_id="_100">
 						<id>21</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_85">
+					<item class_id_reference="28" object_id="_101">
 						<id>22</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_86">
-						<id>23</id>
-						<stage>1</stage>
-						<latency>1</latency>
-					</item>
-					<item class_id_reference="28" object_id="_87">
+					<item class_id_reference="28" object_id="_102">
 						<id>24</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_88">
+					<item class_id_reference="28" object_id="_103">
 						<id>25</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_89">
+					<item class_id_reference="28" object_id="_104">
 						<id>26</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_90">
+					<item class_id_reference="28" object_id="_105">
 						<id>27</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_91">
-						<id>28</id>
+					<item class_id_reference="28" object_id="_106">
+						<id>41</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_92">
+					<item class_id_reference="28" object_id="_107">
+						<id>44</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+				</operations>
+			</item>
+			<item class_id_reference="26" object_id="_108">
+				<id>2</id>
+				<operations>
+					<count>13</count>
+					<item_version>0</item_version>
+					<item class_id_reference="28" object_id="_109">
 						<id>29</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
-					<item class_id_reference="28" object_id="_93">
+					<item class_id_reference="28" object_id="_110">
+						<id>30</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_111">
 						<id>31</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_112">
+						<id>32</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_113">
+						<id>33</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_114">
+						<id>34</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_115">
+						<id>35</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_116">
+						<id>36</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_117">
+						<id>37</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_118">
+						<id>38</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_119">
+						<id>39</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_120">
+						<id>40</id>
+						<stage>1</stage>
+						<latency>1</latency>
+					</item>
+					<item class_id_reference="28" object_id="_121">
+						<id>42</id>
 						<stage>1</stage>
 						<latency>1</latency>
 					</item>
@@ -1987,45 +2366,32 @@
 			</item>
 		</states>
 		<transitions class_id="29" tracking_level="0" version="0">
-			<count>0</count>
+			<count>1</count>
 			<item_version>0</item_version>
+			<item class_id="30" tracking_level="1" version="0" object_id="_122">
+				<inState>1</inState>
+				<outState>2</outState>
+				<condition class_id="31" tracking_level="0" version="0">
+					<id>-1</id>
+					<sop class_id="32" tracking_level="0" version="0">
+						<count>1</count>
+						<item_version>0</item_version>
+						<item class_id="33" tracking_level="0" version="0">
+							<count>0</count>
+							<item_version>0</item_version>
+						</item>
+					</sop>
+				</condition>
+			</item>
 		</transitions>
 	</fsm>
 	<res class_id="-1"></res>
-	<node_label_latency class_id="31" tracking_level="0" version="0">
-		<count>15</count>
+	<node_label_latency class_id="35" tracking_level="0" version="0">
+		<count>19</count>
 		<item_version>0</item_version>
-		<item class_id="32" tracking_level="0" version="0">
-			<first>9</first>
-			<second class_id="33" tracking_level="0" version="0">
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>13</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>14</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>16</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>17</first>
-			<second>
+		<item class_id="36" tracking_level="0" version="0">
+			<first>10</first>
+			<second class_id="37" tracking_level="0" version="0">
 				<first>0</first>
 				<second>0</second>
 			</second>
@@ -2039,13 +2405,6 @@
 		</item>
 		<item>
 			<first>22</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>23</first>
 			<second>
 				<first>0</first>
 				<second>0</second>
@@ -2080,61 +2439,132 @@
 			</second>
 		</item>
 		<item>
-			<first>28</first>
-			<second>
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
 			<first>29</first>
 			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>33</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>34</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>35</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>36</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>37</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>38</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>39</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>40</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>41</first>
+			<second>
 				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>31</first>
+			<first>42</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>44</first>
 			<second>
 				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 	</node_label_latency>
-	<bblk_ent_exit class_id="34" tracking_level="0" version="0">
-		<count>3</count>
+	<bblk_ent_exit class_id="38" tracking_level="0" version="0">
+		<count>4</count>
 		<item_version>0</item_version>
-		<item class_id="35" tracking_level="0" version="0">
-			<first>15</first>
-			<second class_id="36" tracking_level="0" version="0">
+		<item class_id="39" tracking_level="0" version="0">
+			<first>23</first>
+			<second class_id="40" tracking_level="0" version="0">
 				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>30</first>
+			<first>28</first>
 			<second>
 				<first>1</first>
 				<second>1</second>
 			</second>
 		</item>
 		<item>
-			<first>32</first>
+			<first>43</first>
+			<second>
+				<first>1</first>
+				<second>2</second>
+			</second>
+		</item>
+		<item>
+			<first>45</first>
 			<second>
 				<first>2</first>
 				<second>2</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
-	<regions class_id="37" tracking_level="0" version="0">
+	<regions class_id="41" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="38" tracking_level="1" version="0" object_id="_94">
-			<region_name>VITIS_LOOP_23_1</region_name>
+		<item class_id="42" tracking_level="1" version="0" object_id="_123">
+			<region_name>VITIS_LOOP_41_1</region_name>
 			<basic_blocks>
-				<count>1</count>
+				<count>2</count>
 				<item_version>0</item_version>
-				<item>30</item>
+				<item>28</item>
+				<item>43</item>
 			</basic_blocks>
 			<nodes>
 				<count>0</count>
@@ -2143,70 +2573,54 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>1</interval>
-			<pipe_depth>1</pipe_depth>
-			<mDBIIViolationVec class_id="39" tracking_level="0" version="0">
+			<pipe_depth>2</pipe_depth>
+			<mDBIIViolationVec class_id="43" tracking_level="0" version="0">
 				<count>0</count>
 				<item_version>0</item_version>
 			</mDBIIViolationVec>
 		</item>
 	</regions>
-	<dp_fu_nodes class_id="40" tracking_level="0" version="0">
-		<count>12</count>
+	<dp_fu_nodes class_id="44" tracking_level="0" version="0">
+		<count>15</count>
 		<item_version>0</item_version>
-		<item class_id="41" tracking_level="0" version="0">
-			<first>64</first>
+		<item class_id="45" tracking_level="0" version="0">
+			<first>70</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>9</item>
+				<item>10</item>
 			</second>
 		</item>
 		<item>
-			<first>68</first>
+			<first>74</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>21</item>
+				<item>33</item>
 			</second>
 		</item>
 		<item>
-			<first>86</first>
+			<first>92</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>24</item>
+				<item>36</item>
 			</second>
 		</item>
 		<item>
-			<first>93</first>
+			<first>99</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>25</item>
+				<item>37</item>
 			</second>
 		</item>
 		<item>
-			<first>103</first>
+			<first>109</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>13</item>
-			</second>
-		</item>
-		<item>
-			<first>108</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>16</item>
-			</second>
-		</item>
-		<item>
-			<first>111</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>17</item>
+				<item>39</item>
 			</second>
 		</item>
 		<item>
@@ -2214,23 +2628,15 @@
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>22</item>
+				<item>40</item>
 			</second>
 		</item>
 		<item>
-			<first>120</first>
+			<first>126</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>23</item>
-			</second>
-		</item>
-		<item>
-			<first>125</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>26</item>
+				<item>21</item>
 			</second>
 		</item>
 		<item>
@@ -2238,23 +2644,19 @@
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>27</item>
+				<item>24</item>
 			</second>
 		</item>
 		<item>
-			<first>137</first>
+			<first>134</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>28</item>
+				<item>25</item>
 			</second>
 		</item>
-	</dp_fu_nodes>
-	<dp_fu_nodes_expression class_id="43" tracking_level="0" version="0">
-		<count>7</count>
-		<item_version>0</item_version>
-		<item class_id="44" tracking_level="0" version="0">
-			<first>i_6_fu_125</first>
+		<item>
+			<first>140</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2262,51 +2664,119 @@
 			</second>
 		</item>
 		<item>
-			<first>i_fu_64</first>
+			<first>146</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>9</item>
+				<item>41</item>
 			</second>
 		</item>
 		<item>
-			<first>icmp_ln23_fu_131</first>
+			<first>151</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>27</item>
+				<item>29</item>
 			</second>
 		</item>
 		<item>
-			<first>in_bufI_addr_gep_fu_86</first>
+			<first>156</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>24</item>
+				<item>34</item>
 			</second>
 		</item>
 		<item>
-			<first>tdata_fu_116</first>
+			<first>160</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>22</item>
+				<item>35</item>
 			</second>
 		</item>
 		<item>
-			<first>trunc_ln60_fu_120</first>
+			<first>165</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>23</item>
+				<item>38</item>
+			</second>
+		</item>
+	</dp_fu_nodes>
+	<dp_fu_nodes_expression class_id="47" tracking_level="0" version="0">
+		<count>9</count>
+		<item_version>0</item_version>
+		<item class_id="48" tracking_level="0" version="0">
+			<first>add_ln41_fu_140</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>26</item>
 			</second>
 		</item>
 		<item>
-			<first>zext_ln23_fu_111</first>
+			<first>bufI_addr_gep_fu_92</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>17</item>
+				<item>36</item>
+			</second>
+		</item>
+		<item>
+			<first>bufQ_addr_gep_fu_109</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>39</item>
+			</second>
+		</item>
+		<item>
+			<first>i_fu_70</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>10</item>
+			</second>
+		</item>
+		<item>
+			<first>icmp_ln41_fu_134</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>25</item>
+			</second>
+		</item>
+		<item>
+			<first>tdata_fu_156</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>34</item>
+			</second>
+		</item>
+		<item>
+			<first>tmp_2_fu_165</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>38</item>
+			</second>
+		</item>
+		<item>
+			<first>trunc_ln73_fu_160</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>35</item>
+			</second>
+		</item>
+		<item>
+			<first>zext_ln41_fu_151</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>29</item>
 			</second>
 		</item>
 	</dp_fu_nodes_expression>
@@ -2318,7 +2788,23 @@
 		<count>4</count>
 		<item_version>0</item_version>
 		<item>
-			<first>empty_read_fu_68</first>
+			<first>empty_read_fu_74</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>33</item>
+			</second>
+		</item>
+		<item>
+			<first>i_5_load_fu_131</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>24</item>
+			</second>
+		</item>
+		<item>
+			<first>store_ln41_store_fu_126</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2326,27 +2812,11 @@
 			</second>
 		</item>
 		<item>
-			<first>i_4_load_fu_108</first>
+			<first>store_ln41_store_fu_146</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>16</item>
-			</second>
-		</item>
-		<item>
-			<first>store_ln23_store_fu_103</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>13</item>
-			</second>
-		</item>
-		<item>
-			<first>store_ln23_store_fu_137</first>
-			<second>
-				<count>1</count>
-				<item_version>0</item_version>
-				<item>28</item>
+				<item>41</item>
 			</second>
 		</item>
 	</dp_fu_nodes_io>
@@ -2354,42 +2824,69 @@
 		<count>0</count>
 		<item_version>0</item_version>
 	</return_ports>
-	<dp_mem_port_nodes class_id="45" tracking_level="0" version="0">
-		<count>1</count>
+	<dp_mem_port_nodes class_id="49" tracking_level="0" version="0">
+		<count>2</count>
 		<item_version>0</item_version>
-		<item class_id="46" tracking_level="0" version="0">
-			<first class_id="47" tracking_level="0" version="0">
-				<first>in_bufI</first>
+		<item class_id="50" tracking_level="0" version="0">
+			<first class_id="51" tracking_level="0" version="0">
+				<first>bufI</first>
 				<second>1</second>
 			</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>25</item>
+				<item>37</item>
+			</second>
+		</item>
+		<item>
+			<first>
+				<first>bufQ</first>
+				<second>1</second>
+			</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>40</item>
 			</second>
 		</item>
 	</dp_mem_port_nodes>
 	<dp_reg_nodes>
-		<count>1</count>
+		<count>2</count>
 		<item_version>0</item_version>
 		<item>
-			<first>142</first>
+			<first>174</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>9</item>
+				<item>10</item>
+			</second>
+		</item>
+		<item>
+			<first>181</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>24</item>
 			</second>
 		</item>
 	</dp_reg_nodes>
 	<dp_regname_nodes>
-		<count>1</count>
+		<count>2</count>
 		<item_version>0</item_version>
 		<item>
-			<first>i_reg_142</first>
+			<first>i_5_reg_181</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>9</item>
+				<item>24</item>
+			</second>
+		</item>
+		<item>
+			<first>i_reg_174</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>10</item>
 			</second>
 		</item>
 	</dp_regname_nodes>
@@ -2401,11 +2898,11 @@
 		<count>0</count>
 		<item_version>0</item_version>
 	</dp_regname_phi>
-	<dp_port_io_nodes class_id="48" tracking_level="0" version="0">
-		<count>8</count>
+	<dp_port_io_nodes class_id="52" tracking_level="0" version="0">
+		<count>9</count>
 		<item_version>0</item_version>
-		<item class_id="49" tracking_level="0" version="0">
-			<first>in_bufI(p1)</first>
+		<item class_id="53" tracking_level="0" version="0">
+			<first>bufI(p1)</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2414,7 +2911,22 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>25</item>
+						<item>37</item>
+					</second>
+				</item>
+			</second>
+		</item>
+		<item>
+			<first>bufQ(p1)</first>
+			<second>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>
+					<first>store</first>
+					<second>
+						<count>1</count>
+						<item_version>0</item_version>
+						<item>40</item>
 					</second>
 				</item>
 			</second>
@@ -2429,7 +2941,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2444,7 +2956,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2459,7 +2971,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2474,7 +2986,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2489,7 +3001,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2504,7 +3016,7 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
@@ -2519,14 +3031,14 @@
 					<second>
 						<count>1</count>
 						<item_version>0</item_version>
-						<item>21</item>
+						<item>33</item>
 					</second>
 				</item>
 			</second>
 		</item>
 	</dp_port_io_nodes>
 	<port2core>
-		<count>1</count>
+		<count>2</count>
 		<item_version>0</item_version>
 		<item>
 			<first>8</first>
@@ -2535,22 +3047,22 @@
 				<second>22</second>
 			</second>
 		</item>
-	</port2core>
-	<node2core>
-		<count>4</count>
-		<item_version>0</item_version>
 		<item>
-			<first>21</first>
-			<second>
-				<first>888</first>
-				<second>176</second>
-			</second>
-		</item>
-		<item>
-			<first>25</first>
+			<first>9</first>
 			<second>
 				<first>666</first>
 				<second>22</second>
+			</second>
+		</item>
+	</port2core>
+	<node2core>
+		<count>5</count>
+		<item_version>0</item_version>
+		<item>
+			<first>25</first>
+			<second>
+				<first>526</first>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
@@ -2561,27 +3073,58 @@
 			</second>
 		</item>
 		<item>
-			<first>27</first>
+			<first>33</first>
 			<second>
-				<first>526</first>
-				<second>0</second>
+				<first>888</first>
+				<second>176</second>
+			</second>
+		</item>
+		<item>
+			<first>37</first>
+			<second>
+				<first>666</first>
+				<second>22</second>
+			</second>
+		</item>
+		<item>
+			<first>40</first>
+			<second>
+				<first>666</first>
+				<second>22</second>
 			</second>
 		</item>
 	</node2core>
-	<sched_res class_id="50" tracking_level="1" version="0" object_id="_95">
-		<ResourceTableActual class_id="51" tracking_level="0" version="0">
+	<sched_res class_id="54" tracking_level="1" version="0" object_id="_124">
+		<ResourceTableActual class_id="55" tracking_level="0" version="0">
 			<II>1</II>
-			<Resource class_id="52" tracking_level="0" version="0">
-				<Name>in_bufI</Name>
+			<Resource class_id="56" tracking_level="0" version="0">
+				<Name>bufI</Name>
 				<Category>RAM</Category>
 				<ResourceType>RAM_2P</ResourceType>
 				<source_obj>8</source_obj>
-				<SubResources class_id="53" tracking_level="0" version="0">
+				<SubResources class_id="57" tracking_level="0" version="0">
 					<PortName>1_RW</PortName>
-					<Ops class_id="54" tracking_level="0" version="0">
-						<Op class_id="55" tracking_level="0" version="0">
-							<source_obj>25</source_obj>
-							<cycle>0</cycle>
+					<Ops class_id="58" tracking_level="0" version="0">
+						<Op class_id="59" tracking_level="0" version="0">
+							<source_obj>37</source_obj>
+							<cycle>1</cycle>
+							<type>W</type>
+							<direction>in</direction>
+						</Op>
+					</Ops>
+				</SubResources>
+			</Resource>
+			<Resource>
+				<Name>bufQ</Name>
+				<Category>RAM</Category>
+				<ResourceType>RAM_2P</ResourceType>
+				<source_obj>9</source_obj>
+				<SubResources>
+					<PortName>1_RW</PortName>
+					<Ops>
+						<Op>
+							<source_obj>40</source_obj>
+							<cycle>1</cycle>
 							<type>W</type>
 							<direction>in</direction>
 						</Op>
@@ -2589,7 +3132,7 @@
 				</SubResources>
 			</Resource>
 		</ResourceTableActual>
-		<ResourceTableFailed class_id="56" tracking_level="0" version="0">
+		<ResourceTableFailed class_id="60" tracking_level="0" version="0">
 			<II>-1</II>
 		</ResourceTableFailed>
 	</sched_res>

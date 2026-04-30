@@ -1,0 +1,131 @@
+
+
+================================================================
+== Vitis HLS Report for 'entry_proc'
+================================================================
+* Date:           Tue Apr 28 16:25:27 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  2.435 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      1|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     18|    -|
+|Register         |        -|    -|       2|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|       2|     19|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   1|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   1|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_done                   |   9|          2|    1|          2|
+    |scaling_schedule_c_blk_n  |   9|          2|    1|          2|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  18|          4|    2|          4|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------+---+----+-----+-----------+
+    |     Name    | FF| LUT| Bits| Const Bits|
+    +-------------+---+----+-----+-----------+
+    |ap_CS_fsm    |  1|   0|    1|          0|
+    |ap_done_reg  |  1|   0|    1|          0|
+    +-------------+---+----+-----+-----------+
+    |Total        |  2|   0|    2|          0|
+    +-------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------+-----+-----+------------+--------------------+--------------+
+|             RTL Ports             | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++-----------------------------------+-----+-----+------------+--------------------+--------------+
+|ap_clk                             |   in|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_rst                             |   in|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_start                           |   in|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_done                            |  out|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_continue                        |   in|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_idle                            |  out|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|ap_ready                           |  out|    1|  ap_ctrl_hs|          entry_proc|  return value|
+|scaling_schedule                   |   in|   32|     ap_none|    scaling_schedule|        scalar|
+|scaling_schedule_c_din             |  out|   32|     ap_fifo|  scaling_schedule_c|       pointer|
+|scaling_schedule_c_full_n          |   in|    1|     ap_fifo|  scaling_schedule_c|       pointer|
+|scaling_schedule_c_write           |  out|    1|     ap_fifo|  scaling_schedule_c|       pointer|
+|scaling_schedule_c_num_data_valid  |   in|    3|     ap_fifo|  scaling_schedule_c|       pointer|
+|scaling_schedule_c_fifo_cap        |   in|    3|     ap_fifo|  scaling_schedule_c|       pointer|
++-----------------------------------+-----+-----+------------+--------------------+--------------+
+

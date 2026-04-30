@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'fft_1d_top'" level="0">
-<item name = "Date">Tue Apr 21 16:25:44 2026
+<item name = "Date">Tue Apr 28 16:25:27 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">zenith_fft_1d_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">6.67 ns, 4.069 ns, 1.80 ns</column>
+<column name="ap_clk">6.67 ns, 4.869 ns, 1.80 ns</column>
 </table>
 </item>
 </section>
@@ -24,16 +24,17 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3081, 3081, 20.550 us, 20.550 us, 1024, 1024, dataflow</column>
+<column name="">8339, 8339, 55.621 us, 55.621 us, 5255, 5255, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_stage_read_input_fu_96">stage_read_input, 1025, 1025, 6.837 us, 6.837 us, 1024, 1024, loop auto-rewind stp (delay=0 clock cycles(s))</column>
-<column name="grp_stage_process_fft_fu_115">stage_process_fft, 1027, 1027, 6.850 us, 6.850 us, 1024, 1024, loop auto-rewind stp (delay=0 clock cycles(s))</column>
-<column name="grp_stage_write_output_fu_122">stage_write_output, 1027, 1027, 6.850 us, 6.850 us, 1024, 1024, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_Block_entry_in_bufI_wr_proc_fu_128">Block_entry_in_bufI_wr_proc, 2056, 2056, 13.714 us, 13.714 us, 2056, 2056, no</column>
+<column name="call_ln171_entry_proc_fu_148">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_stage_process_fft_real_fu_155">stage_process_fft_real, 5254, 5254, 35.044 us, 35.044 us, 5254, 5254, no</column>
+<column name="grp_stage_write_output_fu_164">stage_write_output, 1027, 1027, 6.850 us, 6.850 us, 1024, 1024, loop auto-rewind stp (delay=0 clock cycles(s))</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

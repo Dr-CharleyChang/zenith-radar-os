@@ -29,47 +29,30 @@ status: Complete ✅
 
 ## 0. What Actually Happened Today
 
-Before the synthesis could run, two environment issues had to be resolved.
-Both are encoded here as permanent toolchain knowledge.
+Before the synthesis could run, two environment issues had to be resolved. Both are encoded here as permanent toolchain knowledge.
 
 ### Issue 1 — Vitis HLS FLOW Panel Stuck on "Loading..."
 
-**Symptom:** Opening the project in Vitis HLS 2025.2 showed the FLOW panel
-spinning indefinitely with no buttons appearing.
+**Symptom:** Opening the project in Vitis HLS 2025.2 showed the FLOW panel spinning indefinitely with no buttons appearing.
 
-**Root cause:** The `vitis-hls-pragma` VS Code extension was still activating
-(visible in the status bar). The FLOW panel depends on this extension
-completing before it renders. Additionally, in 2025.2 the FLOW panel only
-attaches to an "active component" — it does not auto-attach to the last
-opened project.
+**Root cause:** The `vitis-hls-pragma` VS Code extension was still activating (visible in the status bar). The FLOW panel depends on this extension completing before it renders. Additionally, in 2025.2 the FLOW panel only attaches to an "active component" — it does not auto-attach to the last opened project.
 
-**Resolution:** Use the terminal (`vitis-run --mode hls --tcl`) for all HLS
-operations. This bypasses the FLOW panel entirely and is more reliable for
-batch operations. The GUI is used for report reading and waveform inspection
-only.
+**Resolution:** Use the terminal (`vitis-run --mode hls --tcl`) for all HLS operations. This bypasses the FLOW panel entirely and is more reliable for batch operations. The GUI is used for report reading and waveform inspection only.
 
-**Permanent rule:** For this project, TCL scripts are the primary execution
-method. The FLOW panel is a secondary visual aid, not the execution path.
+**Permanent rule:** For this project, TCL scripts are the primary execution method. The FLOW panel is a secondary visual aid, not the execution path.
 
 ### Issue 2 — TCL `open_project` Does Not Persist File Lists
 
-**Symptom:** Running `vitis-run --mode hls --tcl run_csim.tcl` with only
-`open_project` / `open_solution` / `csim_design` produced:
+**Symptom:** Running `vitis-run --mode hls --tcl run_csim.tcl` with only `open_project` / `open_solution` / `csim_design` produced:
+
 ```
 ERROR: [HLS 200-627] Cannot find C test bench.
 Please specify test bench files using 'add_files -tb'.
 ```
 
-**Root cause:** In Vitis HLS 2025.2 TCL batch mode, `open_project` creates
-or opens a blank project container. The file list, part selection, and clock
-settings from a previous GUI session are **not persisted** between TCL
-sessions. Every TCL script must re-declare all source files, part, and clock
-from scratch.
+**Root cause:** In Vitis HLS 2025.2 TCL batch mode, `open_project` creates or opens a blank project container. The file list, part selection, and clock settings from a previous GUI session are **not persisted** between TCL sessions. Every TCL script must re-declare all source files, part, and clock from scratch.
 
-**Why this changed from older versions:** In 2025.2, AMD introduced the
-"component" model (`open_component`) as the new way to create IDE-compatible
-projects. The legacy `open_project` / `open_solution` path is maintained only
-for TCL batch compatibility and explicitly does not share state with the IDE.
+**Why this changed from older versions:** In 2025.2, AMD introduced the "component" model (`open_component`) as the new way to create IDE-compatible projects. The legacy `open_project` / `open_solution` path is maintained only for TCL batch compatibility and explicitly does not share state with the IDE.
 
 **Resolution:** All TCL scripts must include the full project setup:
 
@@ -92,10 +75,7 @@ ERROR: [HLS 200-101] export_design: Unknown option '-ip_name'.
 ERROR: [HLS 200-101] export_design: Unknown option 'zenith_fft_1d'.
 ```
 
-**Root cause:** Vitis HLS 2025.2 changed the `export_design` TCL command.
-The `-ip_name`, `-vendor`, and `-version` flags were removed. The IP name is
-now derived automatically from the project name (`zenith_fft_1d_prj` →
-`fft_1d_top`). Vivado's internal naming convention produced:
+**Root cause:** Vitis HLS 2025.2 changed the `export_design` TCL command. The `-ip_name`, `-vendor`, and `-version` flags were removed. The IP name is now derived automatically from the project name (`zenith_fft_1d_prj` → `fft_1d_top`). Vivado's internal naming convention produced:
 `xilinx_com_hls_fft_1d_top_1_0.zip`
 
 **Correct 2025.2 export command:**
@@ -103,17 +83,13 @@ now derived automatically from the project name (`zenith_fft_1d_prj` →
 export_design -flow syn -rtl verilog -format ip_catalog -output export
 ```
 
-**Note on output path:** `-output export` creates a **file** named
-`export.zip` in the current working directory, not a subdirectory named
-`export`. `dir export /s /b` therefore returns "file not found" — the
-correct check is `dir export.zip`.
+**Note on output path:** `-output export` creates a **file** named `export.zip` in the current working directory, not a subdirectory named `export`. `dir export /s /b` therefore returns "file not found" — the correct check is `dir export.zip`.
 
 ---
 
 ## 1. TCL Scripts — Final Versions
 
-Three scripts now live in the project root. These are the permanent,
-version-controlled execution interface for this IP.
+Three scripts now live in the project root. These are the permanent, version-controlled execution interface for this IP.
 
 **`run_csim.tcl`**
 ```tcl
@@ -168,9 +144,7 @@ vitis-run --mode hls --tcl run_export.tcl
 
 ## 2. C-Simulation Results (Day 1 Confirmation)
 
-C-Sim was confirmed passing before synthesis was attempted. This is
-mandatory practice — synthesis on unverified code wastes 10–15 minutes
-per iteration.
+C-Sim was confirmed passing before synthesis was attempted. This is mandatory practice — synthesis on unverified code wastes 10–15 minutes per iteration.
 
 ```
 INFO: [SIM 211-2] *************** CSIM start ***************
@@ -185,17 +159,11 @@ INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 ```
 
-**Notable observation:** `The maximum depth reached by any hls::stream()
-instance in the design is 1024.`
+**Notable observation:** `The maximum depth reached by any hls::stream() instance in the design is 1024.`
 
-This confirms that C-Sim exercised the full 1024-element buffer depth
-without overflow. In hardware, the DATAFLOW ping-pong BRAMs are sized to
-exactly 1024 elements — this is the physical validation that the buffer
-sizing is correct for the stream depth we are using.
+This confirms that C-Sim exercised the full 1024-element buffer depth without overflow. In hardware, the DATAFLOW ping-pong BRAMs are sized to exactly 1024 elements — this is the physical validation that the buffer sizing is correct for the stream depth we are using.
 
-**The `__GMP_LIBGMP_DLL` macro redefinition warning** appeared twice and
-is harmless — it is a conflict inside Xilinx's own floating-point headers,
-not in project code. It appears on every compile and can be ignored.
+**The `__GMP_LIBGMP_DLL` macro redefinition warning** appeared twice and is harmless — it is a conflict inside Xilinx's own floating-point headers, not in project code. It appears on every compile and can be ignored.
 
 ---
 
@@ -211,11 +179,7 @@ detected/extracted 3 process function(s):
     'stage_write_output'.
 ```
 
-This INFO message is the single most important line in the synthesis log.
-It confirms that HLS successfully identified all three stage functions as
-DATAFLOW processes. If this message is absent, the `#pragma HLS DATAFLOW`
-was not applied — the pipeline would fall back to sequential execution with
-3× worse throughput.
+This INFO message is the single most important line in the synthesis log. It confirms that HLS successfully identified all three stage functions as DATAFLOW processes. If this message is absent, the `#pragma HLS DATAFLOW` was not applied — the pipeline would fall back to sequential execution with 3× worse throughput.
 
 ### 3.2 Per-Stage II Results
 
@@ -232,14 +196,7 @@ INFO: [HLS 200-1470] Pipelining result: Target II=1, Final II=1,
 
 All three loops achieved `Final II = 1`. This is the pass condition.
 
-**What "Depth" means here:** The pipeline depth is the number of clock
-cycles from when a sample enters the loop body to when it exits.
-`stage_read_input` has depth 1 (combinational — extract bits and write
-to BRAM in one cycle). `stage_process_fft` and `stage_write_output` have
-depth 3 — the BRAM read-modify-write chain takes 3 pipeline stages. A
-depth of 3 with II=1 means 3 operations are in-flight simultaneously inside
-the stage, but a new sample is accepted every cycle. This is correct and
-expected.
+**What "Depth" means here:** The pipeline depth is the number of clock cycles from when a sample enters the loop body to when it exits. `stage_read_input` has depth 1 (combinational — extract bits and write to BRAM in one cycle). `stage_process_fft` and `stage_write_output` have depth 3 — the BRAM read-modify-write chain takes 3 pipeline stages. A depth of 3 with II=1 means 3 operations are in-flight simultaneously inside the stage, but a new sample is accepted every cycle. This is correct and expected.
 
 ### 3.3 Performance Summary
 
@@ -258,14 +215,9 @@ expected.
 +---------+---------+-----------+-----------+------+------+----------+
 ```
 
-**Estimated: 4.069 ns** against target 6.67 ns — 2.601 ns of slack.
-The HLS scheduler found a solution that runs at an effective **245.76 MHz**
-(from `INFO: [HLS 200-789] **** Estimated Fmax: 245.76 MHz`).
+**Estimated: 4.069 ns** against target 6.67 ns — 2.601 ns of slack. The HLS scheduler found a solution that runs at an effective **245.76 MHz** (from `INFO: [HLS 200-789] **** Estimated Fmax: 245.76 MHz`).
 
-**Interval = 1024 cycles.** This is the steady-state throughput: one new
-1024-sample frame accepted every 1024 clock cycles. At 150 MHz that is one
-frame every 6.83 µs. The first frame takes 3081 cycles (pipeline fill), but
-every subsequent frame takes 1024 cycles (DATAFLOW overlap in steady state).
+**Interval = 1024 cycles.** This is the steady-state throughput: one new 1024-sample frame accepted every 1024 clock cycles. At 150 MHz that is one frame every 6.83 µs. The first frame takes 3081 cycles (pipeline fill), but every subsequent frame takes 1024 cycles (DATAFLOW overlap in steady state).
 
 **Pipeline type = `dataflow`** — confirmed. This is the critical flag.
 
@@ -299,23 +251,11 @@ every subsequent frame takes 1024 cycles (DATAFLOW overlap in steady state).
 
 Two anomalies are visible here, both are correct behavior:
 
-**`in_bufQ` is completely absent (0 BRAM).** In `stage_process_fft`, the
-code declares `(void)bufQ` — explicitly suppressing the unused variable.
-HLS performed dead-code elimination: it traced the data flow, saw that
-`in_bufQ` is written by `stage_read_input` but never read by any downstream
-stage, and eliminated the entire 1024×16-bit array. No BRAM allocated.
-This is the optimizer working correctly.
+**`in_bufQ` is completely absent (0 BRAM).** In `stage_process_fft`, the code declares `(void)bufQ` — explicitly suppressing the unused variable. HLS performed dead-code elimination: it traced the data flow, saw that `in_bufQ` is written by `stage_read_input` but never read by any downstream stage, and eliminated the entire 1024×16-bit array. No BRAM allocated. This is the optimizer working correctly.
 
-**`out_bufQ` was reduced from 16 bits to 1 bit.** The placeholder writes
-`outQ[i] = 0` — the constant zero. HLS recognized that an array of
-1024 elements all holding the constant 0 can be collapsed to a single wire
-tied to ground. The "2 BRAM_18K" for `out_bufQ` is the minimum BRAM size
-for a formally declared array; in practice the synthesis result below will
-show this further optimized away.
+**`out_bufQ` was reduced from 16 bits to 1 bit.** The placeholder writes `outQ[i] = 0` — the constant zero. HLS recognized that an array of 1024 elements all holding the constant 0 can be collapsed to a single wire tied to ground. The "2 BRAM_18K" for `out_bufQ` is the minimum BRAM size for a formally declared array; in practice the synthesis result below will show this further optimized away.
 
-**This is why we got 6 BRAM_18K instead of the predicted 8.** Better than
-estimate, not worse. On Day 3 when `hls::fft<>` reads and writes both I and
-Q components, both eliminated arrays will be restored at full 16-bit width.
+**This is why we got 6 BRAM_18K instead of the predicted 8.** Better than estimate, not worse. On Day 3 when `hls::fft<>` reads and writes both I and Q components, both eliminated arrays will be restored at full 16-bit width.
 
 ### 3.6 Interface Summary Verification
 
@@ -332,26 +272,17 @@ AXI-Lite:    s_axi_CTRL bundle (ap_ctrl + scaling_schedule)
 Control:     ap_clk, ap_rst_n, interrupt
 ```
 
-`in_stream_TREADY` is `out` (driven by the HLS IP) — correct. The IP
-asserts TREADY when it is ready to accept data, providing backpressure
-toward the upstream DMA master.
+`in_stream_TREADY` is `out` (driven by the HLS IP) — correct. The IP asserts TREADY when it is ready to accept data, providing backpressure toward the upstream DMA master.
 
-`out_stream_TVALID` is `out` (driven by the HLS IP) — correct. The IP
-asserts TVALID when it has data ready to send downstream.
+`out_stream_TVALID` is `out` (driven by the HLS IP) — correct. The IP asserts TVALID when it has data ready to send downstream.
 
-**`interrupt` output is present.** This is the `ap_ctrl_hs` interrupt line
-connected to bit 9 of the ap_ctrl register. On Day 5, the ARM driver can
-use either polling (`while (!(read(FFT_CTRL_AP_CTRL) & AP_DONE))`) or
-interrupt-driven completion. For M2 validation, polling is simpler.
+**`interrupt` output is present.** This is the `ap_ctrl_hs` interrupt line connected to bit 9 of the ap_ctrl register. On Day 5, the ARM driver can use either polling (`while (!(read(FFT_CTRL_AP_CTRL) & AP_DONE))`) or interrupt-driven completion. For M2 validation, polling is simpler.
 
 ---
 
 ## 4. Export Results — Post-Synthesis Vivado Verification
 
-The `export_design` command does more than package files — it runs a full
-Vivado RTL synthesis pass on the generated netlist, providing
-post-synthesis resource and timing numbers that are more accurate than the
-HLS scheduler estimates.
+The `export_design` command does more than package files — it runs a full Vivado RTL synthesis pass on the generated netlist, providing post-synthesis resource and timing numbers that are more accurate than the HLS scheduler estimates.
 
 ### 4.1 Post-Synthesis Resource Usage (Vivado)
 
@@ -363,11 +294,7 @@ DSP:      0    (matches estimate)
 BRAM:     6    (matches estimate)
 ```
 
-The LUT and FF counts are higher than HLS estimates because the export
-flow includes the AXI4-Lite register slice (`CTRL_s_axi_U`) and the
-AXI-Stream register slices (`fft_1d_top_regslice_both`) that HLS's
-internal estimate does not fully account for. The additional resources
-are the AXI protocol glue logic, not algorithmic logic.
+The LUT and FF counts are higher than HLS estimates because the export flow includes the AXI4-Lite register slice (`CTRL_s_axi_U`) and the AXI-Stream register slices (`fft_1d_top_regslice_both`) that HLS's internal estimate does not fully account for. The additional resources are the AXI protocol glue logic, not algorithmic logic.
 
 **All resources remain far below budget** — LUT at 0.78%, BRAM at 2.14%.
 
@@ -379,16 +306,9 @@ CP achieved post-synthesis:   3.926 ns
 Timing met ✅
 ```
 
-This is the definitive timing result. Unlike the HLS estimate (4.069 ns),
-this number comes from actual Vivado synthesis on the `xc7z020clg400-2`
-cell library. The critical path at gate level is 3.926 ns — the design
-runs at an effective **254 MHz** with the 6.67 ns constraint.
+This is the definitive timing result. Unlike the HLS estimate (4.069 ns), this number comes from actual Vivado synthesis on the `xc7z020clg400-2` cell library. The critical path at gate level is 3.926 ns — the design runs at an effective **254 MHz** with the 6.67 ns constraint.
 
-**Timing slack = 6.670 − 3.926 = 2.744 ns.** This is the budget available
-for Day 3's FFT butterfly multiplication chains. A radix-2 1024-point FFT
-with 9 butterfly stages typically adds 1.5–2.0 ns to the critical path
-due to the DSP48E1 accumulator chains. With 2.744 ns available, timing
-closure on Day 3 is expected without constraint relaxation.
+**Timing slack = 6.670 − 3.926 = 2.744 ns.** This is the budget available for Day 3's FFT butterfly multiplication chains. A radix-2 1024-point FFT with 9 butterfly stages typically adds 1.5–2.0 ns to the critical path due to the DSP48E1 accumulator chains. With 2.744 ns available, timing closure on Day 3 is expected without constraint relaxation.
 
 ### 4.3 FailFast Analysis (All Green)
 
@@ -402,8 +322,7 @@ RAMB/FIFO:     2.14%  (guideline: 80%)   OK
 Control Sets:  15     (guideline: 998)   OK
 ```
 
-Zero methodology violations. Zero timing violations. This IP is clean
-for integration into the M1 Block Design on Day 4.
+Zero methodology violations. Zero timing violations. This IP is clean for integration into the M1 Block Design on Day 4.
 
 ### 4.4 IP Archive
 
@@ -416,10 +335,7 @@ Size: 67 KB
 Internal name: `xilinx_com_hls_fft_1d_top_1_0`
 VLNV: `xilinx.com:hls:fft_1d_top:1.0`
 
-The VLNV (Vendor:Library:Name:Version) is the identifier Vivado uses to
-look up the IP in its catalog. When adding the IP to the Block Design on
-Day 4, Vivado will find it by this string. If the IP cannot be found after
-adding the repository, search the catalog for `fft_1d_top` not `zenith_fft_1d`.
+The VLNV (Vendor:Library:Name:Version) is the identifier Vivado uses to look up the IP in its catalog. When adding the IP to the Block Design on Day 4, Vivado will find it by this string. If the IP cannot be found after adding the repository, search the catalog for `fft_1d_top` not `zenith_fft_1d`.
 
 ---
 
@@ -479,14 +395,7 @@ constexpr uint32_t AP_READY              = (1u << 3);
 // ─────────────────────────────────────────────────────────────────────────────
 ```
 
-**Why these offsets are safe to hardcode:** The AXI-Lite address map for a
-given HLS kernel is determined at synthesis time by the HLS binder, based
-on the order and types of `s_axilite` arguments. For the same source code
-compiled with the same tool version, the offsets are deterministic and
-reproducible. They will only change if the function signature changes
-(adding/removing AXI-Lite arguments) or if the tool version changes. Both
-of those events require re-synthesis anyway — at which point the new
-`xfft_1d_top_hw.h` must be consulted again.
+**Why these offsets are safe to hardcode:** The AXI-Lite address map for a given HLS kernel is determined at synthesis time by the HLS binder, based on the order and types of `s_axilite` arguments. For the same source code compiled with the same tool version, the offsets are deterministic and reproducible. They will only change if the function signature changes (adding/removing AXI-Lite arguments) or if the tool version changes. Both of those events require re-synthesis anyway — at which point the new `xfft_1d_top_hw.h` must be consulted again.
 
 ---
 
@@ -537,38 +446,29 @@ Replace the `UNVERIFIED` comment at the top of `fft_1d.cpp`:
 ```mermaid
 flowchart LR
     subgraph HLS["Vitis HLS csynth_design"]
-        A["C++ source"] --> B["HLS Scheduler\n+ Binder"]
-        B --> C["RTL Netlist\n(.v / .vhd)"]
-        B --> D["csynth.rpt\n(estimated resources)"]
+        A["C++ source"] --> B["HLS Scheduler<br/>+ Binder"]
+        B --> C["RTL Netlist<br/>(.v / .vhd)"]
+        B --> D["csynth.rpt<br/>(estimated resources)"]
     end
 
     subgraph VIVADO["Vivado export_design -flow syn"]
-        C --> E["Vivado RTL Synthesis\nTechnology Mapping"]
-        E --> F["Gate-level Netlist\n(.dcp)"]
-        E --> G["_export.rpt\n(actual post-synth resources)"]
+        C --> E["Vivado RTL Synthesis<br/>Technology Mapping"]
+        E --> F["Gate-level Netlist<br/>(.dcp)"]
+        E --> G["_export.rpt<br/>(actual post-synth resources)"]
     end
 ```
 
-HLS synthesis estimates resources based on abstract operations mapped to
-a pre-characterized library. Vivado synthesis maps to actual LUT/FF/BRAM
-primitives on the target device. The two numbers will always differ:
+HLS synthesis estimates resources based on abstract operations mapped to a pre-characterized library. Vivado synthesis maps to actual LUT/FF/BRAM primitives on the target device. The two numbers will always differ:
 
-- HLS underestimates LUTs and FFs because it does not include AXI protocol
-  glue logic (register slices, handshake state machines)
-- HLS overestimates or underestimates BRAMs depending on whether
-  dead-code elimination is accounted for
-- Timing from Vivado synthesis is gate-level accurate; timing from HLS
-  is a pre-characterized estimate
+- HLS underestimates LUTs and FFs because it does not include AXI protocol glue logic (register slices, handshake state machines)
+- HLS overestimates or underestimates BRAMs depending on whether dead-code elimination is accounted for
+- Timing from Vivado synthesis is gate-level accurate; timing from HLS is a pre-characterized estimate
 
-**Rule:** Use HLS synthesis numbers for architectural decisions (does this
-design fit?). Use post-synthesis Vivado numbers for sign-off (does this
-design meet timing?).
+**Rule:** Use HLS synthesis numbers for architectural decisions (does this design fit?). Use post-synthesis Vivado numbers for sign-off (does this design meet timing?).
 
 ### 7.2 What `ap_ctrl_hs` Means for the ARM Driver
 
-Every HLS top-level function with `#pragma HLS INTERFACE s_axilite port=return`
-gets an `ap_ctrl_hs` (handshake) control block. This is a 4-register state
-machine that the ARM controls to synchronize with the FPGA kernel:
+Every HLS top-level function with `#pragma HLS INTERFACE s_axilite port=return` gets an `ap_ctrl_hs` (handshake) control block. This is a 4-register state machine that the ARM controls to synchronize with the FPGA kernel:
 
 ```mermaid
 sequenceDiagram
@@ -591,29 +491,15 @@ sequenceDiagram
     ARM->>ARM: Cache invalidate, read FFT output from RX buffer
 ```
 
-**Why AP_DONE is "Clear on Read" (COR):** Reading the ap_ctrl register
-when AP_DONE=1 automatically clears the bit back to 0. This means the
-polling loop `while (!(read(ap_ctrl) & AP_DONE))` works correctly — the
-first read that sees AP_DONE=1 clears it, and the loop exits. No explicit
-clear write is needed.
+**Why AP_DONE is "Clear on Read" (COR):** Reading the ap_ctrl register when AP_DONE=1 automatically clears the bit back to 0. This means the polling loop `while (!(read(ap_ctrl) & AP_DONE))` works correctly — the first read that sees AP_DONE=1 clears it, and the loop exits. No explicit clear write is needed.
 
-**Why AP_IDLE matters:** AP_IDLE=1 means the kernel is idle and ready to
-accept a new AP_START. If you write AP_START while AP_IDLE=0 (kernel still
-processing), the behavior is undefined — the new start may be ignored or
-corrupt the in-flight frame. Always poll AP_IDLE before writing AP_START
-for the next frame in a back-to-back streaming scenario.
+**Why AP_IDLE matters:** AP_IDLE=1 means the kernel is idle and ready to accept a new AP_START. If you write AP_START while AP_IDLE=0 (kernel still processing), the behavior is undefined — the new start may be ignored or corrupt the in-flight frame. Always poll AP_IDLE before writing AP_START for the next frame in a back-to-back streaming scenario.
 
 ### 7.3 The `interrupt` Output Pin
 
-The export created an `interrupt` output port. This is the hardware interrupt
-line that connects to the Zynq PS's interrupt controller (GIC). When enabled
-via the GIE register (0x04), the IP asserts `interrupt` high when AP_DONE
-fires — eliminating the need for the ARM to poll the register.
+The export created an `interrupt` output port. This is the hardware interrupt line that connects to the Zynq PS's interrupt controller (GIC). When enabled via the GIE register (0x04), the IP asserts `interrupt` high when AP_DONE fires — eliminating the need for the ARM to poll the register.
 
-For M2 validation (Day 5), **polling is simpler** and avoids setting up the
-interrupt controller and ISR. The interrupt mechanism is recorded here for
-M4 when the ARM OS needs to process tracks in real time without wasting CPU
-cycles in a polling loop.
+For M2 validation (Day 5), **polling is simpler** and avoids setting up the interrupt controller and ISR. The interrupt mechanism is recorded here for M4 when the ARM OS needs to process tracks in real time without wasting CPU cycles in a polling loop.
 
 ---
 
@@ -683,12 +569,7 @@ Next: Day 3 — MATLAB golden reference + hls::fft<ZenithFFTConfig> migration
 4. Re-run synthesis — confirm DSP ≤ 154, BRAM ≤ 196, timing still met
 
 **The one number that links Day 2 to Day 3:**
-Post-synthesis critical path is 3.926 ns. Adding DSP48E1 multiplier chains
-for FFT butterflies will lengthen this by approximately 1.5–2.0 ns, landing
-around 5.5–6.0 ns — still within the 6.67 ns constraint. If the Day 3
-synthesis reports CP > 6.67 ns, the first mitigation is to set the FFT
-configuration's rounding mode from convergent to truncate (saves ~0.3 ns)
-before touching anything else.
+Post-synthesis critical path is 3.926 ns. Adding DSP48E1 multiplier chains for FFT butterflies will lengthen this by approximately 1.5–2.0 ns, landing around 5.5–6.0 ns — still within the 6.67 ns constraint. If the Day 3 synthesis reports CP > 6.67 ns, the first mitigation is to set the FFT configuration's rounding mode from convergent to truncate (saves ~0.3 ns) before touching anything else.
 
 ---
 

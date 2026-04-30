@@ -47,7 +47,7 @@ output   outI_ce0;
 input  [15:0] outI_q0;
 output  [9:0] outQ_address0;
 output   outQ_ce0;
-input  [0:0] outQ_q0;
+input  [15:0] outQ_q0;
 output  [31:0] out_stream_TDATA;
 output   out_stream_TVALID;
 output  [3:0] out_stream_TKEEP;
@@ -73,14 +73,14 @@ reg    ap_block_state3_pp0_stage0_iter2;
 wire    ap_loop_exit_ready;
 reg    ap_loop_exit_ready_pp0_iter2_reg;
 reg    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln78_fu_144_p2;
+wire   [0:0] icmp_ln110_fu_144_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 reg    ap_ready_int;
 reg    out_stream_TDATA_blk_n;
 wire    ap_block_pp0_stage0;
 reg    ap_block_pp0_stage0_11001;
-reg   [0:0] icmp_ln78_reg_191;
-wire   [63:0] zext_ln69_fu_138_p1;
+reg   [0:0] icmp_ln110_reg_187;
+wire   [63:0] zext_ln100_fu_138_p1;
 reg   [9:0] i_fu_70;
 wire   [9:0] i_3_fu_150_p2;
 wire    ap_loop_init;
@@ -88,7 +88,6 @@ reg   [9:0] ap_sig_allocacmp_i_1;
 reg    ap_block_pp0_stage0_01001;
 reg    outI_ce0_local;
 reg    outQ_ce0_local;
-wire   [16:0] word_fu_161_p3;
 wire    ap_continue_int;
 reg    ap_done_int;
 reg    ap_loop_exit_ready_pp0_iter1_reg;
@@ -208,7 +207,7 @@ fft_1d_top_regslice_both #(
 regslice_both_out_stream_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(icmp_ln78_reg_191),
+    .data_in(icmp_ln110_reg_187),
     .vld_in(out_stream_TVALID_int_regslice),
     .ack_in(regslice_both_out_stream_V_last_V_U_ack_in_dummy),
     .data_out(out_stream_TLAST),
@@ -302,12 +301,12 @@ end
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_loop_exit_ready_pp0_iter1_reg <= ap_loop_exit_ready;
-        icmp_ln78_reg_191 <= icmp_ln78_fu_144_p2;
+        icmp_ln110_reg_187 <= icmp_ln110_fu_144_p2;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln78_fu_144_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((icmp_ln110_fu_144_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -441,22 +440,20 @@ assign ap_ready = ap_ready_sig;
 
 assign i_3_fu_150_p2 = (ap_sig_allocacmp_i_1 + 10'd1);
 
-assign icmp_ln78_fu_144_p2 = ((ap_sig_allocacmp_i_1 == 10'd1023) ? 1'b1 : 1'b0);
+assign icmp_ln110_fu_144_p2 = ((ap_sig_allocacmp_i_1 == 10'd1023) ? 1'b1 : 1'b0);
 
-assign outI_address0 = zext_ln69_fu_138_p1;
+assign outI_address0 = zext_ln100_fu_138_p1;
 
 assign outI_ce0 = outI_ce0_local;
 
-assign outQ_address0 = zext_ln69_fu_138_p1;
+assign outQ_address0 = zext_ln100_fu_138_p1;
 
 assign outQ_ce0 = outQ_ce0_local;
 
-assign out_stream_TDATA_int_regslice = word_fu_161_p3;
+assign out_stream_TDATA_int_regslice = {{outQ_q0}, {outI_q0}};
 
 assign out_stream_TVALID = regslice_both_out_stream_V_data_V_U_vld_out;
 
-assign word_fu_161_p3 = {{outQ_q0}, {outI_q0}};
-
-assign zext_ln69_fu_138_p1 = ap_sig_allocacmp_i_1;
+assign zext_ln100_fu_138_p1 = ap_sig_allocacmp_i_1;
 
 endmodule //fft_1d_top_stage_write_output

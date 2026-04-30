@@ -1,0 +1,144 @@
+
+
+================================================================
+== Vitis HLS Report for 'Block_entry_in_bufI_wr_proc'
+================================================================
+* Date:           Tue Apr 28 16:25:25 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.078 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     2056|     2056|  13.714 us|  13.714 us|  2056|  2056|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.16>
+ST_2 : Operation 6 [2/2] (3.16ns)   --->   "%call_ln172 = call void @stage_read_input, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i1 %in_stream_V_user_V, i1 %in_stream_V_last_V, i1 %in_stream_V_id_V, i1 %in_stream_V_dest_V, i16 %in_bufI, i16 %in_bufQ" [src/fft_1d.cpp:172]   --->   Operation 6 'call' 'call_ln172' <Predicate = true> <Delay = 3.16> <CoreType = "Generic">   --->   Generic Core
+
+State 3 <SV = 2> <Delay = 4.07>
+ST_3 : Operation 7 [1/2] (4.07ns)   --->   "%call_ln172 = call void @stage_read_input, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i1 %in_stream_V_user_V, i1 %in_stream_V_last_V, i1 %in_stream_V_id_V, i1 %in_stream_V_dest_V, i16 %in_bufI, i16 %in_bufQ" [src/fft_1d.cpp:172]   --->   Operation 7 'call' 'call_ln172' <Predicate = true> <Delay = 4.07> <CoreType = "Generic">   --->   Generic Core
+
+State 4 <SV = 3> <Delay = 3.16>
+ST_4 : Operation 8 [2/2] (3.16ns)   --->   "%call_ln173 = call void @stage_read_input.1, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i1 %in_stream_V_user_V, i1 %in_stream_V_last_V, i1 %in_stream_V_id_V, i1 %in_stream_V_dest_V, i16 %in_bufI, i16 %in_bufQ" [src/fft_1d.cpp:173]   --->   Operation 8 'call' 'call_ln173' <Predicate = true> <Delay = 3.16> <CoreType = "Generic">   --->   Generic Core
+
+State 5 <SV = 4> <Delay = 4.07>
+ST_5 : Operation 9 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i1 %in_stream_V_user_V, i1 %in_stream_V_last_V, i1 %in_stream_V_id_V, i1 %in_stream_V_dest_V, void @empty_1"   --->   Operation 9 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 10 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %in_bufQ, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 10 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 11 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i16 %in_bufI, i64 666, i64 22, i64 18446744073709551615, i1 0"   --->   Operation 11 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %in_stream_V_dest_V, i1 %in_stream_V_id_V, i1 %in_stream_V_last_V, i1 %in_stream_V_user_V, i4 %in_stream_V_strb_V, i4 %in_stream_V_keep_V, i32 %in_stream_V_data_V, void @empty_6, i32 1, i32 1, void @empty_7, i32 0, i32 0, void @empty_9, void @empty_9, void @empty_9, i32 0, i32 0, i32 0, i32 0, void @empty_9, void @empty_9, i32 4294967295, i32 0, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 13 [1/2] (4.07ns)   --->   "%call_ln173 = call void @stage_read_input.1, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i1 %in_stream_V_user_V, i1 %in_stream_V_last_V, i1 %in_stream_V_id_V, i1 %in_stream_V_dest_V, i16 %in_bufI, i16 %in_bufQ" [src/fft_1d.cpp:173]   --->   Operation 13 'call' 'call_ln173' <Predicate = true> <Delay = 4.07> <CoreType = "Generic">   --->   Generic Core
+ST_5 : Operation 14 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 14 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.670ns, clock uncertainty: 1.801ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 3.169ns
+The critical path consists of the following:
+	'call' operation ('call_ln172', src/fft_1d.cpp:172) to 'stage_read_input' [14]  (3.169 ns)
+
+ <State 3>: 4.078ns
+The critical path consists of the following:
+	'call' operation ('call_ln172', src/fft_1d.cpp:172) to 'stage_read_input' [14]  (4.078 ns)
+
+ <State 4>: 3.169ns
+The critical path consists of the following:
+	'call' operation ('call_ln173', src/fft_1d.cpp:173) to 'stage_read_input.1' [15]  (3.169 ns)
+
+ <State 5>: 4.078ns
+The critical path consists of the following:
+	'call' operation ('call_ln173', src/fft_1d.cpp:173) to 'stage_read_input.1' [15]  (4.078 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

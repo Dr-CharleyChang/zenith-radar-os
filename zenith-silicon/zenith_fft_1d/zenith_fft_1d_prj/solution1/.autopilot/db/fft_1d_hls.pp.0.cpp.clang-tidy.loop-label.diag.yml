@@ -1,0 +1,724 @@
+---
+MainSourceFile:  'C:/Projects/zenith_radar_os/zenith-silicon/zenith_fft_1d/zenith_fft_1d_prj/solution1/.autopilot/db/fft_1d_hls.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          280341
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          280812
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          281284
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          626680
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_176_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      176
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2268743
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_176_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_192_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      192
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2269225
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_192_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_206_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      206
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2269616
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_206_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_232_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      232
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2270166
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_232_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_233_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      233
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2270512
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_233_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_261_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      261
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2271345
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_261_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_262_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      262
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2271729
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_262_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_263_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      263
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2272113
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_263_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_264_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      264
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2272497
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_264_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_265_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      265
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2272881
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_265_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_266_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      266
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2273265
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_266_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_267_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      267
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2273649
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_267_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_268_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      268
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2274033
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_268_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_269_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      269
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2274418
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_269_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_270_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      270
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2274804
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_270_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_285_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      285
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2275257
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_285_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_286_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      286
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2275624
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_286_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_287_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      287
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2275990
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_287_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_288_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      288
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2276355
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_288_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_289_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      289
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2276721
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_289_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_320_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      320
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2277207
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_320_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_321_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      321
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2277661
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_321_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_322_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      322
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2278117
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_322_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_323_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      323
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2278573
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_323_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_324_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      324
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2279029
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_324_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_325_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_vector.h'
+      FileOffset:      325
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2279484
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_325_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_545_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      545
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2300813
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_545_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_548_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      548
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2300923
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_548_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1018_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1018
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2304257
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1018_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1100_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1100
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2307903
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1100_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1155_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1155
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2311730
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1155_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1216_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1216
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2315493
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1216_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1278_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1278
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2319513
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1278_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1281_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1281
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2319720
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1281_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1325_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1325
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2321424
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1325_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1340_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1340
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2322422
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1340_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1879_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1879
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2344925
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1879_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1894_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1894
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2345601
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1894_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1953_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      1953
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2349221
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1953_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2007_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2007
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2352632
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2007_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2060_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2060
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2356155
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2060_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2387_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2387
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2371163
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2387_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2407_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2407
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2372310
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2407_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2424_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2424
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2373359
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2424_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2427_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2427
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2373762
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2427_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2444_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2444
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2374876
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2444_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2462_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2462
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2376089
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2462_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2465_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2465
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2376337
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2465_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2567_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2567
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2381377
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2567_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2573_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2573
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2381547
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2573_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2590_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2590
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2382682
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2590_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2608_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2608
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2383918
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2608_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2625_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2625
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2385128
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2625_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2628_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2628
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2385520
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2628_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2645_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2645
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2386813
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2645_1: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_2648_2:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\hls_fft.h'
+      FileOffset:      2648
+      Replacements:
+        - FilePath:        'C:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d\zenith_fft_1d_prj\solution1\.autopilot\db\fft_1d_hls.pp.0.cpp'
+          Offset:          2387061
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_2648_2: '
+    Level:           Remark
+    BuildDirectory:  'c:\Projects\zenith_radar_os\zenith-silicon\zenith_fft_1d'
+...

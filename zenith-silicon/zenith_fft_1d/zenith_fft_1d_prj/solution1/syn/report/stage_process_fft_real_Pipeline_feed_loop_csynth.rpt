@@ -1,0 +1,150 @@
+
+
+================================================================
+== Vitis HLS Report for 'stage_process_fft_real_Pipeline_feed_loop'
+================================================================
+* Date:           Tue Apr 28 16:25:29 2026
+
+* Version:        2025.2 (Build 6295257 on Nov 14 2025)
+* Project:        zenith_fft_1d_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  6.67 ns|  4.078 ns|     1.80 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |      Pipeline     |
+    |   min   |   max   |    min   |    max   | min | max |        Type       |
+    +---------+---------+----------+----------+-----+-----+-------------------+
+    |     1027|     1027|  6.850 us|  6.850 us|    0|    0|  loop pipeline stp|
+    +---------+---------+----------+----------+-----+-----+-------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- feed_loop  |     1025|     1025|         3|          1|          1|  1024|       yes|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     26|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     45|    -|
+|Register         |        -|    -|      48|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      48|     71|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |add_ln131_fu_101_p2             |         +|   0|  0|  11|          11|           1|
+    |ap_block_pp0_stage0_01001_grp1  |       and|   0|  0|   1|           1|           1|
+    |icmp_ln131_fu_95_p2             |      icmp|   0|  0|  12|          11|          12|
+    |ap_enable_pp0                   |       xor|   0|  0|   2|           1|           2|
+    +--------------------------------+----------+----+---+----+------------+------------+
+    |Total                           |          |   0|  0|  26|          24|          16|
+    +--------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_6     |   9|          2|   11|         22|
+    |fft_in_stream_blk_n      |   9|          2|    1|          2|
+    |i_fu_50                  |   9|          2|   11|         22|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  45|         10|   25|         50|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |i_fu_50                           |  11|   0|   11|          0|
+    |imag_val_reg_151                  |  16|   0|   16|          0|
+    |real_val_reg_146                  |  16|   0|   16|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             |  48|   0|   48|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+-------------------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |               Source Object               |    C Type    |
++----------------------+-----+-----+------------+-------------------------------------------+--------------+
+|ap_clk                |   in|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|ap_rst                |   in|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|ap_start              |   in|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|ap_done               |  out|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|ap_idle               |  out|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|ap_ready              |  out|    1|  ap_ctrl_hs|  stage_process_fft_real_Pipeline_feed_loop|  return value|
+|fft_in_stream_din     |  out|   32|     ap_fifo|                              fft_in_stream|       pointer|
+|fft_in_stream_full_n  |   in|    1|     ap_fifo|                              fft_in_stream|       pointer|
+|fft_in_stream_write   |  out|    1|     ap_fifo|                              fft_in_stream|       pointer|
+|in_bufI_address0      |  out|   10|   ap_memory|                                    in_bufI|         array|
+|in_bufI_ce0           |  out|    1|   ap_memory|                                    in_bufI|         array|
+|in_bufI_q0            |   in|   16|   ap_memory|                                    in_bufI|         array|
+|in_bufQ_address0      |  out|   10|   ap_memory|                                    in_bufQ|         array|
+|in_bufQ_ce0           |  out|    1|   ap_memory|                                    in_bufQ|         array|
+|in_bufQ_q0            |   in|   16|   ap_memory|                                    in_bufQ|         array|
++----------------------+-----+-----+------------+-------------------------------------------+--------------+
+

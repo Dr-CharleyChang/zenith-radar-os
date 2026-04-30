@@ -1,15 +1,15 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "1 3 2",
+    "calls": "1 1 4 3",
     "control_depth": 0,
     "def_use_depth": 1,
     "file": "fft_1d.cpp",
-    "fileloc": 97,
-    "instructions": 23,
+    "fileloc": 130,
+    "instructions": 29,
     "memory_accesses": 0,
     "name": "fft_1d_top",
-    "total_instructions": 247
+    "total_instructions": 408
   },
   "1": {
     "basicblocks": 5,
@@ -17,7 +17,7 @@
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 20,
+    "fileloc": 38,
     "instructions": 69,
     "loads": {
       "L": 2
@@ -30,12 +30,24 @@
     "total_instructions": 76
   },
   "2": {
+    "basicblocks": 6,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "hls_fft.h",
+    "fileloc": 1396,
+    "instructions": 21,
+    "memory_accesses": 2,
+    "name": "fft<ZenithFFTConfig>",
+    "total_instructions": 21
+  },
+  "3": {
     "basicblocks": 5,
     "calls": "",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "fft_1d.cpp",
-    "fileloc": 66,
+    "fileloc": 97,
     "instructions": 124,
     "loads": {
       "L": 9
@@ -47,22 +59,22 @@
     },
     "total_instructions": 131
   },
-  "3": {
-    "basicblocks": 5,
-    "calls": "",
+  "4": {
+    "basicblocks": 9,
+    "calls": "2",
     "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "fft_1d.cpp",
-    "fileloc": 43,
-    "instructions": 17,
+    "def_use_depth": 4,
+    "file": "fft_1d_hls.cpp",
+    "fileloc": 38,
+    "instructions": 73,
     "loads": {
-      "L": 1
+      "L": 4
     },
-    "memory_accesses": 3,
-    "name": "stage_process_fft",
+    "memory_accesses": 10,
+    "name": "stage_process_fft_real",
     "stores": {
-      "L": 2
+      "L": 4
     },
-    "total_instructions": 17
+    "total_instructions": 96
   }
 }

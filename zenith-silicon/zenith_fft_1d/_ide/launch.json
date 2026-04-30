@@ -1,0 +1,23 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "tcf-debug",
+			"request": "launch",
+			"name": "zenith_fft_1d_prj",
+			"debugType": "baremetal-attach",
+			"attachToRunningTargetOptions": {
+				"targetSetupMode": "attach",
+				"executeScript": true,
+				"scriptPath": ""
+			},
+			"autoAttachProcessChildren": false,
+			"target": {
+				"targetConnectionId": "Local",
+				"peersIniPath": "../_ide/.peers.ini",
+				"context": "Device"
+			},
+			"internalConsoleOptions": "openOnSessionStart"
+		}
+	]
+}

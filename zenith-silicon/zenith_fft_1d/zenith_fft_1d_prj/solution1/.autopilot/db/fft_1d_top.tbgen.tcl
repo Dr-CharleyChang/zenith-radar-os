@@ -15,7 +15,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 6
+set cdfgNum 12
 set C_modelName {fft_1d_top}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -34,7 +34,7 @@ set C_modelArgList {
 	{ out_stream_V_last_V int 1 regular {axi_s 1 volatile  { out_stream Last } }  }
 	{ out_stream_V_id_V int 1 regular {axi_s 1 volatile  { out_stream ID } }  }
 	{ out_stream_V_dest_V int 1 regular {axi_s 1 volatile  { out_stream Dest } }  }
-	{ scaling_schedule int 32 unused {axi_slave 0}  }
+	{ scaling_schedule int 32 regular {axi_slave 0}  }
 }
 set hasAXIMCache 0
 set l_AXIML2Cache [list]
@@ -139,13 +139,13 @@ set NewPortList {[
 
 set ArgLastReadFirstWriteLatency {
 	fft_1d_top {
-		in_stream_V_data_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_keep_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_strb_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_user_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_last_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_id_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_dest_V {Type I LastRead 0 FirstWrite -1}
+		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}
 		out_stream_V_data_V {Type O LastRead -1 FirstWrite 1}
 		out_stream_V_keep_V {Type O LastRead -1 FirstWrite 1}
 		out_stream_V_strb_V {Type O LastRead -1 FirstWrite 1}
@@ -153,20 +153,58 @@ set ArgLastReadFirstWriteLatency {
 		out_stream_V_last_V {Type O LastRead -1 FirstWrite 1}
 		out_stream_V_id_V {Type O LastRead -1 FirstWrite 1}
 		out_stream_V_dest_V {Type O LastRead -1 FirstWrite 1}
-		scaling_schedule {Type I LastRead -1 FirstWrite -1}}
+		scaling_schedule {Type I LastRead 2 FirstWrite -1}}
+	entry_proc {
+		scaling_schedule {Type I LastRead 0 FirstWrite -1}
+		scaling_schedule_c {Type O LastRead -1 FirstWrite 0}}
+	Block_entry_in_bufI_wr_proc {
+		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}
+		in_bufI {Type O LastRead -1 FirstWrite 1}
+		in_bufQ {Type O LastRead -1 FirstWrite 1}}
 	stage_read_input {
-		in_stream_V_data_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_keep_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_strb_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_user_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_last_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_id_V {Type I LastRead 0 FirstWrite -1}
-		in_stream_V_dest_V {Type I LastRead 0 FirstWrite -1}
-		in_bufI {Type O LastRead -1 FirstWrite 0}}
-	stage_process_fft {
-		bufI {Type I LastRead 0 FirstWrite -1}
-		outI {Type O LastRead -1 FirstWrite 2}
-		outQ {Type O LastRead -1 FirstWrite 2}}
+		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}
+		bufI {Type O LastRead -1 FirstWrite 1}
+		bufQ {Type O LastRead -1 FirstWrite 1}}
+	stage_read_input_1 {
+		in_stream_V_data_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_keep_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_strb_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_user_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_last_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_id_V {Type I LastRead 1 FirstWrite -1}
+		in_stream_V_dest_V {Type I LastRead 1 FirstWrite -1}
+		bufI {Type O LastRead -1 FirstWrite 1}
+		bufQ {Type O LastRead -1 FirstWrite 1}}
+	stage_process_fft_real {
+		scaling_schedule {Type I LastRead 0 FirstWrite -1}
+		in_bufI {Type I LastRead 0 FirstWrite -1}
+		in_bufQ {Type I LastRead 0 FirstWrite -1}
+		out_bufI {Type O LastRead -1 FirstWrite 2}
+		out_bufQ {Type O LastRead -1 FirstWrite 2}}
+	stage_process_fft_real_Pipeline_feed_loop {
+		in_bufI {Type I LastRead 0 FirstWrite -1}
+		in_bufQ {Type I LastRead 0 FirstWrite -1}
+		fft_in_stream {Type O LastRead -1 FirstWrite 2}}
+	fft_ZenithFFTConfig_s {
+		fft_in_stream {Type I LastRead -1 FirstWrite -1}
+		fft_out_stream {Type O LastRead -1 FirstWrite -1}
+		fft_config_stream {Type I LastRead -1 FirstWrite -1}}
+	stage_process_fft_real_Pipeline_drain_loop {
+		fft_out_stream {Type I LastRead 1 FirstWrite -1}
+		out_bufI {Type O LastRead -1 FirstWrite 2}
+		out_bufQ {Type O LastRead -1 FirstWrite 2}}
 	stage_write_output {
 		outI {Type I LastRead 0 FirstWrite -1}
 		outQ {Type I LastRead 0 FirstWrite -1}
@@ -181,8 +219,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "3081", "Max" : "3081"}
-	, {"Name" : "Interval", "Min" : "1024", "Max" : "1024"}
+	{"Name" : "Latency", "Min" : "8339", "Max" : "8339"}
+	, {"Name" : "Interval", "Min" : "5255", "Max" : "5255"}
 ]}
 
 set PipelineEnableSignalInfo {[

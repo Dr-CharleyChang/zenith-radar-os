@@ -27,7 +27,7 @@ set synth_props {}
 
 set has_impl false
 set impl_props {}
-set has_subcore 0
+set has_subcore 1
 
 set report_options [dict create]
 dict set report_options report_level 2
@@ -48,9 +48,9 @@ dict set report_options language $language
 dict set report_options clock_name $clock
 dict set report_options error_if_impl_timing_fails false
 dict set report_options topmodule "fft_1d_top"
-dict set report_options funcmodules {fft_1d_top_stage_read_input fft_1d_top_stage_process_fft fft_1d_top_stage_write_output}
-dict set report_options bindmodules {fft_1d_top_regslice_both fft_1d_top_flow_control_loop_pipe fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W fft_1d_top_out_bufQ_RAM_2P_BRAM_1R1W_memcore fft_1d_top_out_bufQ_RAM_2P_BRAM_1R1W fft_1d_top_CTRL_s_axi}
-dict set report_options max_module_depth 6
+dict set report_options funcmodules {fft_1d_top_entry_proc fft_1d_top_stage_read_input fft_1d_top_stage_read_input_1 fft_1d_top_Block_entry_in_bufI_wr_proc fft_1d_top_stage_process_fft_real_Pipeline_feed_loop fft_1d_top_fft_ZenithFFTConfig_s fft_1d_top_stage_process_fft_real_Pipeline_drain_loop fft_1d_top_stage_process_fft_real fft_1d_top_stage_write_output}
+dict set report_options bindmodules {fft_1d_top_flow_control_loop_pipe_sequential_init fft_1d_top_regslice_both fft_1d_top_fft_ZenithFFTConfig_s fft_1d_top_fifo_w32_d1024_A fft_1d_top_fifo_w16_d2_S fft_1d_top_flow_control_loop_pipe fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W_memcore fft_1d_top_in_bufI_RAM_2P_BRAM_1R1W fft_1d_top_fifo_w32_d3_S fft_1d_top_CTRL_s_axi}
+dict set report_options max_module_depth 7
 
 
 create_project $vivado_proj_name $vivado_proj_dir -part $target_device -force
